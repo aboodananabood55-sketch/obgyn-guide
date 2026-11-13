@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>دليل النسائية والتوليد · دفعة حياة</title>
+<meta name="description" content="خريطة طريق كاملة لميجر النسائية والتوليد: الدوام، المادة، المحاضرات، المصادر وعلاقتها ببعض، وخطة الدراسة.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Reem+Kufi:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f5efe6; --paper2:#efe7db; --card:#fffaf3; --ink:#2c2833; --ink2:#5d5664; --mute:#8d8592;
+  --plum:#7b3f61; --plum2:#a2587f; --sage:#5f7f6a; --sage2:#89a68f; --rose:#d7a095; --gold:#c49a5a; --sky:#5b7c99;
+  --line:#e2d7c8; --shadow:0 1px 2px rgba(60,40,50,.06),0 8px 24px -10px rgba(60,40,50,.18);
+  --shadow2:0 2px 4px rgba(60,40,50,.08),0 18px 40px -16px rgba(60,40,50,.28);
+  --r:18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"IBM Plex Sans Arabic",system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.85;font-size:16.5px;
+  background-image:radial-gradient(circle at 15% 10%,rgba(123,63,97,.06),transparent 40%),radial-gradient(circle at 85% 80%,rgba(95,127,106,.07),transparent 45%);
+  background-attachment:fixed}
+a{color:var(--plum);text-decoration:none}
+h1,h2,h3{font-family:"Reem Kufi","IBM Plex Sans Arabic",sans-serif;font-weight:600;line-height:1.4;margin:0}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+/* top bar */
+.bar{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:12px;padding:12px 22px;background:rgba(245,239,230,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;cursor:pointer;font-family:"Reem Kufi";font-size:19px;color:var(--ink)}
+.brand .seed{width:30px;height:30px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--rose),var(--plum));box-shadow:inset 0 -3px 6px rgba(0,0,0,.15)}
+.bar .sp{flex:1}
+.iconbtn{border:1px solid var(--line);background:var(--card);color:var(--ink2);border-radius:999px;padding:6px 14px;font:inherit;font-size:14px;cursor:pointer;box-shadow:var(--shadow);transition:.2s}
+.iconbtn:hover{color:var(--plum);transform:translateY(-1px)}
+.crumbs{font-size:14px;color:var(--mute)}
+.iconbtn{white-space:nowrap}
+@media (max-width:520px){.crumbs{display:none}.brand{font-size:16px}.bar{padding:10px 12px;gap:8px}.iconbtn{padding:5px 10px;font-size:13px}}
+/* layout */
+main{max-width:1060px;margin:0 auto;padding:28px 20px 90px}
+.view{display:none;animation:in .55s cubic-bezier(.2,.7,.2,1)}
+.view.on{display:block}
+@keyframes in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.kicker{font-size:13px;letter-spacing:.5px;color:var(--sage);font-weight:600}
+.title{font-size:34px;margin:4px 0 8px}
+.lead{color:var(--ink2);font-size:17.5px;max-width:760px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px 24px;box-shadow:var(--shadow);margin:16px 0}
+.card h3{font-size:20px;margin-bottom:6px;color:var(--plum)}
+.grid{display:grid;gap:16px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(290px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.pill{display:inline-block;font-size:12.5px;padding:2px 10px;border-radius:999px;background:var(--paper2);color:var(--ink2);margin:2px 0 2px 4px;border:1px solid var(--line)}
+.p-obs{background:#f6e5ec;color:var(--plum);border-color:#ebcfdb}
+.p-gyn{background:#e5efe7;color:var(--sage);border-color:#cfe0d3}
+.p-must{background:var(--plum);color:#fff;border-color:var(--plum)}
+.p-core{background:#e9d6c0;color:#6d4b20;border-color:#dcc3a3}
+.p-add{background:#e5efe7;color:var(--sage);border-color:#cfe0d3}
+.p-opt{background:#e8edf3;color:var(--sky);border-color:#d3dde8}
+ul.clean{list-style:none;padding:0;margin:8px 0}
+ul.clean li{position:relative;padding-right:22px;margin:7px 0}
+ul.clean li::before{content:"";position:absolute;right:4px;top:.75em;width:8px;height:8px;border-radius:50%;background:var(--rose)}
+.note{border-right:4px solid var(--gold);background:#fbf3e4;padding:12px 16px;border-radius:12px;margin:14px 0;color:#5a4526}
+.warn{border-right:4px solid var(--plum);background:#f7e9ef;padding:12px 16px;border-radius:12px;margin:14px 0;color:#5b2843}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:right;vertical-align:top}
+th{color:var(--ink2);font-weight:600;background:var(--paper2)}
+/* next arrow */
+.next{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:34px;padding:18px 22px;border-radius:var(--r);
+  background:linear-gradient(110deg,var(--plum),var(--plum2));color:#fff;cursor:pointer;box-shadow:var(--shadow2);transition:.25s}
+.next:hover{transform:translateX(-4px)}
+.next small{opacity:.8;display:block;font-size:13px}
+.next b{font-family:"Reem Kufi";font-size:20px;font-weight:600}
+.next .arr{font-size:28px;animation:nudge 1.8s infinite}
+@keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(-6px)}}
+.go{display:inline-flex;align-items:center;gap:6px;margin-top:8px;padding:6px 14px;border-radius:999px;background:var(--sage);color:#fff;font-size:14px;cursor:pointer;box-shadow:var(--shadow);transition:.2s;border:0;font-family:inherit}
+.go:hover{background:var(--plum)}
+.go::after{content:"←"}
+a.ext{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:10px;border:1px solid var(--line);background:#fff;font-size:14px;margin:4px 0 4px 6px;transition:.2s;color:var(--ink)}
+a.ext:hover{border-color:var(--plum);color:var(--plum);box-shadow:var(--shadow)}
+a.ext::before{content:"↗";color:var(--mute);font-size:12px}
+/* HERO + TREE */
+.hero{text-align:center;padding:26px 0 8px}
+.hero h1{font-size:44px;color:var(--ink)}
+.hero h1 span{color:var(--plum)}
+.hero p{color:var(--ink2);max-width:640px;margin:10px auto 0;font-size:17.5px}
+.tree{position:relative;margin:34px auto 10px;max-width:900px}
+.tree svg.wires{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible}
+.trunk{position:absolute;top:0;bottom:0;left:50%;width:4px;transform:translateX(-50%);background:linear-gradient(var(--sage2),var(--plum2));border-radius:4px;opacity:.55}
+.node-row{position:relative;display:flex;margin:0 0 26px}
+.node-row.r{justify-content:flex-start}
+.node-row.l{justify-content:flex-end}
+.dot{position:absolute;left:50%;top:30px;width:18px;height:18px;margin-left:-9px;border-radius:50%;background:var(--card);border:4px solid var(--plum2);box-shadow:0 0 0 6px rgba(162,88,127,.12)}
+.node{width:calc(50% - 46px);background:var(--card);border:1px solid var(--line);border-radius:20px;padding:16px 18px;box-shadow:var(--shadow);cursor:pointer;transition:.28s cubic-bezier(.2,.7,.2,1);position:relative}
+.node:hover{transform:translateY(-3px);box-shadow:var(--shadow2);border-color:var(--rose)}
+.node .num{position:absolute;top:-12px;font-family:"Reem Kufi";background:var(--plum);color:#fff;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-size:14px;box-shadow:var(--shadow)}
+.node-row.r .num{left:-12px}
+.node-row.l .num{right:-12px}
+.node h3{font-size:19px;color:var(--ink)}
+.node p{margin:4px 0 0;color:var(--ink2);font-size:14.5px;line-height:1.7}
+.node .tag{font-size:12px;color:var(--sage);font-weight:600}
+.node.soon{opacity:.75;border-style:dashed}
+.leaf{display:inline-block;margin-top:6px}
+@media (max-width:760px){
+ .trunk{left:auto;right:18px}
+ .dot{left:auto;right:18px;margin-left:0;margin-right:-9px}
+ .node-row.l,.node-row.r{justify-content:flex-start}
+ .node{width:calc(100% - 52px);margin-right:52px}
+ .node-row .num{right:-12px!important;left:auto!important}
+ .hero h1{font-size:34px}.title{font-size:28px}
+ .tree svg.wires{display:none}
+}
+/* flow */
+.flow{display:flex;flex-direction:column;gap:0;margin:20px 0}
+.step{display:flex;gap:16px;align-items:flex-start}
+.step .bub{flex:0 0 46px;height:46px;border-radius:50%;background:var(--plum);color:#fff;display:grid;place-items:center;font-family:"Reem Kufi";font-size:18px;box-shadow:var(--shadow)}
+.step .body{flex:1;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 18px;box-shadow:var(--shadow)}
+.step .body h3{font-size:18px;color:var(--ink)}
+.down{width:46px;text-align:center;color:var(--plum2);font-size:22px;line-height:1;margin:4px 0}
+/* bars */
+.barrow{display:grid;grid-template-columns:230px 1fr 48px;gap:10px;align-items:center;margin:8px 0;font-size:14.5px}
+.barrow .track{height:12px;background:var(--paper2);border-radius:99px;overflow:hidden}
+.barrow .fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--plum2),var(--plum));width:0;transition:width 1.2s cubic-bezier(.2,.7,.2,1)}
+.barrow.g .fill{background:linear-gradient(90deg,var(--sage2),var(--sage))}
+@media (max-width:600px){.barrow{grid-template-columns:1fr 40px}.barrow .track{grid-column:1/-1;order:3}}
+.marks{display:flex;height:54px;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);margin:14px 0}
+.marks div{display:grid;place-items:center;color:#fff;font-size:13.5px;text-align:center;line-height:1.3;padding:0 4px}
+/* lecture index */
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:16px 0}
+.chip{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font:inherit;font-size:14px;cursor:pointer;color:var(--ink2);transition:.2s}
+.chip.on{background:var(--plum);color:#fff;border-color:var(--plum)}
+.search{flex:1;min-width:200px;border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 16px;font:inherit;font-size:15px;outline:none}
+.search:focus{border-color:var(--plum2);box-shadow:0 0 0 4px rgba(162,88,127,.12)}
+.docgroup{margin:22px 0 6px}
+.docgroup h3{font-size:18px;color:var(--ink2);display:flex;gap:10px;align-items:center}
+.docgroup h3 small{font-family:"IBM Plex Sans Arabic";font-size:13px;color:var(--mute);font-weight:400}
+.lecs{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;margin-top:10px}
+.lec{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px 16px;cursor:pointer;box-shadow:var(--shadow);transition:.22s;position:relative;overflow:hidden}
+.lec::before{content:"";position:absolute;inset:0 auto 0 0;width:4px;background:var(--plum2)}
+.lec.gyn::before{background:var(--sage)}
+.lec:hover{transform:translateY(-3px);box-shadow:var(--shadow2)}
+.lec b{display:block;font-size:15.5px;direction:ltr;text-align:right}
+.lec .stars{color:var(--gold);font-size:13px;letter-spacing:1px}
+.lec .meta{font-size:12.5px;color:var(--mute)}
+/* drawer */
+.scrim{position:fixed;inset:0;background:rgba(44,40,51,.35);backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:.3s;z-index:40}
+.scrim.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;bottom:0;left:0;width:min(520px,94vw);background:var(--card);z-index:50;box-shadow:var(--shadow2);transform:translateX(-105%);transition:.38s cubic-bezier(.2,.7,.2,1);overflow-y:auto;padding:26px 26px 60px;border-right:1px solid var(--line)}
+.drawer.on{transform:none}
+.drawer .x{float:left}
+.drawer h2{font-size:24px;direction:ltr;text-align:right;margin:14px 0 4px;color:var(--plum)}
+.drawer h4{margin:18px 0 6px;font-size:15px;color:var(--sage)}
+/* resources */
+.tier{border-radius:22px;padding:20px 22px;margin:18px 0;border:1px solid var(--line);background:var(--card);box-shadow:var(--shadow)}
+.tier>.hd{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.tier>.hd h3{font-size:21px}
+.tier.t1{border-top:5px solid var(--plum)}
+.tier.t2{border-top:5px solid var(--gold)}
+.tier.t3{border-top:5px solid var(--sage)}
+.tier.t4{border-top:5px solid var(--sky)}
+.res{border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:#fff;margin:10px 0}
+.res h4{margin:0 0 4px;font-size:16.5px}
+.res .rel{font-size:14px;color:var(--ink2);background:var(--paper);border-radius:10px;padding:8px 12px;margin-top:8px}
+.res .rel::before{content:"🔗 العلاقة: ";color:var(--plum);font-weight:600}
+.by{font-size:12.5px;color:var(--mute)}
+/* soon */
+.soonbox{text-align:center;padding:50px 20px;border:2px dashed var(--rose);border-radius:26px;background:repeating-linear-gradient(45deg,var(--card),var(--card) 14px,#fbf4ec 14px,#fbf4ec 28px)}
+.soonbox .big{font-family:"Reem Kufi";font-size:40px;color:var(--plum)}
+footer{text-align:center;color:var(--mute);font-size:13.5px;padding:30px 10px 50px}
+.toTop{position:fixed;bottom:22px;right:22px;z-index:25}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 16px;margin:10px 0;box-shadow:var(--shadow)}
+details summary{cursor:pointer;font-weight:600;color:var(--ink)}
+details[open] summary{color:var(--plum);margin-bottom:6px}
+.ans{color:var(--sage);font-weight:600}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="brand" onclick="go('home')"><span class="seed"></span>دليل النسائية والتوليد</div>
+  <span class="crumbs" id="crumb"></span>
+  <span class="sp"></span>
+  <button class="iconbtn" id="snd" title="الصوت">🔈 صوت</button>
+  <button class="iconbtn" onclick="go('home')">🌳 الشجرة</button>
+</div>
+
+<main>
+
+<!-- ============ HOME ============ -->
+<section class="view" id="v-home">
+  <div class="hero">
+    <div class="kicker">دفعة حياة · سنة خامسة · Obstetrics & Gynecology 1</div>
+    <h1>من وين أبدأ <span>بالنسائية؟</span></h1>
+    <p>الشجرة هاي هي الميجر كامل، مرتّب بالتسلسل اللي بتحتاجه. ابدأ من الجذر ونزّل فرع فرع. كل فرع بيوديك لصفحته، وبآخر كل صفحة سهم للفرع اللي بعده.</p>
+  </div>
+  <div class="tree" id="tree">
+    <div class="trunk"></div>
+    <svg class="wires" id="wires"></svg>
+  </div>
+</section>
+
+<!-- ============ START ============ -->
+<section class="view" id="v-start">
+  <div class="kicker">الفرع ١</div>
+  <h2 class="title">الخلاصة بدقيقة</h2>
+  <p class="lead">إذا ما عندك وقت تقرأ ولا إشي غير هالصفحة، هاي أهم ١٠ أشياء.</p>
+  <div class="card">
+    <ul class="clean">
+      <li><b>المصدر الأساسي هو السلايدات.</b> الامتحان دقيق وبده بصم، خصوصاً الأرقام والنسب. أغلب خيارات الفاينل بتلعب على الأرقام.</li>
+      <li><b>الروتيشن ٨ أسابيع.</b> الدوام ٨:٣٠ لـ ١:٠٠ (المفرق ٩:٠٠)، والمحاضرات أونلاين.</li>
+      <li><b>العلامة:</b> فاينل ٤٥ · ميني أوسكي ٣٠ · أورال ٥ · حضور ١٠ · تقييم ولوج بوك ١٠.</li>
+      <li><b>الميني أوسكي:</b> محوسب، ~٦ محاضرات، كل وحدة كيس طويل عليه ٥–٦ أسئلة، وما في رجوع للسؤال اللي قبله. <b>كل المحاضرات داخلة.</b></li>
+      <li><b>دكتور فراس ودكتورة فداء</b> بيحكوا زيادة على السلايدات، فلازم التفاريغ أو المسجّلة.</li>
+      <li><b>دكتور رامي:</b> الدفعات السابقة درسوا مواضيعه من كتاب Hacker & Moore. محاضرة التوينز مهمة بالميني.</li>
+      <li><b>حل أسئلة إجباري، مش اختياري:</b> Q-files الدكاترة + QBank اللجنة (٥٤٢ فاينل + ٨١ ميني).</li>
+      <li><b>نص الفاينل تقريباً</b> من موضوعين: Maternal medicine و Labour & emergencies.</li>
+      <li><b>الهيستوري بالنسائية مختلف</b> عن الباطني. تعلّمه من أول يوم، وكل طالب بيكتبه لحاله على ورق.</li>
+      <li><b>اللوج بوك:</b> كيسات Obs و Gyne موقّعة بنفس اليوم. خلّصه بكير.</li>
+    </ul>
+  </div>
+  <div class="next" data-go="rotation"><div><small>الفرع الجاي</small><b>الدوام والمستشفيات</b></div><span class="arr">←</span></div>
+</section>
+
+<!-- ============ ROTATION ============ -->
+<section class="view" id="v-rotation">
+  <div class="kicker">الفرع ٢</div>
+  <h2 class="title">الدوام والمستشفيات</h2>
+  <p class="lead">٨ أسابيع، والجروبات بتلف على ٩ مستشفيات. هون شو بتتوقع بكل مستشفى، وكيف يمشي يومك.</p>
+
+  <div class="card">
+    <h3>يومك العادي</h3>
+    <div class="flow">
+      <div class="step"><div class="bub">٨:٣٠</div><div class="body"><h3>الحضور + مورننج ريبورت</h3>الـ CR بيبعت الحضور على جروب الواتس مع الدكاترة <b>٨:٣٠ بالضبط</b>، حتى لو مستشفاكم ببلش متأخر. بحمزة والزرقاء في مورننج ريبورت بيقدّمه طلاب سادسة، وممكن تنسألوا فيه.</div></div>
+      <div class="down">↓</div>
+      <div class="step"><div class="bub">١</div><div class="body"><h3>هيستوري وفيزيكال</h3>معكم تقريباً ساعة. كل ٢–٣ طلاب على مريضة، بس <b>كل طالب بيكتب لحاله على ورق</b> (مش آيباد). أغلب الدكاترة بيستلموه.</div></div>
+      <div class="down">↓</div>
+      <div class="step"><div class="bub">٢</div><div class="body"><h3>تقديم ونقاش</h3>بتقدّموا الحالة للدكتور، وبتتناقشوا بموضوع أو أكثر. ولا تستنوا الدكتور ليشوف مريضتكم.</div></div>
+      <div class="down">↓</div>
+      <div class="step"><div class="bub">١:٣٠</div><div class="body"><h3>رسالة نهاية الدوام</h3>اليوم والتاريخ، رقم الجروب، المستشفى، اسم الدكتور، والمواضيع اللي انشرحت.</div></div>
+    </div>
+  </div>
+
+  <div class="grid g2">
+    <div class="card"><h3>الأمير حمزة</h3>مورننج ريبورت ٨:٣٠، بعدها هيستوري وفيزيكال وتقديم ونقاش. <b>حالاته كلها تقريباً Gyne</b> (أغلبها TAH)، فادرس الـ Gyne قبل ما تروح. أغلب دكاترته دكاترة الكلية، فالتزم أكثر باللابكوت والبادج والهيستوري الكامل.</div>
+    <div class="card"><h3>الزرقاء الحكومي</h3>نفس نظام حمزة تقريباً: مورننج ريبورت وأسئلة، وبعدها هيستوري وفيزيكال. فيه دكتور معاذ ودكتور مراد، وحالاته Obs أكثر.</div>
+    <div class="card"><h3>المدينة الطبية</h3>دوام متأخر شوي. بتتوزعوا على عمليات أو أقسام. خفيف والدكاترة متعاونين.</div>
+    <div class="card"><h3>الملكة علياء</h3>أغلب الأيام هيستوري (أو بدون)، ونقاش مع دكتور بقاعة، وممكن تدخلوا عمليات. أخف من المدينة.</div>
+    <div class="card"><h3>البشير</h3>حسب الدكتور. بالعادة هيستوري وفيزيكال ونقاش مواضيع.</div>
+    <div class="card"><h3>المفرق</h3>الدكاترة ممتازين والدوام كويس، بس المسافة طويلة. الدوام ببلش ٩:٠٠.</div>
+  </div>
+  <div class="note">باقي المستشفيات بالجدول: <b>الأمير هاشم، الملك طلال، الاستقلال</b>. جدول توزيع جروبات حياة على المستشفيات بيتأكد من القسم أول الروتيشن.</div>
+
+  <div class="card">
+    <h3>الهيستوري بالنسائية: مختلف عن كل الميجرات</h3>
+    <div class="flow">
+      <div class="step"><div class="bub">١</div><div class="body"><h3>Patient profile</h3>الاسم، العمر، متزوجة أو لا ومن متى، <span class="ltr">Gravida / Para</span>، <span class="ltr">Blood group</span>، <span class="ltr">LMP</span>، والـ <span class="ltr">EDD</span> إذا حامل. إذا menopausal: من متى.</div></div>
+      <div class="down">↓</div>
+      <div class="step"><div class="bub">٢</div><div class="body"><h3>Chief complaint</h3>دخلت يوم كذا بسبب الشكوى، والتشخيص الحالي، وليش دخلت (عملية؟ تاخد دم؟).</div></div>
+      <div class="down">↓</div>
+      <div class="step"><div class="bub">٣</div><div class="body"><h3>HPI + Risk stratification</h3>انسَ التشخيص اللي حكيته. اسأل عن الشكوى كأنك ما بتعرفه، وحط DDx، واسأل عن الـ risk factors والأعراض والمضاعفات لكل وحدة.</div></div>
+      <div class="down">↓</div>
+      <div class="step"><div class="bub">٤</div><div class="body"><h3>Past Gyne ↔ Past Obs</h3>إذا الكيس Gyne ابدأ بالـ past gyne ثم الـ obs، والعكس صحيح.</div></div>
+      <div class="down">↓</div>
+      <div class="step"><div class="bub">٥</div><div class="body"><h3>الباقي زي العادة</h3>Past medical · Past surgical · Drugs · Family · Social.</div></div>
+    </div>
+    <button class="go" data-go="resources" data-anchor="r-clin">ملفات الهيستوري والفحص الجاهزة</button>
+  </div>
+  <div class="next" data-go="course"><div><small>الفرع الجاي</small><b>المادة والامتحان</b></div><span class="arr">←</span></div>
+</section>
+
+<!-- ============ COURSE / EXAM ============ -->
+<section class="view" id="v-course">
+  <div class="kicker">الفرع ٣</div>
+  <h2 class="title">المادة والامتحان</h2>
+  <p class="lead"><span class="ltr">Obstetrics &amp; Gynecology 1 · 111505501 · 9 credit hours</span><br>٤٧ سلايد عند ٨ دكاترة، مقسّمة نسائية وتوليد.</p>
+
+  <div class="card">
+    <h3>توزيع العلامة</h3>
+    <div class="marks">
+      <div style="flex:45;background:var(--plum)">فاينل<br>٤٥</div>
+      <div style="flex:30;background:var(--plum2)">ميني أوسكي<br>٣٠</div>
+      <div style="flex:10;background:var(--sage)">حضور<br>١٠</div>
+      <div style="flex:10;background:var(--sage2)">تقييم ولوج<br>١٠</div>
+      <div style="flex:5;background:var(--gold)">أورال<br>٥</div>
+    </div>
+    <p class="by">الحضور والتقييم واللوج بوك: الأغلبية بتاخد حوالي ١٧ من ٢٠ حتى بدون غياب.</p>
+  </div>
+
+  <div class="grid g3">
+    <div class="card"><h3>الفاينل · ٤٥</h3>MCQ دقيق جداً. الخيارات بتلعب على الأرقام والنسب، فبيقيس قديش حافظ مش قديش فاهم بس. ادرس كل معلومة صغيرة وكبيرة.</div>
+    <div class="card"><h3>الميني أوسكي · ٣٠</h3>محوسب بالمختبر. حوالي ٦ محاضرات، كل محاضرة كيس طويل (صورة أو سيناريو) عليه ٥–٦ أسئلة ورا بعض. لما تكبس Next ما في رجعة. <b>كله داخل</b>، ولا تأوّت ولا موضوع.</div>
+    <div class="card"><h3>الأورال · ٥</h3>تدخل الغرفة، والدكتور بيسألك بموضوع واحد من محتوى السلايدات، ٥ دقائق. سهل، فاضمنه.</div>
+  </div>
+
+  <div class="card">
+    <h3>وين بيتركّز الفاينل؟ <span class="by">توزيع ٥٤٢ سؤال سنوات على QBank اللجنة</span></h3>
+    <div id="qbars"></div>
+    <div class="note"><b>الخلاصة:</b> Maternal medicine (١٢٥) + Labour & emergencies (١٢٢) = <b>تقريباً نص الامتحان</b>. هدول بيستاهلوا أكبر وقت.</div>
+  </div>
+
+  <div class="card">
+    <h3>اللوج بوك</h3>
+    <div class="grid g2">
+      <div><span class="pill p-obs">Obstetrics</span><ul class="clean"><li>Pregnancy-induced hypertension</li><li>Antepartum haemorrhage</li><li>Induction of labour</li><li>Preterm labour / PROM</li><li>Postpartum case</li></ul></div>
+      <div><span class="pill p-gyn">Gynaecology</span><ul class="clean"><li>Early pregnancy complications</li><li>Irregular menstrual cycles</li><li>Post gynaecological surgery</li><li>Pelvic organ prolapse أو incontinence</li></ul></div>
+    </div>
+    <p><b>Competencies قدام الدكتور (موقّعة):</b> Obstetrics physical examination + Obs &amp; Gyne history taking.</p>
+    <div class="warn">الملف الرسمي على موقع اللجنة بطلب <b>٥ Obs + ٥ Gyne</b> على الأقل، وكل كيس موقّع <b>بنفس اليوم</b>. منشور الدفعة السابقة حكى ١٠ + ١٠. اعتمد اللي بيحكيه القسم أول يوم، وخلّصه بكير. بيتسلّم آخر الروتيشن.</div>
+  </div>
+
+  <div class="card">
+    <h3>القوانين اللي ما بتنتسى</h3>
+    <ul class="clean">
+      <li>الحضور بينبعت خلال <b>١٥ دقيقة</b> من بداية الدوام. إذا ما انبعت، <b>الجروب كله</b> بينحسب غايب.</li>
+      <li>غياب أكثر من <b>١٠٪ (٤ أيام) بدون عذر</b>، أو <b>٢٠٪ (٨ أيام) بعذر</b> = فصل من المساق. وكل غياب بيخصم من التقييم.</li>
+      <li>العذر الطبي بس إذا في دخول مستشفى، وبينسلّم خلال ٧٢ ساعة.</li>
+      <li>الغياب عن امتحان نهاية الروتيشن بدون عذر = صفر.</li>
+      <li>اللباس الرسمي + اللابكوت + بادج بالاسم دائماً. التدخين ممنوع.</li>
+      <li>التواصل مع الدكاترة على <b>Microsoft Teams</b> بس.</li>
+      <li>الميجر حساس أكثر من غيره كونه كله نساء، فالتزم بالضوابط بحذر أكبر.</li>
+    </ul>
+  </div>
+  <div class="next" data-go="lectures"><div><small>الفرع الجاي</small><b>فهرس المحاضرات</b></div><span class="arr">←</span></div>
+</section>
+
+<!-- ============ LECTURES ============ -->
+<section class="view" id="v-lectures">
+  <div class="kicker">الفرع ٤</div>
+  <h2 class="title">فهرس المحاضرات التفاعلي</h2>
+  <p class="lead">٤٧ سلايد لدفعة حياة. اكبس على أي محاضرة: بيطلعلك شو هي، قديش وزنها، ومين من الملفات بيغطيها (شيت، تفريغ، أسئلة الدكتور)، مع روابطهم.</p>
+  <div class="note">النجوم ⭐ هي حجم وثقل المحاضرة حسب Checklist وريد. السلايدات نفسها على موقع اللجنة (بدها تسجيل دخول):
+    <a class="ext" target="_blank" href="https://humsc.net/courses/obstetrics-and-gynecology-1?batch=hayat">سلايدات حياة على HUMSC</a></div>
+  <div class="tools">
+    <button class="chip on" data-f="all">الكل</button>
+    <button class="chip" data-f="obs">توليد</button>
+    <button class="chip" data-f="gyn">نسائية</button>
+    <button class="chip" data-f="heavy">الأثقل ⭐⭐⭐⭐+</button>
+    <input class="search" id="q" placeholder="ابحث: PPH، labour، فراس…">
+  </div>
+  <div id="lecwrap"></div>
+  <div class="next" data-go="resources"><div><small>الفرع الجاي</small><b>المصادر وعلاقتها ببعض</b></div><span class="arr">←</span></div>
+</section>
+
+<!-- ============ RESOURCES ============ -->
+<section class="view" id="v-resources">
+  <div class="kicker">الفرع ٥</div>
+  <h2 class="title">المصادر: مين إجباري ومين تكميلي؟</h2>
+  <p class="lead">بتفوت على التليجرام بتلاقي ألف ملف. هون كل مصدر بمكانه: شو هو، شو بيغطي، وشو علاقته بالباقي. في ملفات بتكرر بعض، وهون بتعرف أي واحد بيكفيك.</p>
+
+  <div class="tier t1"><div class="hd"><span class="pill p-must">إجباري</span><h3>أساس ما بتنجح بدونه</h3></div>
+    <div class="res"><h4>سلايدات الدكاترة (٤٧ ملف)</h4>المصدر الأساسي والامتحان مبني عليه. ادرسها وافهمها واحفظ كل تفصيلة، خصوصاً الأرقام.
+      <div><a class="ext" target="_blank" href="https://humsc.net/courses/obstetrics-and-gynecology-1?batch=hayat">سلايدات حياة</a><a class="ext" target="_blank" href="https://humsc.net/download/5095/slides/66202/obs-gyne-study-plan.pdf">Study Plan (checklist)</a><a class="ext" target="_blank" href="https://docs.google.com/spreadsheets/d/1l5_LXX4ykkOXmhSDf2ZHrS53x-NA9kHHQGWPvjYvrAg/edit?usp=sharing">Interactive Checklist (اعمل نسخة)</a></div>
+      <div class="rel">كل مصدر تحت هو تلخيص أو شرح أو أسئلة على هدول السلايدات. ولا واحد منهم بديل عنها.</div></div>
+    <div class="res" id="r-q"><h4>أسئلة الدكاترة (Q-based files)</h4>ملف أسئلة لكل دكتور، شامل لكل ما في السلايدات. <span class="by">إعداد: رغد</span>
+      <div id="qfiles"></div>
+      <div class="rel">بعد ما تخلص محاضرات أي دكتور، حل ملفه فوراً. حل الأسئلة مش خطوة اختيارية، مهما كان المصدر اللي درست منه.</div></div>
+    <div class="res"><h4>QBank اللجنة (أسئلة سنوات)</h4>٥٤٢ سؤال فاينل + ٨١ سؤال ميني أوسكي من ٧ دفعات، مقسمة على ١٠ مواضيع.
+      <div><a class="ext" target="_blank" href="https://humsc.net/qbank">QBank · humsc.net</a></div>
+      <div class="rel">هاي الخطوة الأخيرة لكل موضوع: سلايد ← Q-file ← سنوات نفس الموضوع.</div></div>
+  </div>
+
+  <div class="tier t2"><div class="hd"><span class="pill p-core">أساسي مساعد</span><h3>بيسدّ ثغرات السلايدات</h3></div>
+    <div class="res"><h4>تفاريغ رند (كلام الدكاترة على السلايدات)</h4>رند فرّغت شرح الدكاترة فوق السلايدات. <b>ضرورية لفراس وفداء</b> لأنهم بيحكوا زيادة كثير عن السلايد. الروابط موجودة بفهرس المحاضرات، جوا كل محاضرة.
+      <div><a class="ext" target="_blank" href="https://drive.google.com/file/d/1CSDy8w3mkXU0bH9zRfJtG3YR9KF-8Nfp/view">Weeks summary (رند)</a><a class="ext" target="_blank" href="https://drive.google.com/file/d/1F0y_cQ57c8oaKCZ1PX5h_qTxlrrZCula/view">مادة د. رامي من كتاب Hacker &amp; Moore (رند)</a></div>
+      <div class="rel">التفريغ = السلايد + اللي انحكى بالمحاضرة. إذا درست التفريغ ما بتحتاج تقرأ السلايد لحاله، بس ارجعله للصور والجداول.</div></div>
+    <div class="res"><h4>ملفات الأرقام والنسب</h4>اثنين: <b>percentages.pdf</b> (د. لبنى، مراد، فداء، ديمة، حمزة) و<b>"نسب النسائية"</b> (HTN، VTE، DM، GTD، APH، Physiological changes، UTI + فراس). موجودين بموضوع "نسائية" بجروب دفعة حياة (م.ع).
+      <div class="rel">الفاينل بيلعب على الأرقام، فهدول بتراجعهم آخر أسبوعين وقبل الامتحان بيوم.</div></div>
+    <div class="res"><h4>Discussion files د. فداء + المسجّلة</h4>د. فداء بتطلب تحضر محاضراتها المسجّلة (Y5 22-23)، وبعدين بتعمل ميتنج نقاش بسيناريوهات بتحاكي الامتحان (ملفات discussion 26-27).
+      <div class="rel">ملفات الـ discussion مش موجودة بالـ Q-file تبعها، فادرسها لحالها. وقبلها شوف فيديو الـ menstrual cycle لـ د. نادين كأساس.</div></div>
+  </div>
+
+  <div class="tier t3"><div class="hd"><span class="pill p-add">تكميلي</span><h3>اختار واحد حسب أسلوبك</h3></div>
+    <div class="res"><h4>OBGYN Remake · All in ONE <span class="by">أحمد معاذ (وريد)</span></h4>ملف واحد مبني على السلايدات والتفاريغ والشيتات. بيغطي ~٩٠٪ من كل محاضرة بتركيز كلينيكال، مع الأرقام المهمة بآخر كل موضوع، وخوارزمية أو مايند ماب لكل موضوع، وجداول مقارنة، وindex بتنقل بين المواضيع.
+      <div><a class="ext" target="_blank" href="https://humsc.net/materials/extra/e711af70-1083-4b44-a864-2c327bf7f94a?title=OBGYN+Remake+All+in+ONE+%28Lectures+%2F+Seminars%29&course=Obstetrics+and+Gynecology+2">فتح الملف</a></div>
+      <div class="rel">ليش أشمل من الشيتات؟ لأنه جامع السلايد والتفريغ والشيت بملف واحد، وفيه خوارزميات للميني والأوسكي. <b>تجاهل السيمنارات اللي فيه، هاي لسادسة.</b> إذا مشيت عليه بالمراجعة ما بتحتاج الشيتات.</div></div>
+    <div class="res"><h4>شيتات اللجنة (وريد) · ٢٤ شيت</h4>ملخصات مرتبة لكل موضوع. بعض الشيتات بتجمع محاضرتين أو ثلاثة.
+      <div class="rel">بديل للـ Remake مش إضافة عليه. اختار واحد منهم بعد السلايد. في مواضيع ما إلها شيت (LUTS، endometriosis، cervical CA، ovarian، vulvar، contraception، infertility، EP، post-term، hydrops، physiological changes)، وهون الـ Remake أو التفاريغ بتسد.</div></div>
+    <div class="res"><h4>ملفات مراجعة النسائية للفاينل (٤ ملفات)</h4>بتشمل السلايدات مع كلام الدكاترة بنسبة ٩٠–٩٥٪، مع نيمونكس وأسئلة MCQs بالآخر.
+      <div><a class="ext" target="_blank" href="https://drive.google.com/file/d/1lEctyWlcrRR5z8YbMD3fNhUB6JU64e7Q/view">١ · Ovarian, Uterine, Cervical, Vulvar</a><a class="ext" target="_blank" href="https://drive.google.com/file/d/1stOywfaAUnfp6YNnfNnuV_yY1euymcEM/view">٢ · Puberty, Infertility, Amenorrhea, Hirsutism, PCOS</a><a class="ext" target="_blank" href="https://drive.google.com/file/d/1wSsjcGZ7eFVtyyLo_Pwjnj0imBS1GQDn/view">٣ · Endometriosis, POP, Menopause, Physiology, UTI</a><a class="ext" target="_blank" href="https://drive.google.com/file/d/1Vh23Nb9WSZYT96e3e2bYVvRczV67dP-c/view">٤ · Epilepsy, GI, IUGR, IUFD, Puerperium</a></div>
+      <div class="rel">للمراجعة السريعة بالأسبوع الأخير. مواضيع د. رامي فيها من الكتاب.</div></div>
+    <div class="res" id="r-clin"><h4>Clinical Assistant + ملفات الهيستوري</h4>OBS Hx checklist · OBS Physical exam · GYNE Hx checklist · GYNE Physical exam، كلها Differential oriented. ومعها History Forms 1 و 2 و Yazan's Checklists (History, Oral, PE) على موقع اللجنة.
+      <div><a class="ext" target="_blank" href="https://humsc.net/download/4980/obs-gyne/66232/obsgyne-clinical-assistant-pdf.pdf">Clinical Assistant</a><a class="ext" target="_blank" href="https://humsc.net/download/4981/notes/64405/gynecological-hpe-rand.pdf">Gyne H&amp;PE (رند)</a></div>
+      <div class="rel">للدوام واللوج بوك والأورال. اقرأه بأول أسبوع مع محاضرتين الهيستوري.</div></div>
+    <div class="res"><h4>جداول المقارنة والملخصات</h4>
+      <div><a class="ext" target="_blank" href="https://humsc.net/download/4982/summary/64954/table-genital-infections_rand.pdf">Genital infections table</a><a class="ext" target="_blank" href="https://humsc.net/download/4982/summary/64955/table-perinatal-infections_rand.pdf">Perinatal infections table</a></div>
+      <div class="by">وكمان بجروب (م.ع): Genital/Perinatal infections comparison، contraception summary، Menopause/HRT summary، Menstrual cycle summary، ملف "OBGYn by mereen" (سنوات مقسمة حسب المحاضرات)، وصورة "فيدباك النسائية".</div>
+      <div class="rel">مقارنات جاهزة للمواضيع اللي بتلخبط (infections). بتنفع للميني.</div></div>
+  </div>
+
+  <div class="tier t4"><div class="hd"><span class="pill p-opt">اختياري</span><h3>إذا علقت بموضوع</h3></div>
+    <div class="res"><h4>محاضرات د. نادين (يوتيوب)</h4>أفضل مصدر خارجي حسب الدفعة اللي قبلكم: Gynecology + Obstetrics playlists، ولها سلايدات ملخصة مفيدة بالدوام. الروابط بالمنشور التعريفي.
+      <div><a class="ext" target="_blank" href="https://www.facebook.com/share/p/1Dhn59QWW3/">المنشور التعريفي (فيه الروابط)</a></div></div>
+    <div class="res"><h4>Notebook LM + Infographics <span class="by">ديمة الزعبي (وريد)</span></h4>سلايدات معاد صياغتها، و infographic للـ management لكل موضوع تقريباً.
+      <div><a class="ext" target="_blank" href="https://drive.google.com/drive/folders/15OxvLXtWu8g3Mi_282FqhR405fAPPvz_">فولدر الدرايف</a></div>
+      <div class="rel">مراجعة بصرية بعد ما تخلص الموضوع، مش مصدر أول.</div></div>
+    <div class="res"><h4>كويزات Gemini لكل محاضرة</h4>معمولة من السلايدات (ورامي من الكتاب). روابطها بموضوع "نسائية" بجروب (م.ع).</div>
+    <div class="res"><h4>فيديو Contraception <span class="by">أحمد معاذ</span></h4>شرح سريع كيف تختار الـ method وجزئية الـ missed pills. موجود بموضوع Obs &amp; Gyne بقناة دفعة حياة.</div>
+    <div class="res"><h4>Blueprints Obstetrics &amp; Gynecology</h4>مرجع بس، للمواضيع اللي بدك تفهمها أعمق.</div>
+    <div class="res"><h4>تسجيلات VEIN ومحاضرات قديمة</h4>Playlists على يوتيوب، روابطها بموضوع Obs &amp; Gyne. بتنفع للمحاضرات الصعبة.</div>
+  </div>
+
+  <div class="card">
+    <h3>مقارنة سريعة: شو أقرأ بعد السلايد؟</h3>
+    <table>
+      <tr><th>الملف</th><th>بيغطي</th><th>أحسن إشي فيه</th><th>متى</th></tr>
+      <tr><td>تفاريغ رند</td><td>السلايد + كلام الدكتور</td><td>الإضافات اللي مش بالسلايد</td><td>أثناء الدراسة الأولى (فراس وفداء ضروري)</td></tr>
+      <tr><td>Remake أحمد معاذ</td><td>~٩٠٪ من كل محاضرة</td><td>خوارزميات، أرقام، جداول</td><td>بعد السلايد أو بالمراجعة</td></tr>
+      <tr><td>شيتات وريد</td><td>ملخص الموضوع</td><td>قصيرة ومرتبة</td><td>بديل للـ Remake</td></tr>
+      <tr><td>ملفات المراجعة الأربعة</td><td>٩٠–٩٥٪ + MCQs</td><td>نيمونكس وأسئلة</td><td>الأسبوع الأخير</td></tr>
+      <tr><td>ملفات الأرقام</td><td>الأرقام والنسب بس</td><td>بالضبط اللي بيسألوا عنه</td><td>آخر أسبوعين + يوم الامتحان</td></tr>
+    </table>
+  </div>
+  <div class="next" data-go="plan"><div><small>الفرع الجاي</small><b>خطة الدراسة</b></div><span class="arr">←</span></div>
+</section>
+
+<!-- ============ PLAN ============ -->
+<section class="view" id="v-plan">
+  <div class="kicker">الفرع ٦</div>
+  <h2 class="title">خطة الدراسة</h2>
+  <p class="lead">كيف تدرس كل محاضرة، وكيف توزّع الـ ٨ أسابيع.</p>
+
+  <div class="card"><h3>لكل محاضرة: نفس الدورة</h3>
+    <div class="flow">
+      <div class="step"><div class="bub">١</div><div class="body"><h3>السلايد</h3>افهم واحفظ. علّم الأرقام بلون.</div></div>
+      <div class="down">↓</div>
+      <div class="step"><div class="bub">٢</div><div class="body"><h3>التفريغ</h3>ضروري لفراس وفداء، ومفيد للباقي. شوف شو حكى الدكتور زيادة.</div></div>
+      <div class="down">↓</div>
+      <div class="step"><div class="bub">٣</div><div class="body"><h3>Q-file الدكتور</h3>حل أسئلة نفس المحاضرة مباشرة. الغلطات ارجعلها بالسلايد.</div></div>
+      <div class="down">↓</div>
+      <div class="step"><div class="bub">٤</div><div class="body"><h3>سنوات QBank</h3>نفس الموضوع من الـ Final والـ Mini OSCE.</div></div>
+      <div class="down">↓</div>
+      <div class="step"><div class="bub">٥</div><div class="body"><h3>تثبيت</h3>قسم الموضوع بالـ Remake (أو الشيت) + الإنفوغرافيك، وعلّم ✓ على الـ Checklist.</div></div>
+    </div>
+  </div>
+
+  <div class="card"><h3>الـ ٨ أسابيع</h3>
+    <table>
+      <tr><th>الأسبوع</th><th>شو تدرس</th><th>ليش</th></tr>
+      <tr><td>١</td><td>Obs Hx &amp; Exam (معاذ) + Gyne Hx &amp; Exam (هديل) + Clinical Assistant · Physiological changes · Normal labour</td><td>بتحتاجهم أول يوم بالدوام وللوج بوك</td></tr>
+      <tr><td>٢</td><td>Abnormal labour · Fetal well-being · APH · PPH</td><td>Labour &amp; emergencies (١٢٢ سؤال)</td></tr>
+      <tr><td>٣</td><td>PPROM · Preterm · Post-term &amp; IOL · Hydrops · Early pregnancy &amp; EP</td><td>تكملة البلوك الأكبر</td></tr>
+      <tr><td>٤</td><td>HTN · DM · Cardiac · Respiratory · VTE</td><td>Maternal medicine (١٢٥ سؤال)</td></tr>
+      <tr><td>٥</td><td>Epilepsy · Liver/GI · UTI · Perinatal infections · GTD · Multifetal · SGA · IUFD · Puerperium</td><td>تكملة الـ Obs</td></tr>
+      <tr><td>٦</td><td>AUB · Menopause · Contraception (فداء + discussion) · Puberty · Amenorrhea · PCOS · Hirsutism · Infertility</td><td>Menstrual &amp; reproductive endocrinology (٧٤)</td></tr>
+      <tr><td>٧</td><td>Genital infections · LUTS · POP · Endometriosis · Cervical · Ovarian · Uterine · Vulvar</td><td>Uro-gyne + oncology (١١٥)</td></tr>
+      <tr><td>٨</td><td>ملفات الأرقام · ملفات المراجعة · سنوات الميني · مجربات الطلاب</td><td>الامتحان دقيق بالأرقام</td></tr>
+    </table>
+    <div class="note"><b>عدّل حسب مستشفاك:</b> إذا بلشت بـ <b>حمزة</b>، قدّم الـ Gyne (ovarian، PCOS، fibroid، endometrial CA، AUB، prolapse) لأن حالاته كلها Gyne. إذا بالـ <b>زرقاء</b>، ابدأ بالـ Obs (labour، APH/PPH، preterm، PROM، post-term، ectopic، HTN، DM).</div>
+    <div class="by">من نصائح الدفعات: "خلصوا الـ Obs بأسبوعين تقريباً، والـ Gyne بأسبوع، والباقي مراجعة". "ادرسوا أول بأول، وما تسمعوا للحكي السلبي، كل جروب إله تجربته".</div>
+  </div>
+  <div class="next" data-go="recalls"><div><small>الفرع الجاي</small><b>مجرّبات الطلاب</b></div><span class="arr">←</span></div>
+</section>
+
+<!-- ============ RECALLS ============ -->
+<section class="view" id="v-recalls">
+  <div class="kicker">الفرع ٧</div>
+  <h2 class="title">مجرّبات الطلاب</h2>
+  <p class="lead">هاي أسئلة كتبها طلاب حياة بعد ميني أوسكي النسائية (١٢/١١)، من الذاكرة. الترتيب مش دقيق، بس بتعطيك فكرة واضحة عن مستوى الدقة.</p>
+  <div class="note">الكيسات اللي إجت: <b>Amenorrhea · APH · PPH · Prolapse · Contraception · DM</b>. والأورال: <b>Preterm labour</b>.</div>
+  <details open><summary>كيس Amenorrhea</summary>بنت ١٦ سنة، طولها ١٦٥، وزنها ومراحل نموها طبيعية، ما عندها uterus، Tanner 4، بدون شعر إبطي أو عانة.
+    <ul class="clean"><li>الكروموسومات والهرمونات؟ <span class="ans">46 XY + high testosterone</span></li><li>الـ intervention للـ long-term outcome؟ <span class="ans">Gonadectomy</span> (وكان في خيار neovaginal surgery)</li><li>المتلازمة؟ (Sawyer / MRKH / AIS) <span class="ans">AIS</span></li><li>فحوصات تأكيد التشخيص؟ <span class="ans">Karyotype + testosterone</span></li></ul></details>
+  <details><summary>كيس APH</summary>حامل GA 30 مع bleeding، والـ placenta مش previa على U/S سابق.
+    <ul class="clean"><li>الـ next step: U/S ولا speculum؟</li><li>بتعمل quantification test ولا بتعطي anti-D مباشرة؟</li></ul></details>
+  <details><summary>كيس PPH</summary>vaginal bleeding حوالي ١٠٠٠، CBC و PT/PTT، platelets 100، fibrinogen 1.4.
+    <ul class="clean"><li>شو blood products بتعطي؟ <span class="ans">Cryoprecipitate</span></li><li>First line of management؟ <span class="ans">Resuscitation</span></li><li>First line surgical؟ <span class="ans">Intrauterine balloon</span></li><li>مريضة asthma مع preeclampsia، شو بتعطيها؟ <span class="ans">Misoprostol 800 mcg sublingual</span></li></ul></details>
+  <details><summary>كيس Contraception</summary>
+    <ul class="clean"><li>بدها sterilization: مقارنة vasectomy مع tubal ligation. <span class="ans">Vasectomy أقل invasive، بس بدها semen analysis لتأكيد الفعالية</span></li><li>مرضعة، شو بتعطيها؟ <span class="ans">Progestogen-only</span></li><li>أفضل EC؟ <span class="ans">IUCD</span></li><li>DMPA: من الأعراض <span class="ans">تأخر رجوع الخصوبة (~١٨ شهر)</span></li><li>Implants: سؤال عن الـ side effects</li></ul></details>
+  <details><summary>كيس DM</summary>
+    <ul class="clean"><li>تشخيص GDM بناءً على قراءات الـ OGTT</li><li>إذا ما نفع الـ metformin، شو بعده؟ <span class="ans">Insulin</span></li><li>الـ therapeutic goal؟ <span class="ans">Fasting أقل من 92</span> (أقل رقم بالخيارات)</li></ul></details>
+  <details><summary>كيس Prolapse</summary>إجا كيس عليه، بس ما انكتبت تفاصيله. ركّز على <b>POP staging</b> من سلايدات د. حمزة.</details>
+  <details><summary>الأورال: Preterm labour</summary>G3 P2+1، GA 29 week. خذ هيستوري، وبعدين بلشت أسئلة الـ management، ولازم تسمّع النقاط بترتيب السلايدات: <span class="ans">hydration ← corticosteroid ← MgSO4 ← tocolytics</span>.</details>
+  <div class="card"><h3>ساهم</h3>بعد ما تمتحن، اكتب أسئلتك ببوست "تجميع أسئلة ميني أوسكي نسائية" على جروب اللجنة.
+    <div><a class="ext" target="_blank" href="https://www.facebook.com/share/p/1LSQ6eNgFp/">بوست التجميع على الفيسبوك</a></div></div>
+  <div class="next" data-go="soon"><div><small>الفرع الجاي</small><b>السنوات التفاعلية</b></div><span class="arr">←</span></div>
+</section>
+
+<!-- ============ SOON ============ -->
+<section class="view" id="v-soon">
+  <div class="kicker">الفرع ٨</div>
+  <h2 class="title">بنك السنوات التفاعلي</h2>
+  <div class="soonbox">
+    <div class="big">Coming soon 🌱</div>
+    <p class="lead" style="margin:10px auto">بنك أسئلة سنوات تفاعلي للفاينل والميني أوسكي، مقسّم حسب المحاضرة ومربوط بالشيتات، زي بنوك الجلدية واليورولوجي.</p>
+    <p class="by">لحد ما يجهز: QBank اللجنة + Q-files الدكاترة.</p>
+    <a class="ext" target="_blank" href="https://humsc.net/qbank">QBank اللجنة</a>
+  </div>
+  <div class="next" data-go="credits"><div><small>الفرع الأخير</small><b>الشكر والمصادر</b></div><span class="arr">←</span></div>
+</section>
+
+<!-- ============ CREDITS ============ -->
+<section class="view" id="v-credits">
+  <div class="kicker">الفرع ٩</div>
+  <h2 class="title">الشكر وحفظ الحقوق</h2>
+  <p class="lead">هالموقع دليل وتنظيم بس. كل ملف إله صاحبه، والروابط بتوديك لمكانه الأصلي. جزاهم الله خير.</p>
+  <div class="grid g2">
+    <div class="card"><h3>لجنة الطب البشري – HUMSC</h3>موقع اللجنة، السلايدات، QBank، وبوستات تجميع الأسئلة.<div><a class="ext" target="_blank" href="https://humsc.net">humsc.net</a></div></div>
+    <div class="card"><h3>دفعة وريد</h3>شيتات النسائية والتوليد (VEIN) و الـ Interactive Checklist.</div>
+    <div class="card"><h3>رؤى محمد (وريد)</h3>المنشور التعريفي بميجر النسائية: الدكاترة، المستشفيات، الامتحان، والهيستوري.<div><a class="ext" target="_blank" href="https://www.facebook.com/share/p/1Dhn59QWW3/">المنشور</a></div></div>
+    <div class="card"><h3>أحمد معاذ (وريد)</h3>OBGYN Remake All in ONE، فيديو Contraception، والمشاركة بالـ Clinical Assistant.</div>
+    <div class="card"><h3>رند مساعدة</h3>تفاريغ كلام الدكاترة، جداول المقارنة، Weeks summary، ومادة د. رامي من الكتاب.</div>
+    <div class="card"><h3>رغد</h3>ملفات الأسئلة (Question Based Files) لكل دكتور.</div>
+    <div class="card"><h3>ديمة الزعبي (وريد)</h3>Notebook LM والإنفوغرافيك.</div>
+    <div class="card"><h3>منار العقرباوي وجروب دفعة حياة (م.ع)</h3>فيدباك النسائية، ملفات الأرقام، ملفات المراجعة، كويزات Gemini، وتجميع أسئلة الطلاب بعد الامتحان.</div>
+    <div class="card"><h3>قناة دفعة حياة – سنة خامسة</h3>تنظيم كل روابط المادة بموضوع Obs &amp; Gyne.</div>
+  </div>
+  <div class="note">إذا في ملف إلك وبدك تعديل على الكريدت أو الرابط، تواصل مع صاحب الموقع.</div>
+  <div class="next" data-go="home"><div><small>رجوع</small><b>للشجرة</b></div><span class="arr">←</span></div>
+</section>
+
+</main>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer"></aside>
+<footer>دليل النسائية والتوليد · دفعة حياة · مبني من تجارب الدفعات اللي قبلنا 🤍</footer>
+
+<script>
+const H='https://humsc.net/download/';
+const SH=H+'5627/sheets/', RN=H+'4981/notes/', QF=H+'5628/q-based-files/';
+const sheets={
+ labor:[SH+'67668/normal-abnormal-labor-1.pdf','Normal & Abnormal Labor'],
+ hem:[SH+'66223/obstetric-hemorrhage-aphpph-1.pdf','Obstetric Hemorrhage (APH+PPH)'],
+ prom:[SH+'66273/prom-pprom-preterm-labor-1.pdf','PROM, PPROM + Preterm'],
+ htn:[SH+'66848/hypertensive-disorders-in-pregnancy-1.pdf','Hypertensive Disorders'],
+ molar:[SH+'66237/_molar-pregnancy.pdf','Molar pregnancy'],
+ fwb:[SH+'66770/assessment-of-fetal-well-being-ctg.pdf','Fetal Well Being (+CTG)'],
+ multi:[SH+'66825/multifetal-gestation.pdf','Multifetal Gestation'],
+ sga:[SH+'66832/assessment-of-small-for-gestational-age-fetus.pdf','SGA fetus'],
+ puer:[SH+'66824/puerperium-postpartum-blues-pyrexia-1.pdf','Puerperium, Blues & Pyrexia'],
+ dm:[SH+'66224/diabetes-in-pregnancy.pdf','DM in Pregnancy'],
+ epi:[SH+'66225/epilepsy-in-pregnancy-4.pdf','Epilepsy'],
+ peri:[SH+'66227/perinatal-infections-6.pdf','Perinatal Infections'],
+ vte:[SH+'66226/hematological-disorders-vte-in-pregnancy.pdf','VTE'],
+ cr:[SH+'66251/cardiac-disease-respiratory-disorders-in-pregnancy.pdf','Cardiac + Respiratory'],
+ gi:[SH+'66354/obstetrics-made-easy-liver-andd-gastro-intestinal-d.pdf','GI disorders'],
+ uti:[SH+'66465/uti-asymptomatic-bacteruria-5.pdf','UTI & ASB'],
+ iufd:[SH+'67467/intrauterine-fetal-demise.pdf','IUFD'],
+ aub:[SH+'66247/gynecology-made-easy-menstrual-cycle-and-its-disorder-aub-recorded-discussion.pdf','Menstrual cycle & AUB (+discussion)'],
+ meno:[SH+'66267/menopause-hrt-recorded-discussion.pdf','Menopause & HRT (+discussion)'],
+ pop:[SH+'67468/pelvic-organ-prolapse-6.pdf','Pelvic Organ Prolapse'],
+ amen:[SH+'67466/amenorrhea-hirsuitism-pcos.pdf','Amenorrhea, Hirsutism & PCOS'],
+ gen:[SH+'66250/genital-infections.pdf','Genital Infections'],
+ ut:[SH+'66278/adenocarcinoma-of-the-uterine-corpus-1.pdf','Uterine CA'],
+ pub:[SH+'66490/puberty-1.pdf','Puberty']
+};
+const rand={
+ htn:'64289/hypertensive-disorders-in-pregnancyrand.pdf', gtd:'64290/gtdrand.pdf', uti:'64291/uti-asymptomatic-bacteriuriarand.pdf',
+ nl:'64232/normal-laborrand.pdf', al:'64193/abnormal-labour-rand.pdf', aph:'64231/aphrand.pdf', pph:'64230/pphrand.pdf',
+ prom:'64310/ppromrand.pdf', post:'64311/post-term-and-iolrand.pdf', hyd:'64312/fetal-hydropsrand.pdf', pre:'64313/preterm-laborrand.pdf',
+ fwb:'64314/assessment-of-fetal-wellbeingrand.pdf', epi:'64286/epilepsy-in-pregnancyrand.pdf', pop:'64950/pelvic-organ-prolapserand.pdf',
+ endo:'64948/endometriosisadenomyosisrand.pdf', inf:'64952/infertilityrand.pdf', ghx:'64405/gynecological-hpe-rand.pdf', intro:'64191/introduction-to-obstetrics-and-gynaecologyrand.pdf'
+};
+const docs={
+ moath:{n:'د. معاذ بني هاني',q:QF+'66230/dr-moath-questions-file.pdf',qn:'في تعديل بسيط على صفحة ٢٥ (صورة بموضوع Obs & Gyne)',note:'بيركّز على الـ medical disorders in pregnancy. الدوام معه مفيد والدكتور منيح (الزرقاء).'},
+ hadeel:{n:'د. هديل الرواحنة',q:QF+'66491/dr-hadeel-obs.pdf',note:'محاضراتها ممتازة وكافية، وبيحبوا يسألوا management. شوي شديدة، وبتركّز على كتابة الهيستوري والفيزيكال.'},
+ murad:{n:'د. مراد الربضي',q:QF+'66861/dr-murad.pdf',note:'مختص fetal & maternal medicine (الزرقاء).'},
+ rami:{n:'د. رامي الكيلاني',q:QF+'67465/dr-rami.pdf',qn:'"based on the book"',note:'أقل دكتور بدقق، بس مسؤول عن تنظيم الامتحانات وبكون عصبي فيها، فامشوا زي ما بحكي. محاضراته خفيفة وعليها أسئلة كثير. الدفعات السابقة درست مواضيعه من كتاب Hacker & Moore.'},
+ firas:{n:'د. فراس الرشود',q:QF+'66863/dr-firas-gyne.pdf',note:'أخصائي عقم وأطفال أنابيب. بيضيف حكي كثير على السلايدات، فلازم المسجّلة أو التفاريغ. بدقق على الطلاب وبحب يعلّم.'},
+ fida:{n:'د. فداء العسلي',q:QF+'66862/dr-fedaa-gyne.pdf',qn:'ما بيشمل ملف AUB discussion',note:'محاضراتها مرتبة وأساسية. بتطلب تحضروا المسجّلة، وبعدين ميتنج نقاش وسيناريوهات بتحاكي الامتحان.'},
+ hamzah:{n:'د. حمزة العموش',q:QF+'75113/dr-hamzeh-gyne.pdf',qn:'لازم تفاصيل POP staging من السلايدات',note:'بيركّز على التهبيطة وأعراض الجهاز البولي، وبيعطي cervical cancer و endometriosis.'},
+ dima:{n:'د. ديمة زغاري',q:QF+'67463/dr-dima-gyne.pdf',note:'Oncology. شرحها منيح وكافي.'}
+};
+// t=title, d=doc, s=side, w=stars, g=qbank group, sh=sheet, rn=rand, x=desc
+const L=[
+ {t:'Obs History & Exam (introductory)',d:'moath',s:'obs',w:3,g:'Normal Pregnancy & Antenatal',rn:'intro',x:'أول محاضرة بالروتيشن. كيف تاخد هيستوري وفحص لحامل. بتحتاجها أول يوم بالدوام وللوج بوك (competency).'},
+ {t:'Hypertensive disorders in pregnancy',d:'moath',s:'obs',w:4,g:'Maternal Medicine',sh:'htn',rn:'htn',x:'Gestational HTN، preeclampsia، eclampsia، HELLP: التعريفات بالأرقام، الـ management، والـ MgSO4. من أثقل المواضيع.'},
+ {t:'GTD (Molar pregnancy)',d:'moath',s:'obs',w:3,g:'Early Pregnancy & Loss',sh:'molar',rn:'gtd',x:'Complete ضد partial mole، الـ hCG follow-up، والـ GTN.'},
+ {t:'Epilepsy in pregnancy',d:'moath',s:'obs',w:1,g:'Maternal Medicine',sh:'epi',rn:'epi',x:'AEDs والتشوهات (major ضد minor)، والـ folic acid.'},
+ {t:'Liver & GI disease',d:'moath',s:'obs',w:2,g:'Maternal Medicine',sh:'gi',x:'ICP، AFLP، hyperemesis، وغيرها.'},
+ {t:'Perinatal infections',d:'moath',s:'obs',w:3,g:'Postpartum & Perinatal',sh:'peri',x:'TORCH، GBS، HIV، HBV… في جدول مقارنة جاهز لرند.'},
+ {t:'UTI & Asymptomatic bacteriuria',d:'moath',s:'obs',w:1,g:'Maternal Medicine',sh:'uti',rn:'uti',x:'ASB screening وعلاجه، و pyelonephritis.'},
+ {t:'Gyne History & Exam (introductory)',d:'hadeel',s:'gyn',w:3,g:'Benign Gynecology',rn:'ghx',x:'كيف تاخد هيستوري وفحص Gyne. ضروري للدوام والأورال.'},
+ {t:'APH',d:'hadeel',s:'obs',w:4,g:'Labor, Delivery & Emergencies',sh:'hem',rn:'aph',x:'Placenta previa ضد abruption، الـ approach، والـ anti-D. إجا كيس عليه بالميني.'},
+ {t:'PPH',d:'hadeel',s:'obs',w:2,g:'Labor, Delivery & Emergencies',sh:'hem',rn:'pph',x:'الـ 4Ts، الـ management خطوة بخطوة، الأدوية وموانعها، و blood products. إجا كيس بالميني.'},
+ {t:'Diabetes in pregnancy',d:'hadeel',s:'obs',w:3,g:'Maternal Medicine',sh:'dm',x:'OGTT وقراءاته، الأهداف (fasting أقل من 92)، metformin ثم insulin. إجا كيس بالميني.'},
+ {t:'Cardiac disease in pregnancy',d:'hadeel',s:'obs',w:3,g:'Maternal Medicine',sh:'cr',x:'التغيرات الفسيولوجية، الـ high-risk lesions، والولادة.'},
+ {t:'Respiratory disorders in pregnancy',d:'hadeel',s:'obs',w:1,g:'Maternal Medicine',sh:'cr',x:'Asthma وغيره بالحمل.'},
+ {t:'VTE in pregnancy',d:'hadeel',s:'obs',w:2,g:'Maternal Medicine',sh:'vte',x:'Risk assessment، الـ prophylaxis، والتشخيص والعلاج (LMWH).'},
+ {t:'Genital infections',d:'hadeel',s:'gyn',w:3,g:'Urogynecology & Infections',sh:'gen',x:'BV، candida، trichomonas، PID… في جدول مقارنة جاهز لرند.'},
+ {t:'Normal labour',d:'murad',s:'obs',w:5,g:'Labor, Delivery & Emergencies',sh:'labor',rn:'nl',x:'مراحل الولادة، الـ mechanism، والـ partogram. أساس كل الـ Obs.'},
+ {t:'Abnormal labour',d:'murad',s:'obs',w:5,g:'Labor, Delivery & Emergencies',sh:'labor',rn:'al',x:'الـ 3Ps، prolonged labour، malpresentation، و shoulder dystocia. من أثقل المحاضرات.'},
+ {t:'Assessment of fetal wellbeing',d:'murad',s:'obs',w:3,g:'Fetal Medicine & Surveillance',sh:'fwb',rn:'fwb',x:'CTG بالتفصيل، BPP، و Doppler.'},
+ {t:'PPROM',d:'murad',s:'obs',w:1,g:'Labor, Delivery & Emergencies',sh:'prom',rn:'prom',x:'التشخيص، و expectant ضد delivery، والمضادات الحيوية.'},
+ {t:'Preterm labour',d:'murad',s:'obs',w:3,g:'Labor, Delivery & Emergencies',sh:'prom',rn:'pre',x:'الـ management بالترتيب: steroids، MgSO4، tocolytics. إجا أورال عليه.'},
+ {t:'Post-term & IOL',d:'murad',s:'obs',w:2,g:'Labor, Delivery & Emergencies',rn:'post',x:'Bishop score وطرق الـ induction. ما إله شيت، فالتفريغ أو الـ Remake.'},
+ {t:'Fetal hydrops',d:'murad',s:'obs',w:2,g:'Fetal Medicine & Surveillance',rn:'hyd',x:'Immune (Rh iso-immunization، anti-D) ضد non-immune.'},
+ {t:'Physiological changes of pregnancy',d:'rami',s:'obs',w:3,g:'Normal Pregnancy & Antenatal',x:'تغيرات كل جهاز بالأرقام. أول محاضرة Obs تدرسها.'},
+ {t:'Multifetal gestation',d:'rami',s:'obs',w:3,g:'Fetal Medicine & Surveillance',sh:'multi',x:'Chorionicity، TTTS، والـ delivery. <b>مهمة بالميني أوسكي.</b>'},
+ {t:'SGA & FGR',d:'rami',s:'obs',w:3,g:'Fetal Medicine & Surveillance',sh:'sga',x:'التعريف، الأسباب، المتابعة بالـ Doppler، والتوقيت.'},
+ {t:'IUFD / Stillbirth',d:'rami',s:'obs',w:1,g:'Fetal Medicine & Surveillance',sh:'iufd',x:'الأسباب، الـ workup، و management الولادة.'},
+ {t:'Puerperium & Postpartum blues',d:'rami',s:'obs',w:3,g:'Postpartum & Perinatal',sh:'puer',x:'التغيرات بعد الولادة، الـ pyrexia، blues ضد depression ضد psychosis.'},
+ {t:'Early pregnancy complications & EP',d:'firas',s:'obs',w:2,g:'Early Pregnancy & Loss',x:'أنواع الإجهاض والـ ectopic: التشخيص والـ criteria للـ management. مرّ على سلايدات د. لبنى كمان، فيها criteria مهمة.'},
+ {t:'Puberty',d:'firas',s:'gyn',w:1,g:'Menstrual & Reproductive Endocrinology',sh:'pub',x:'Precocious ضد delayed puberty.'},
+ {t:'Amenorrhea',d:'firas',s:'gyn',w:1,g:'Menstrual & Reproductive Endocrinology',sh:'amen',x:'Primary ضد secondary، والـ approach. إجا كيس AIS بالميني.'},
+ {t:'PCOS',d:'firas',s:'gyn',w:2,g:'Menstrual & Reproductive Endocrinology',sh:'amen',x:'Rotterdam criteria والعلاج حسب الهدف.'},
+ {t:'Hirsutism',d:'firas',s:'gyn',w:2,g:'Menstrual & Reproductive Endocrinology',sh:'amen',x:'Hirsutism ضد virilism، والأسباب والـ workup.'},
+ {t:'Infertility',d:'firas',s:'gyn',w:3,g:'Reproductive Medicine',rn:'inf',x:'الـ workup للزوجين، والـ ovulation induction، والـ ART.'},
+ {t:'Menstrual cycle & AUB',d:'fida',s:'gyn',w:5,g:'Menstrual & Reproductive Endocrinology',sh:'aub',x:'PALM-COEIN والـ management. ادرسها من المسجّلة + ملف الـ discussion. شوف فيديو د. نادين للـ cycle قبلها.'},
+ {t:'Menopause & HRT',d:'fida',s:'gyn',w:4,g:'Menstrual & Reproductive Endocrinology',sh:'meno',x:'الأعراض، الـ HRT (indications وموانع)، والبدائل. المسجّلة + الـ discussion.'},
+ {t:'Contraception',d:'fida',s:'gyn',w:4,g:'Reproductive Medicine',x:'الطرق، الـ UKMEC، الـ missed pills، والـ EC. المسجّلة + الـ discussion + فيديو أحمد معاذ. إجا كيس بالميني.'},
+ {t:'LUTS / Urinary incontinence',d:'hamzah',s:'gyn',w:4,g:'Urogynecology & Infections',x:'Stress ضد urge، و urodynamics interpretation. ما إله شيت.'},
+ {t:'Pelvic organ prolapse',d:'hamzah',s:'gyn',w:3,g:'Urogynecology & Infections',sh:'pop',rn:'pop',x:'الأنواع و <b>POP staging بالتفصيل</b> من السلايدات. إجا كيس بالميني.'},
+ {t:'Endometriosis & Adenomyosis',d:'hamzah',s:'gyn',w:3,g:'Benign Gynecology',rn:'endo',x:'Chronic pelvic pain، والتشخيص والعلاج.'},
+ {t:'Cervical cancer',d:'hamzah',s:'gyn',w:3,g:'Gyne Oncology',x:'Screening، CIN، HPV، و staging. ما إله شيت.'},
+ {t:'Ovarian cysts',d:'dima',s:'gyn',w:2,g:'Gyne Oncology',x:'Functional ضد neoplastic، والـ accidents (torsion، rupture).'},
+ {t:'Ovarian cancer',d:'dima',s:'gyn',w:2,g:'Gyne Oncology',x:'Risk factors، tumor markers، RMI، و staging.'},
+ {t:'Adenocarcinoma of the uterine corpus',d:'dima',s:'gyn',w:2,g:'Gyne Oncology',sh:'ut',x:'Endometrial CA: الـ risk factors، PMB، والـ staging.'},
+ {t:'Vulvar cancer',d:'dima',s:'gyn',w:2,g:'Gyne Oncology',x:'محاضرة جديدة على حياة. ما إلها شيت.'}
+];
+const QB=[['Maternal Medicine in Pregnancy',125],['Labor, Delivery & Obstetric Emergencies',122],['Menstrual & Reproductive Endocrinology',74],['Urogynecology & Gynecologic Infections',64],['Fetal Medicine & Surveillance',56],['Gynecologic Oncology & Premalignant',51],['Reproductive Medicine & Benign Gynecology',50],['Early Pregnancy & Pregnancy Loss',31],['Normal Pregnancy & Antenatal Care',26],['Postpartum & Perinatal Care',24]];
+
+/* ---------- sound ---------- */
+let ac=null, sound=true;
+try{ if(localStorage.getItem('obg-snd')==='0') sound=false }catch(e){}
+const sndBtn=document.getElementById('snd');
+function paintSnd(){sndBtn.textContent=sound?'🔈 صوت':'🔇 صامت'}
+paintSnd();
+sndBtn.onclick=()=>{sound=!sound;try{localStorage.setItem('obg-snd',sound?'1':'0')}catch(e){};paintSnd();if(sound)tone(660,.05)};
+function tone(f=520,v=.04,len=.35){
+  if(!sound) return;
+  try{
+    ac=ac||new (window.AudioContext||window.webkitAudioContext)();
+    const o=ac.createOscillator(), g=ac.createGain(), o2=ac.createOscillator(), g2=ac.createGain();
+    o.type='sine';o.frequency.value=f; o2.type='sine';o2.frequency.value=f*1.5;
+    g.gain.setValueAtTime(0,ac.currentTime);g.gain.linearRampToValueAtTime(v,ac.currentTime+.015);g.gain.exponentialRampToValueAtTime(.0001,ac.currentTime+len);
+    g2.gain.setValueAtTime(0,ac.currentTime);g2.gain.linearRampToValueAtTime(v*.35,ac.currentTime+.015);g2.gain.exponentialRampToValueAtTime(.0001,ac.currentTime+len*.7);
+    o.connect(g).connect(ac.destination);o2.connect(g2).connect(ac.destination);
+    o.start();o2.start();o.stop(ac.currentTime+len);o2.stop(ac.currentTime+len);
+  }catch(e){}
+}
+
+/* ---------- tree ---------- */
+const NODES=[
+ ['start','ابدأ هنا','الخلاصة بدقيقة: أهم ١٠ أشياء عن الميجر','الجذر'],
+ ['rotation','الدوام والمستشفيات','يومك، المستشفيات التسعة، وكيف تاخد هيستوري نسائي','قبل أول يوم'],
+ ['course','المادة والامتحان','توزيع العلامة، شكل الميني والأورال، وين بيتركز الفاينل، اللوج بوك والقوانين','افهم اللعبة'],
+ ['lectures','فهرس المحاضرات','٤٧ سلايد عند ٨ دكاترة. كل محاضرة مع وزنها وشيتها وتفريغها وأسئلتها','تفاعلي'],
+ ['resources','المصادر وعلاقتها ببعض','مين إجباري ومين تكميلي، وأي ملف بيغني عن الثاني','لا تضيع بالملفات'],
+ ['plan','خطة الدراسة','دورة كل محاضرة، وتوزيع الـ ٨ أسابيع حسب مستشفاك','الخطة'],
+ ['recalls','مجرّبات الطلاب','أسئلة ميني أوسكي حياة (١٢/١١) والأورال','طازة'],
+ ['soon','بنك السنوات التفاعلي','قريباً، زي بنوك الجلدية واليورو','Coming soon',true],
+ ['credits','الشكر والمصادر','كل ملف لصاحبه','الحقوق']
+];
+const tree=document.getElementById('tree');
+NODES.forEach((n,i)=>{
+  const row=document.createElement('div'); row.className='node-row '+(i%2?'l':'r');
+  row.innerHTML=`<span class="dot"></span><div class="node${n[4]?' soon':''}" data-go="${n[0]}"><span class="num">${(i+1).toLocaleString('ar-EG')}</span><span class="tag">${n[3]}</span><h3>${n[1]}</h3><p>${n[2]}</p></div>`;
+  tree.appendChild(row);
+});
+function drawWires(){
+  const svg=document.getElementById('wires'); const tb=tree.getBoundingClientRect();
+  if(window.innerWidth<=760){svg.innerHTML='';return}
+  let p='';
+  tree.querySelectorAll('.node-row').forEach(r=>{
+    const d=r.querySelector('.dot').getBoundingClientRect(), n=r.querySelector('.node').getBoundingClientRect();
+    const x1=d.left+d.width/2-tb.left, y1=d.top+d.height/2-tb.top;
+    const right=n.left>d.left; const x2=(right?n.left:n.right)-tb.left, y2=n.top+34-tb.top;
+    const mx=(x1+x2)/2;
+    p+=`<path d="M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}" fill="none" stroke="url(#gw)" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="4 6"/>`;
+  });
+  svg.innerHTML=`<defs><linearGradient id="gw"><stop offset="0" stop-color="#89a68f"/><stop offset="1" stop-color="#a2587f"/></linearGradient></defs>`+p;
+}
+window.addEventListener('resize',drawWires);
+
+/* ---------- lectures ---------- */
+const star=w=>'★'.repeat(w)+'☆'.repeat(5-w);
+let filt='all';
+function renderLecs(){
+  const q=document.getElementById('q').value.trim().toLowerCase();
+  const wrap=document.getElementById('lecwrap'); wrap.innerHTML='';
+  Object.keys(docs).forEach(k=>{
+    const items=L.map((l,i)=>({...l,i})).filter(l=>l.d===k)
+      .filter(l=>filt==='all'||(filt==='heavy'?l.w>=4:l.s===filt))
+      .filter(l=>!q||(l.t+' '+docs[k].n+' '+l.x+' '+l.g).toLowerCase().includes(q));
+    if(!items.length) return;
+    const g=document.createElement('div'); g.className='docgroup';
+    g.innerHTML=`<h3>${docs[k].n} <small>${items.length} محاضرة</small></h3><div class="lecs">${items.map(l=>`<div class="lec ${l.s}" data-i="${l.i}"><b>${l.t}</b><span class="stars">${star(l.w)}</span><div class="meta">${l.s==='obs'?'توليد':'نسائية'} · ${l.g}</div></div>`).join('')}</div>`;
+    wrap.appendChild(g);
+  });
+  if(!wrap.children.length) wrap.innerHTML='<p class="by">ما في نتائج.</p>';
+}
+document.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{document.querySelectorAll('.chip').forEach(x=>x.classList.remove('on'));c.classList.add('on');filt=c.dataset.f;tone(700,.03,.2);renderLecs()});
+document.getElementById('q').addEventListener('input',renderLecs);
+const drawer=document.getElementById('drawer'), scrim=document.getElementById('scrim');
+function openLec(i){
+  const l=L[i], d=docs[l.d];
+  const links=[];
+  if(l.sh) links.push(`<a class="ext" target="_blank" href="${sheets[l.sh][0]}">شيت وريد: ${sheets[l.sh][1]}</a>`);
+  if(l.rn) links.push(`<a class="ext" target="_blank" href="${RN+rand[l.rn]}">تفريغ رند</a>`);
+  links.push(`<a class="ext" target="_blank" href="${d.q}">Q-file ${d.n}</a>`);
+  drawer.innerHTML=`<button class="iconbtn x" onclick="closeLec()">✕ إغلاق</button>
+   <span class="pill ${l.s==='obs'?'p-obs':'p-gyn'}">${l.s==='obs'?'توليد':'نسائية'}</span><span class="pill">${d.n}</span>
+   <h2>${l.t}</h2><div class="stars" style="color:var(--gold)">${star(l.w)}</div>
+   <h4>شو هي؟</h4><p>${l.x}</p>
+   <h4>وين بتيجي بالسنوات؟</h4><p>QBank: <b class="ltr">${l.g}</b></p>
+   <h4>الملفات المرتبطة</h4><div>${links.join('')}</div>
+   ${!l.sh?'<p class="by">ما إلها شيت لجنة: اعتمد على التفريغ أو الـ Remake.</p>':''}
+   ${d.qn?`<div class="note">ملاحظة على الـ Q-file: ${d.qn}</div>`:''}
+   <h4>عن الدكتور</h4><p>${d.note}</p>
+   <h4>كيف تدرسها</h4><ul class="clean"><li>السلايد (على موقع اللجنة)</li><li>${l.d==='firas'||l.d==='fida'?'<b>التفريغ أو المسجّلة: ضروري لهالدكتور</b>':'التفريغ إذا موجود'}</li><li>Q-file الدكتور، ثم سنوات QBank</li><li>تثبيت من الـ Remake أو الشيت</li></ul>
+   <a class="ext" target="_blank" href="https://humsc.net/courses/obstetrics-and-gynecology-1?batch=hayat">السلايدات على HUMSC</a>`;
+  drawer.classList.add('on');scrim.classList.add('on');drawer.scrollTop=0;tone(560,.04);
+}
+function closeLec(){drawer.classList.remove('on');scrim.classList.remove('on')}
+scrim.onclick=closeLec;
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLec()});
+document.getElementById('lecwrap').addEventListener('click',e=>{const c=e.target.closest('.lec');if(c)openLec(+c.dataset.i)});
+
+/* q-files list */
+document.getElementById('qfiles').innerHTML=Object.values(docs).map(d=>`<a class="ext" target="_blank" href="${d.q}">${d.n}</a>`).join('');
+
+/* qbank bars */
+document.getElementById('qbars').innerHTML=QB.map((q,i)=>`<div class="barrow ${i>1?'g':''}"><span class="ltr" style="text-align:right">${q[0]}</span><div class="track"><div class="fill" data-w="${q[1]/125*100}"></div></div><b>${q[1]}</b></div>`).join('');
+
+/* ---------- routing ---------- */
+const names={home:'الشجرة',start:'ابدأ هنا',rotation:'الدوام',course:'المادة والامتحان',lectures:'المحاضرات',resources:'المصادر',plan:'الخطة',recalls:'المجرّبات',soon:'السنوات',credits:'الشكر'};
+function go(v,anchor){ if(location.hash.slice(1)!==v) location.hash=v; else show(v); if(anchor) setTimeout(()=>{const a=document.getElementById(anchor);a&&a.scrollIntoView({behavior:'smooth',block:'center'})},350)}
+function show(v){
+  if(!names[v]) v='home';
+  document.querySelectorAll('.view').forEach(s=>s.classList.toggle('on',s.id==='v-'+v));
+  document.getElementById('crumb').textContent=v==='home'?'':'· '+names[v];
+  window.scrollTo({top:0,behavior:'instant'in window?'instant':'auto'});
+  closeLec();
+  if(v==='home') setTimeout(drawWires,60);
+  if(v==='lectures') renderLecs();
+  if(v==='course') setTimeout(()=>document.querySelectorAll('.fill').forEach(f=>f.style.width=f.dataset.w+'%'),120);
+}
+window.addEventListener('hashchange',()=>{show(location.hash.slice(1));tone(480,.035,.4)});
+document.addEventListener('click',e=>{const t=e.target.closest('[data-go]');if(t){go(t.dataset.go,t.dataset.anchor)}});
+show(location.hash.slice(1)||'home');
+</script>
+</body>
+</html>
