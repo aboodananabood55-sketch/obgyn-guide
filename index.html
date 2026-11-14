@@ -277,7 +277,8 @@ details[open] summary{color:var(--plum);margin-bottom:6px}
 .gopt b{display:block;color:var(--ink);font-size:15px;margin-bottom:2px}
 .gopt.on{border-color:var(--plum);background:#f7ebf1;box-shadow:var(--shadow)}
 .toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(120px);background:var(--ink);color:#fff;border-radius:999px;padding:10px 20px;z-index:70;transition:.3s;display:flex;gap:12px;align-items:center;font-size:14px;max-width:92vw}
-.toast.on{transform:translateX(-50%)}
+.toast{opacity:0;visibility:hidden;pointer-events:none}
+.toast.on{transform:translateX(-50%);opacity:1;visibility:visible;pointer-events:auto}
 .toast button{background:none;border:1px solid #fff6;color:#fff;border-radius:99px;padding:2px 12px;font:inherit;cursor:pointer}
 .ptitle{display:none}
 @media (max-width:760px){.pboard{grid-template-columns:1fr;overflow:visible}.pmap{overflow-x:auto;gap:4px}.pnode{width:58px}}
@@ -1085,7 +1086,7 @@ function openLec(i){
 }
 function closeLec(){drawer.classList.remove('on');scrim.classList.remove('on')}
 scrim.onclick=closeLec;
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLec()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeLec();['fbm','genm'].forEach(id=>{const m=document.getElementById(id);m&&m.classList.remove('on')});const pl=document.getElementById('pal');pl&&pl.classList.remove('on');const np=document.getElementById('npanel');np&&np.classList.remove('on')}});
 document.getElementById('lecwrap').addEventListener('click',e=>{const c=e.target.closest('.lec');if(c)openLec(+c.dataset.i)});
 
 /* q-files list */
