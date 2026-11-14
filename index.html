@@ -1347,20 +1347,25 @@ function renderHints(nw){
   const pt=placedTasks(); if(!pt.has('qbm')) H.push(`ما في <b>سنوات Mini OSCE</b> بخطتك، والميني آخر الروتيشن. <button class="go" data-hint="qbm">أضفها لأسبوع ٨</button>`);
   if(!pt.has('lb')) H.push(`اللوج بوك مش بخطتك، وبيتسلّم آخر الروتيشن. <button class="go" data-hint="lb">أضفه</button>`);
   if(nw>1&&nw<9){let left=0;for(let w=1;w<nw;w++)P.w[w-1].forEach(c=>Object.values(c.s).forEach(v=>{if(!v)left++}));
-    if(left) H.push(`عندك <b>${left}</b> خطوة مش معلّمة بأسابيع فاتت. <button class="go" data-hint="carry">انقل اللي مش مخلّص لأسبوع ${WK[nw-1][0]}</button>`);}
+    if(left) H.push(`عندك <b>${left}</b> خطوة مش معلّمة بأسابيع فاتت. <button class="go" data-hint="carry">وزّع اللي مش مخلّص على الأسابيع الجاية</button>`);}
   const ws=P.w.map(w=>w.reduce((a,c)=>a+cardW(c),0)), nz=ws.filter(x=>x>0), avg=nz.length?nz.reduce((a,b)=>a+b,0)/nz.length:0;
   {const hv=ws.map((x,i)=>avg&&x>avg*1.9&&x>8?WK[i][0]:null).filter(Boolean); if(hv.length) H.push(`${hv.length>1?'أسابيع':'أسبوع'} ${hv.join('، ')} أثقل كثير من الباقي${(P.st||'').startsWith('cram')?' (طبيعي لأنك اخترت زنقات آخر أيام)':'. وزّع شوي عالأسابيع الخفيفة إذا بتقدر'}.`)}
   document.getElementById('phints').innerHTML=H.length?H.map(h=>`<div class="phint">${h}</div>`).join(''):'<div class="phint good">خطتك مغطية كل المحاضرات والإجباري 👌</div>';
 }
 function hint(k){
-  const nw=nowWeek(), from=nw>1&&nw<9?nw:1;
+  const nw=nowWeek(), from=nw>1&&nw<9?nw:1; hint._prev=JSON.stringify(P);
   if(k==='spread'){const placed=placedLecs(), idx=lecOrder().filter(i=>!placed.has(i)), ws=[];for(let w=from;w<=7;w++)ws.push(w); if(!ws.length)ws.push(8);
     const goal=(P.st.split('|')[1])||'ok'; idx.forEach(()=>{}); distribute(idx,ws,goal,ws.length<=3)}
   if(k==='must') P.w.forEach(w=>w.forEach(c=>{if(c.t==='L'){if(!('qf' in c.s))c.s.qf=0;if(!('qb' in c.s))c.s.qb=0}}));
   if(k==='qbm') P.w[7].push(mkTask('qbm'));
   if(k==='lb') P.w[Math.max(from,2)-1].push(mkTask('lb'));
-  if(k==='carry'){const tgt=P.w[nw-1]; for(let w=1;w<nw;w++){P.w[w-1]=P.w[w-1].filter(c=>{const v=Object.values(c.s); if(v.length&&v.some(x=>!x)){tgt.push(c);return false} return true})}}
+  if(k==='carry'){const moved=[]; for(let w=1;w<nw;w++){P.w[w-1]=P.w[w-1].filter(c=>{const v=Object.values(c.s); if(v.length&&v.some(x=>!x)){moved.push(c);return false} return true})}
+    const ws=[];for(let w=nw;w<=(nw>=7?8:7);w++)ws.push(w); if(!ws.length)ws.push(8);
+    ws.splice(3); const load=ws.map(()=>0);
+    moved.forEach(c=>{let m=0;load.forEach((x,i)=>{if(x<load[m])m=i});P.w[ws[m]-1].push(c);load[m]+=cardW(c)});
+    hint._msg=`انوزّعت ${moved.length} ${moved.length>2&&moved.length<11?'قطع':'قطعة'} مش مخلّصة على أسبوع ${WK[ws[0]-1][0]}${ws.length>1?' لأسبوع '+WK[ws[ws.length-1]-1][0]:''}`}
   saveP(); renderPlan(); tone(760,.04);
+  if(hint._msg){const m=hint._msg;hint._msg='';toast(m,()=>{P=JSON.parse(hint._prev);saveP();renderPlan()})}
 }
 /* ---- palette ---- */
 let palTab='lec';
@@ -1418,7 +1423,7 @@ function openGen(){const nw=nowWeek(); GA.grp=P.g||0;
   GA.f=cur;
   document.getElementById('ggp').innerHTML=Array.from({length:20},(_,i)=>`<button data-g="${i+1}" class="${GA.grp===i+1?'on':''}">C${i+1}</button>`).join('');
   document.querySelectorAll('#genm .gopt').forEach(b=>{const q=b.parentElement.dataset.q;b.classList.toggle('on',String(GA[q])===b.dataset.v)});
-  document.getElementById('gwarn').textContent=nw>1&&nw<9?`اليوم بالأسبوع ${WK[nw-1][0]}. إذا بلّشت متأخر عادي: أسبوع ${WK[nw-1][0]} مختار، وبنوزّع المادة على الوقت الضايل.`:'';
+  document.getElementById('gwarn').textContent=nw===9?'الروتيشن خلص، فأسبوع ٨ مختار: بنحط كل المادة فيه كمراجعة للفاينل.':nw>1&&nw<9?`اليوم بالأسبوع ${WK[nw-1][0]}. إذا بلّشت متأخر عادي: أسبوع ${WK[nw-1][0]} مختار، وبنوزّع المادة على الوقت الضايل.`:'';
   genm.classList.add('on');tone(600,.04)}
 document.getElementById('pgen').onclick=openGen;
 genm.addEventListener('click',e=>{const o=e.target.closest('.gopt');if(o){const q=o.parentElement.dataset.q;GA[q]=q==='f'?+o.dataset.v:o.dataset.v;o.parentElement.querySelectorAll('.gopt').forEach(x=>x.classList.toggle('on',x===o));tone(700,.03)}
