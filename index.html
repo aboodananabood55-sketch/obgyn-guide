@@ -344,6 +344,10 @@ td.ltr{display:table-cell}
 .npanel{margin-top:8px}
 @media (max-width:360px){.card{padding:16px 14px}.grid{grid-template-columns:1fr!important}.grid>*{min-width:0;overflow-wrap:anywhere}.bar{gap:4px;padding:8px 8px}.bar .iconbtn{padding:4px 7px;font-size:12px}.brand{font-size:14px;gap:6px}.brand .seed{width:26px;height:26px}}
 .gopts.wkos{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.gopt.wko{text-align:center;padding:8px 4px;font-size:12px}.gopt.wko b{font-size:14px}
+.iab{background:#fff4e2;border-bottom:1px solid #e9cf9f;padding:10px 16px;font-size:14px;line-height:1.7;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:space-between}
+.iab[hidden],.iab [hidden]{display:none!important}.iabb{display:flex;gap:6px;align-items:center}.iabb .go{margin:0;padding:4px 14px}
+.iabx{border:0;background:none;font-size:16px;cursor:pointer;color:var(--mute);min-width:32px;min-height:32px}
+@media print{.iab{display:none!important}}
 </style>
 </head>
 <body>
@@ -359,6 +363,7 @@ td.ltr{display:table-cell}
   <button class="iconbtn" onclick="go('home')" title="الشجرة">🌳<span class="lbl"> الشجرة</span></button>
 </div>
 
+<div class="iab" id="iab" hidden><div><b>📱 فاتح الموقع من جوا <span id="iabapp">تطبيق</span>؟</b> هون خطتك ممكن ما تنحفظ وتضيع. افتحه بالمتصفح: <span id="iabhow"></span></div><div class="iabb"><button class="go" id="iabopen" hidden>افتح بكروم</button><button class="go" id="iabcopy">انسخ الرابط</button><button class="iabx" id="iabx" title="سكّر">✕</button></div></div>
 <main>
 
 <!-- ============ HOME ============ -->
@@ -682,12 +687,12 @@ td.ltr{display:table-cell}
     <ul class="clean"><li><b>Q1.</b> A couple requests sterilisation. Comparing vasectomy and tubal ligation: <span class="ans">Vasectomy is less invasive but needs semen analysis to confirm sterility</span></li>
     <li><b>Q2.</b> A lactating woman wants contraception. All options were combined methods except one: <span class="ans">Progestogen-only</span></li>
     <li><b>Q3.</b> Most effective emergency contraception? <span class="ans">Copper IUCD</span></li>
-    <li><b>Q4.</b> A recognised feature of DMPA: <span class="ans">Delayed return of fertility (up to ~18 months)</span></li>
+    <li><b>Q4.</b> A recognised feature of DMPA: <span class="ans">Delayed return of fertility</span> (can take up to a year after the last injection)</li>
     <li><b>Q5.</b> A question on implants <span class="pill p-opt">Rebuilt</span>: probably side effects (irregular bleeding is the commonest).</li></ul></details>
   <details><summary>Station 5 · Diabetes in pregnancy</summary>
     <ul class="clean"><li><b>Q1.</b> Given OGTT values, is this GDM?</li>
     <li><b>Q2.</b> Metformin fails to control glucose. Next step? <span class="ans">Insulin</span></li>
-    <li><b>Q3.</b> Therapeutic target for fasting glucose on treatment? <span class="ans">&lt; 92 mg/dL</span> (lowest value among the options)</li></ul></details>
+    <li><b>Q3.</b> Therapeutic target for fasting glucose on treatment? <span class="ans">&lt; 92 mg/dL</span> (the student picked the lowest option offered)<div class="by">⚠️ Dr. Hadeel's slides give the treatment target as fasting &lt; 5 mmol/L (≈ 90 mg/dL) and 2-hour &lt; 7 mmol/L. 92 mg/dL is the IADPSG <b>diagnostic</b> cut-off on the OGTT, not the treatment target. Learn the slide numbers.</div></li></ul></details>
   <details><summary>Station 6 · Pelvic organ prolapse <span class="pill p-opt">Rebuilt</span></summary>
     <p>A prolapse case appeared, but no student recalled the questions. Expect POP-Q staging, types of prolapse and management options. Learn the <b>POP staging</b> slides of Dr. Hamzah in detail.</p></details>
   <details><summary>Oral · Preterm labour</summary>
@@ -756,7 +761,7 @@ td.ltr{display:table-cell}
   <div class="kicker">الفرع ٨</div>
   <h2 class="title">خطتي للنسائية</h2>
   <p class="lead">ركّب خطتك بإيدك: محاضرات ومهام بتحطها بالأسبوع اللي بدك إياه، وكل خطوة إلها مربع ✓ وزر يفتحها. أو اكبس "سوّي لي خطة" وجاوب كم سؤال. بتنحفظ على جهازك لحالها.</p>
-  <div class="note" id="psave">💾 <b>خطتك بتنحفظ تلقائياً</b> على هالجهاز وهالمتصفح، وبتلاقيها لما ترجع. بس إذا مسحت بيانات المتصفح، أو بدك تفتحها على جهاز ثاني، احتفظ فيها بطريقة من هدول:
+  <div class="note" id="psave">💾 <b>خطتك بتنحفظ تلقائياً</b> على هالجهاز وهالمتصفح، وبتلاقيها لما ترجع. <b>إذا فاتح الموقع من رابط بالواتساب أو التليجرام</b>، افتحه بكروم أو Safari قبل ما تعمل خطتك، لأن متصفح التطبيق إله ذاكرة لحاله. وإذا مسحت بيانات المتصفح، أو بدك تفتحها على جهاز ثاني، احتفظ فيها بطريقة من هدول:
     <ul class="clean" style="margin:6px 0 0"><li><b>🔗 رابط خطتي:</b> رابط فيه الخطة كاملة، ابعته لحالك على واتساب أو احفظه.</li><li><b>💾 نسخة احتياطية:</b> ملف صغير على جهازك، وبترجّعه من <b>📂 استرجاع نسخة</b>.</li><li><b>📄 PDF:</b> نسخة للطباعة أو للتلفون (بيفتح نافذة الطباعة: اختار Save as PDF). هاد للقراءة بس، ما بيرجّع الخطة للموقع.</li></ul></div>
   <div class="ptools">
     <button class="btn" id="pgen">✨ سوّي لي خطة</button>
@@ -911,7 +916,7 @@ const L=[
  {t:'Gyne History & Exam (introductory)',d:'hadeel',s:'gyn',w:3,g:'Benign Gynecology',rn:'ghx',x:'كيف تاخد هيستوري وفحص Gyne. ضروري للدوام والأورال.'},
  {t:'APH',d:'hadeel',s:'obs',w:4,g:'Labor, Delivery & Emergencies',sh:'hem',rn:'aph',x:'Placenta previa ضد abruption، الـ approach، والـ anti-D. إجا كيس عليه بالميني.'},
  {t:'PPH',d:'hadeel',s:'obs',w:2,g:'Labor, Delivery & Emergencies',sh:'hem',rn:'pph',x:'الـ 4Ts، الـ management خطوة بخطوة، الأدوية وموانعها، و blood products. إجا كيس بالميني.'},
- {t:'Diabetes in pregnancy',d:'hadeel',s:'obs',w:3,g:'Maternal Medicine',sh:'dm',x:'OGTT وقراءاته، الأهداف (fasting أقل من 92)، metformin ثم insulin. إجا كيس بالميني.'},
+ {t:'Diabetes in pregnancy',d:'hadeel',s:'obs',w:3,g:'Maternal Medicine',sh:'dm',x:'الـ OGTT وتفسيره (IADPSG)، والـ targets حسب السلايد: fasting أقل من 5 mmol/L و 2hr أقل من 7 mmol/L. بعدين metformin ثم insulin. إجا كيس بالميني.'},
  {t:'Cardiac disease in pregnancy',d:'hadeel',s:'obs',w:3,g:'Maternal Medicine',sh:'cr',x:'التغيرات الفسيولوجية، الـ high-risk lesions، والولادة.'},
  {t:'Respiratory disorders in pregnancy',d:'hadeel',s:'obs',w:1,g:'Maternal Medicine',sh:'cr',x:'Asthma وغيره بالحمل. ما إلها تفريغ، وشيت وريد (Cardiac + Respiratory) وحزمة محمد نبيل بيغطوها.'},
  {t:'VTE in pregnancy',d:'hadeel',s:'obs',w:2,g:'Maternal Medicine',sh:'vte',x:'Risk assessment، الـ prophylaxis، والتشخيص والعلاج (LMWH).'},
@@ -1554,6 +1559,22 @@ function show(v){
 window.addEventListener('hashchange',()=>{show(location.hash.slice(1));tone(480,.035,.4)});
 document.addEventListener('click',e=>{const t=e.target.closest('[data-go]');if(t){go(t.dataset.go,t.dataset.anchor)}});
 show(location.hash.slice(1)||'home');
+
+/* ---------- in-app browser notice (WhatsApp / Telegram / Instagram / Facebook…) ---------- */
+(function(){try{
+  const ua=navigator.userAgent||'', iOS=/iPhone|iPad|iPod/.test(ua), And=/Android/.test(ua);
+  const nm=(ua.match(/FBAN|FBAV|FB_IAB|FBIOS|Instagram|Messenger|Line\/|Snapchat|musical_ly|TikTok|Telegram|WhatsApp|LinkedInApp|Twitter/i)||[])[0];
+  const awv=And&&/; wv\)/.test(ua), iwv=iOS&&!/Safari\//.test(ua)&&!/CriOS|FxiOS|EdgiOS/.test(ua);
+  if(!(nm||awv||iwv)) return;
+  try{if(sessionStorage.getItem('obg-iab'))return}catch(e){}
+  const names={fban:'فيسبوك',fbav:'فيسبوك',fb_iab:'فيسبوك',fbios:'فيسبوك',instagram:'إنستغرام',messenger:'ماسنجر',snapchat:'سناب',telegram:'تليجرام',whatsapp:'واتساب',tiktok:'تيك توك',musical_ly:'تيك توك','line/':'لاين',linkedinapp:'لينكدإن',twitter:'X'};
+  document.getElementById('iabapp').textContent=nm?names[nm.toLowerCase()]||'تطبيق':'تطبيق (واتساب، تليجرام…)';
+  document.getElementById('iabhow').textContent=iOS?'اكبس ⋯ أو 🧭 واختار «فتح في Safari».':'اكبس ⋮ فوق واختار «فتح في Chrome» أو «فتح في المتصفح».';
+  const box=document.getElementById('iab'); box.hidden=false;
+  if(And){const o=document.getElementById('iabopen');o.hidden=false;o.onclick=()=>{location.href='intent://'+location.host+location.pathname+'#Intent;scheme=https;package=com.android.chrome;end'}}
+  document.getElementById('iabcopy').onclick=async()=>{try{await navigator.clipboard.writeText(location.href);toast('انسخ الرابط ✓ الصقه بكروم أو Safari')}catch(e){prompt('انسخ الرابط والصقه بالمتصفح:',location.href)}};
+  document.getElementById('iabx').onclick=()=>{box.hidden=true;try{sessionStorage.setItem('obg-iab','1')}catch(e){}};
+}catch(e){}})();
 </script>
 </body>
 </html>
