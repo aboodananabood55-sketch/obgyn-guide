@@ -687,7 +687,7 @@ td.ltr{display:table-cell}
     <ul class="clean"><li><b>Q1.</b> A couple requests sterilisation. Comparing vasectomy and tubal ligation: <span class="ans">Vasectomy is less invasive but needs semen analysis to confirm sterility</span></li>
     <li><b>Q2.</b> A lactating woman wants contraception. All options were combined methods except one: <span class="ans">Progestogen-only</span></li>
     <li><b>Q3.</b> Most effective emergency contraception? <span class="ans">Copper IUCD</span></li>
-    <li><b>Q4.</b> A recognised feature of DMPA: <span class="ans">Delayed return of fertility</span> (can take up to a year after the last injection)</li>
+    <li><b>Q4.</b> A recognised feature of DMPA: <span class="ans">Delayed return of fertility</span> (up to 18 months after the last injection, per Dr. Fida's slides)</li>
     <li><b>Q5.</b> A question on implants <span class="pill p-opt">Rebuilt</span>: probably side effects (irregular bleeding is the commonest).</li></ul></details>
   <details><summary>Station 5 · Diabetes in pregnancy</summary>
     <ul class="clean"><li><b>Q1.</b> Given OGTT values, is this GDM?</li>
@@ -709,6 +709,10 @@ td.ltr{display:table-cell}
   <div class="kicker">الفرع ١٠</div>
   <h2 class="title">السنوات</h2>
   <p class="lead">كل أسئلة السنوات بمكان واحد: الفاينل، الميني أوسكي، الأورال والأوسكي.</p>
+  <div class="tier t1" id="obgbank"><div class="hd"><span class="pill p-must">جديد</span><h3>بنك أسئلة النسائية (موقعنا)</h3></div>
+    <div class="res"><h4>٦٤٦ سؤال: كل الـ QBank (Final ٥٤٢ + Mini OSCE ٨١) + مجرّبات ميني حياة</h4>كل سؤال بشرح كامل: الفكرة، ليش كل خيار صح أو غلط، شو حكت السلايدات ورقم السلايد، وزر <b>خذني لمكان الشرح</b> بيفتح السلايدات. المفاتيح الغلط بالـ QBank مصححة ومعلَّمة. فيه بحث بأي كلمة أو رقم، فلاتر بتجمعها مع بعض (دكتور، محاضرة، دفعة، مكرر…)، أوراق Mini OSCE بنظام الامتحان (محطات بدون رجوع)، أوراق Final، ملاحظات وتظليل وحفظ التقدم، وتصدير PDF.
+      <div><a class="ext" target="_blank" href="https://aboodananabood55-sketch.github.io/obgyn-bank/">افتح بنك الأسئلة</a></div>
+      <div class="rel">بنفس ترتيب الخيارات للكل، فإذا حكيت "الجواب C" بتعني نفس الشي لكل الدفعة.</div></div></div>
   <div class="tier t1"><div class="hd"><span class="pill p-must">ابدأ فيه</span><h3>QBank اللجنة (تفاعلي)</h3></div>
     <div class="res"><h4>٦٢٣ سؤال من ٧ دفعات</h4><b>Final: ٥٤٢</b> · <b>Mini OSCE: ٨١</b>. بتقدر تفلتر حسب الموضوع والدفعة والصعوبة، وتختار Study أو Timed exam.
       <div class="flow" style="margin:10px 0">
@@ -1151,7 +1155,7 @@ document.getElementById('qbars').innerHTML=QB.map((q,i)=>`<div class="barrow ${i
 
 /* ---------- notifications ----------
    Add newest first: {d:'2026-11-20T14:30', t:'العنوان', x:'تفاصيل اختيارية', go:'resources', a:'r-q'} (go = الصفحة، a = عنصر داخلها، اختياريين) */
-const NOTIFS=[];
+const NOTIFS=[{d:'2026-11-15T00:55',t:'بنك أسئلة النسائية صار جاهز 🎉',x:'كل أسئلة الـ QBank (٦٢٣) ومجرّبات ميني حياة، بشرح كامل ورقم السلايد لكل سؤال. موجود بفرع السنوات.',go:'soon',a:'obgbank'}];
 const fmtD=s=>{try{return new Date(s+'+03:00').toLocaleString('ar-JO',{weekday:'long',year:'numeric',month:'long',day:'numeric',hour:'numeric',minute:'2-digit',timeZone:'Asia/Amman'})}catch(e){return s}};
 let lastSeen=''; try{lastSeen=localStorage.getItem('obg-seen')||''}catch(e){}
 const nItem=n=>`<div class="nitem ${n.d>lastSeen?'new':''}"><time>${fmtD(n.d)}</time><b>${n.t}</b>${n.x?`<div class="by">${n.x}</div>`:''}${n.go?`<button class="go" data-go="${n.go}"${n.a?` data-anchor="${n.a}"`:''}>افتح</button>`:''}</div>`;
