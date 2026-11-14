@@ -343,6 +343,7 @@ td.ltr{display:table-cell}
 @media (max-width:760px){.pmap{padding-top:6px}}
 .npanel{margin-top:8px}
 @media (max-width:360px){.card{padding:16px 14px}.grid{grid-template-columns:1fr!important}.grid>*{min-width:0;overflow-wrap:anywhere}.bar{gap:4px;padding:8px 8px}.bar .iconbtn{padding:4px 7px;font-size:12px}.brand{font-size:14px;gap:6px}.brand .seed{width:26px;height:26px}}
+.gopts.wkos{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.gopt.wko{text-align:center;padding:8px 4px;font-size:12px}.gopt.wko b{font-size:14px}
 </style>
 </head>
 <body>
@@ -837,7 +838,7 @@ td.ltr{display:table-cell}
     <button class="gopt" data-v="high"><b>علامة عالية</b>كل الإجباري والمساعد والتكميلي</button>
     <button class="gopt" data-v="ok"><b>علامة منيحة بجهد معقول</b>الإجباري + التفريغ وين بيلزم</button>
     <button class="gopt" data-v="pass"><b>بدي أنجح وبس</b>الإجباري بس: سلايد، Q-file، سنوات</button></div></div>
-  <div class="gq"><h4>٣. من وين نبدأ؟</h4><div class="gopts" data-q="f" id="gfrom"></div></div>
+  <div class="gq"><h4>٣. من أي أسبوع بدك تبلش؟</h4><div class="by" style="margin:-4px 0 6px">الأسابيع اللي قبله بتضل فاضية، وكل المادة بتتوزع على الأسابيع الضايلة.</div><div class="gopts wkos" data-q="f" id="gfrom"></div></div>
   <div class="gq" id="ggrpq"><h4>٤. مجموعتك</h4><div class="gp" id="ggp"></div></div>
   <p class="by" id="gwarn"></p>
   <div class="row" style="display:flex;gap:8px"><button class="btn" id="gdo">اعمل الخطة</button><button class="btn ghost" data-genx>إلغاء</button></div>
@@ -1412,12 +1413,12 @@ document.getElementById('pclr').onclick=()=>{const prev=JSON.stringify(P);const 
 /* generator modal */
 const genm=document.getElementById('genm'), GA={r:null,g:null,f:null,grp:0};
 function openGen(){const nw=nowWeek(); GA.grp=P.g||0;
-  const fopts=nw>1&&nw<9?[[nw,`من هلّق (أسبوع ${WK[nw-1][0]})`,'الأسابيع اللي فاتت بتضل فاضية، وكل المادة بتتوزع على اللي ضايل'],[1,'من الأسبوع الأول','بدي أشوف التوزيع كامل حتى لو فات وقت']]:nw===9?[[8,'آخر أسبوع','الروتيشن خلص: بحط كل إشي بآخر عمود كمراجعة']]:[[1,'من الأسبوع الأول','الأحد ١٥ نوفمبر']];
-  document.getElementById('gfrom').innerHTML=fopts.map(o=>`<button class="gopt" data-v="${o[0]}"><b>${o[1]}</b>${o[2]}</button>`).join('');
-  GA.f=fopts.length===1?fopts[0][0]:null;
+  const cur=Math.max(1,Math.min(nw,8));
+  document.getElementById('gfrom').innerHTML=WK.map((x,i)=>`<button class="gopt wko" data-v="${i+1}"><b>أسبوع ${x[0]}</b>${x[1]}${i+1===nw?' · هلّق':''}</button>`).join('');
+  GA.f=cur;
   document.getElementById('ggp').innerHTML=Array.from({length:20},(_,i)=>`<button data-g="${i+1}" class="${GA.grp===i+1?'on':''}">C${i+1}</button>`).join('');
   document.querySelectorAll('#genm .gopt').forEach(b=>{const q=b.parentElement.dataset.q;b.classList.toggle('on',String(GA[q])===b.dataset.v)});
-  document.getElementById('gwarn').textContent=nw>1&&nw<9?`اليوم بالأسبوع ${WK[nw-1][0]}. إذا بلّشت متأخر عادي: اختار "من هلّق" وبنوزّع المادة على الوقت الضايل.`:'';
+  document.getElementById('gwarn').textContent=nw>1&&nw<9?`اليوم بالأسبوع ${WK[nw-1][0]}. إذا بلّشت متأخر عادي: أسبوع ${WK[nw-1][0]} مختار، وبنوزّع المادة على الوقت الضايل.`:'';
   genm.classList.add('on');tone(600,.04)}
 document.getElementById('pgen').onclick=openGen;
 genm.addEventListener('click',e=>{const o=e.target.closest('.gopt');if(o){const q=o.parentElement.dataset.q;GA[q]=q==='f'?+o.dataset.v:o.dataset.v;o.parentElement.querySelectorAll('.gopt').forEach(x=>x.classList.toggle('on',x===o));tone(700,.03)}
