@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>دليل النسائية والتوليد · دفعة حياة</title>
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#7b3f61">
 <meta name="description" content="خريطة طريق كاملة لميجر النسائية والتوليد: الدوام، المادة، المحاضرات، المصادر وعلاقتها ببعض، وخطة الدراسة.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,7 +30,7 @@ h1,h2,h3{font-family:"Reem Kufi","IBM Plex Sans Arabic",sans-serif;font-weight:6
 /* top bar */
 .bar{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:12px;padding:12px 22px;background:rgba(245,239,230,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .brand{display:flex;align-items:center;gap:10px;cursor:pointer;font-family:"Reem Kufi";font-size:19px;color:var(--ink)}
-.brand .seed{width:30px;height:30px;border-radius:50%;background:radial-gradient(circle at 35% 35%,var(--rose),var(--plum));box-shadow:inset 0 -3px 6px rgba(0,0,0,.15)}
+.brand .seed{width:32px;height:32px;border-radius:9px;background:url(icon.svg) center/cover;box-shadow:0 2px 6px rgba(123,63,97,.25)}
 .bar .sp{flex:1}
 .iconbtn{border:1px solid var(--line);background:var(--card);color:var(--ink2);border-radius:999px;padding:6px 14px;font:inherit;font-size:14px;cursor:pointer;box-shadow:var(--shadow);transition:.2s}
 .iconbtn:hover{color:var(--plum);transform:translateY(-1px)}
@@ -345,7 +348,7 @@ details[open] summary{color:var(--plum);margin-bottom:6px}
       <li><b>المصدر الأساسي هو السلايدات.</b> الامتحان دقيق وبده بصم، خصوصاً الأرقام والنسب.</li>
       <li><b>العلامة:</b> فاينل ٤٥ · ميني أوسكي ٣٠ · أورال ٥ · حضور ١٠ · تقييم ولوج بوك ١٠.</li>
       <li><b>امتحانين مختلفين:</b> <b>Mini-OSCE (٣٠)</b> آخر الروتيشن: محوسب، ~٦ كيسات طويلة، كل كيس ٥–٦ أسئلة بدون رجوع، ومعه الأورال (٥). <b>Final (٤٥)</b>: MCQ دقيق بالأرقام. الاثنين من كل المحاضرات.</li>
-      <li><b>دكتور فراس ودكتورة فداء</b> بيحكوا زيادة على السلايدات، فلازم التفاريغ أو المسجّلة.</li>
+      <li><b>دكتور فراس ودكتورة فداء</b> بيحكوا أشياء مش موجودة بالسلايدات، فلازم تسمعوا التسجيل أو تقروا التفريغ.</li>
       <li><b>دكتور رامي:</b> الدفعات السابقة درسوا مواضيعه من كتاب Hacker &amp; Moore. محاضرة التوينز مهمة بالميني.</li>
       <li><b>حل أسئلة إجباري، مش اختياري:</b> Q-files الدكاترة + QBank اللجنة (٥٤٢ فاينل + ٨١ ميني).</li>
       <li><b>قناة محمد نبيل (Year 5 M.N.)</b> فيها لكل محاضرة تسجيل وسلايدات وشيتات وكويز، وكلها مربوطة بفهرس المحاضرات هون.</li>
@@ -515,7 +518,7 @@ details[open] summary{color:var(--plum);margin-bottom:6px}
     <div class="res"><h4>ملفات الأرقام والنسب</h4>ثلاث ملفات ورا بعض: <b>"نسب النسائية"</b> (HTN، VTE، DM، GTD، APH، Physiological changes، UTI + فراس)، و<b>percentages.pdf</b> (د. لبنى، مراد، فداء، ديمة، حمزة)، و<b>Obs-gyn-Percentage</b>.
       <div><a class="ext" target="_blank" href="https://t.me/c/3040362219/2368/2427">ملفات الأرقام (جروب م.ع) · الثلاثة بنفس المكان</a></div>
       <div class="rel">للـ Final بالذات (بيلعب على الأرقام): آخر أسبوعين وقبل الامتحان بيوم.</div></div>
-    <div class="res"><h4>Discussion files د. فداء + المسجّلة</h4>د. فداء بتطلب تحضر محاضراتها المسجّلة (Y5 22-23)، وبعدين بتعمل ميتنج نقاش بسيناريوهات بتحاكي الامتحان (ملفات discussion 26-27).
+    <div class="res"><h4>د. فداء: المحاضرة + جلسة الـ discussion</h4>كل محاضرة إلها جزئين: محاضرة سجّلتها الدكتورة سنة 22-23 لازم تحضروها قبل، وبعدين جلسة discussion معها بسيناريوهات بتحاكي الامتحان، وإلها سلايدات خاصة (26-27).
       <div class="rel">ملفات الـ discussion مش موجودة بالـ Q-file تبعها، فادرسها لحالها. وقبلها شوف فيديو الـ menstrual cycle لـ د. نادين كأساس.</div></div>
   </div>
 
@@ -847,8 +850,8 @@ const docs={
  hadeel:{n:'د. هديل الرواحنة',q:QF+'66491/dr-hadeel-obs.pdf',note:'محاضراتها ممتازة وكافية، وبيحبوا يسألوا management. شوي شديدة، وبتركّز على كتابة الهيستوري والفيزيكال.'},
  murad:{n:'د. مراد الربضي',q:QF+'66861/dr-murad.pdf',note:'مختص fetal & maternal medicine (مستشفى الزرقاء الحكومي).'},
  rami:{n:'د. رامي الكيلاني',q:QF+'67465/dr-rami.pdf',qn:'"based on the book"',note:'أقل دكتور بدقق، بس مسؤول عن تنظيم الامتحانات وبكون عصبي فيها، فامشوا زي ما بحكي. محاضراته خفيفة وعليها أسئلة كثير. الدفعات السابقة درست مواضيعه من كتاب Hacker & Moore.'},
- firas:{n:'د. فراس الرشود',q:QF+'66863/dr-firas-gyne.pdf',note:'أخصائي عقم وأطفال أنابيب. بيضيف حكي كثير على السلايدات، فلازم المسجّلة أو التفاريغ. بدقق على الطلاب وبحب يعلّم.'},
- fida:{n:'د. فداء العسلي',q:QF+'66862/dr-fedaa-gyne.pdf',qn:'ما بيشمل ملف AUB discussion',note:'محاضراتها مرتبة وأساسية. بتطلب تحضروا المسجّلة، وبعدين ميتنج نقاش وسيناريوهات بتحاكي الامتحان.'},
+ firas:{n:'د. فراس الرشود',q:QF+'66863/dr-firas-gyne.pdf',note:'أخصائي عقم وأطفال أنابيب. بيضيف حكي كثير مش موجود بالسلايدات، فلازم تسمع التسجيل أو تقرا التفريغ. بدقق على الطلاب وبحب يعلّم.'},
+ fida:{n:'د. فداء العسلي',q:QF+'66862/dr-fedaa-gyne.pdf',qn:'ما بيشمل ملف AUB discussion',note:'محاضراتها مرتبة وأساسية. كل محاضرة إلها تسجيل من الدكتورة لازم تحضروه قبل، وبعدين جلسة discussion معها بسيناريوهات بتحاكي الامتحان.'},
  hamzah:{n:'د. حمزة العموش',q:QF+'75113/dr-hamzeh-gyne.pdf',qn:'لازم تفاصيل POP staging من السلايدات',note:'بيركّز على التهبيطة وأعراض الجهاز البولي، وبيعطي cervical cancer و endometriosis.'},
  dima:{n:'د. ديمة زغاري',q:QF+'67463/dr-dima-gyne.pdf',note:'Oncology. شرحها منيح وكافي.'}
 };
@@ -887,9 +890,9 @@ const L=[
  {t:'PCOS',d:'firas',s:'gyn',w:2,g:'Menstrual & Reproductive Endocrinology',sh:'amen',x:'Rotterdam criteria والعلاج حسب الهدف.'},
  {t:'Hirsutism',d:'firas',s:'gyn',w:2,g:'Menstrual & Reproductive Endocrinology',sh:'amen',x:'Hirsutism ضد virilism، والأسباب والـ workup.'},
  {t:'Infertility',d:'firas',s:'gyn',w:3,g:'Reproductive Medicine',rn:'inf',x:'الـ workup للزوجين، والـ ovulation induction، والـ ART.'},
- {t:'Menstrual cycle & AUB',d:'fida',s:'gyn',w:5,g:'Menstrual & Reproductive Endocrinology',sh:'aub',x:'PALM-COEIN والـ management. ادرسها من المسجّلة + ملف الـ discussion. شوف فيديو د. نادين للـ cycle قبلها.'},
- {t:'Menopause & HRT',d:'fida',s:'gyn',w:4,g:'Menstrual & Reproductive Endocrinology',sh:'meno',x:'الأعراض، الـ HRT (indications وموانع)، والبدائل. المسجّلة + الـ discussion.'},
- {t:'Contraception',d:'fida',s:'gyn',w:4,g:'Reproductive Medicine',x:'الطرق، الـ UKMEC، الـ missed pills، والـ EC. المسجّلة + الـ discussion + فيديو أحمد معاذ. إجا كيس بالميني.'},
+ {t:'Menstrual cycle & AUB',d:'fida',s:'gyn',w:5,g:'Menstrual & Reproductive Endocrinology',sh:'aub',x:'PALM-COEIN والـ management. ادرسها من تسجيل المحاضرة وبعدين سلايدات الـ discussion. شوف فيديو د. نادين للـ cycle قبلها.'},
+ {t:'Menopause & HRT',d:'fida',s:'gyn',w:4,g:'Menstrual & Reproductive Endocrinology',sh:'meno',x:'الأعراض، الـ HRT (indications وموانع)، والبدائل. تسجيل المحاضرة وبعدين سلايدات الـ discussion.'},
+ {t:'Contraception',d:'fida',s:'gyn',w:4,g:'Reproductive Medicine',x:'الطرق، الـ UKMEC، الـ missed pills، والـ EC. تسجيل المحاضرة، سلايدات الـ discussion، وفيديو أحمد معاذ. إجا كيس بالميني.'},
  {t:'LUTS / Urinary incontinence',d:'hamzah',s:'gyn',w:4,g:'Urogynecology & Infections',x:'Stress ضد urge، و urodynamics interpretation. ما إله شيت.'},
  {t:'Pelvic organ prolapse',d:'hamzah',s:'gyn',w:3,g:'Urogynecology & Infections',sh:'pop',rn:'pop',x:'الأنواع و <b>POP staging بالتفصيل</b> من السلايدات. إجا كيس بالميني.'},
  {t:'Endometriosis & Adenomyosis',d:'hamzah',s:'gyn',w:3,g:'Benign Gynecology',rn:'endo',x:'Chronic pelvic pain، والتشخيص والعلاج.'},
@@ -929,13 +932,13 @@ const EX={
  'SGA & FGR':{mn:334,gm:'76c973f9c8aa'},
  'IUFD / Stillbirth':{mn:341,gm:'23967567e3c3'},
  'Puerperium & Postpartum blues':{mn:347,gm:'8fbe49e5feda'},
- 'Early pregnancy complications & EP':{mn:468,gm:'dd4231553eb5',rd:'160_oX9J6-UCSCcvyTXTtDwOum3hXbSdu',ru:'https://medclubhu.weebly.com/uploads/1/5/4/1/154160082/miscarriages_and_ectopic_pregnancy_-_batool.pdf'},
+ 'Early pregnancy complications & EP':{mn:468,gm:'dd4231553eb5',rd:'160_oX9J6-UCSCcvyTXTtDwOum3hXbSdu'},
  'Puberty':{mn:440,gm:'5f4b134c8c46',rn:'pub'},
  'Amenorrhea':{mn:446,gm:'1eba834c461f',rn:'amen'},
  'PCOS':{mn:458,gm:'2de633207435',rd:'1GvfGPL3Dt64Q-FF8aLL1kDZUza8WIxVA'},
  'Hirsutism':{mn:463,gm:'b0d1cb267fae',rd:'1q5ERdhWmXB86gXONaNtCvUkPTmMj5HXs'},
  'Infertility':{mn:398,gm:'c3acc7c5bdc2'},
- 'Menstrual cycle & AUB':{mn:358,gm:'e0e930a468f7',gm2:'5b3222307998',rn:'aubd',tg:2448},
+ 'Menstrual cycle & AUB':{mn:358,gm:'e0e930a468f7',gm2:'5b3222307998',rn:'aubd',rnp:'AUB discussion',tg:2448},
  'Menopause & HRT':{mn:380,gm:'d1596a7c4509',tg:2447},
  'Contraception':{mn:374,gm:'a3233cb634b3',tg:2446,vid:'https://t.me/c/4324406653/3/254'},
  'LUTS / Urinary incontinence':{mn:408,gm:'6154b9d964f0',rd:'1I0ZoP4f52cX0Q6kvvgD3T1XUR1Hbr0t8'},
@@ -950,13 +953,14 @@ const EX={
 L.push({t:'Uterine fibroids & Endometrial hyperplasia',d:'dima',s:'gyn',w:2,g:'Gyne Oncology',mn:526,x:'د. ديمة حكت ببداية المحاضرة إنه هالموضوعين بندرسوهم من الكتاب (Hacker &amp; Moore, Chapter 19). محمد نبيل جهّز الـ Chapter وشيتات مرتبة إلهم.'});
 L.forEach(l=>{const e=EX[l.t]; if(e){Object.assign(l,e)}});
 /* per-lecture HUMSC slide files (batch Hayat) and committee YouTube recordings, by L index (verified on humsc.net) */
-const SLX={"0": [["7bb88c20-377f-4dd9-b114-5f520e9c04fd", ""]], "1": [["f01b342d-55c0-4bd8-8202-1f794c39d547", ""]], "2": [["e7039b4b-06dc-4756-b471-e273152ba0ac", ""]], "3": [["fa656165-9dee-4096-b93a-886d8917bc76", ""]], "4": [["d1d6c04d-7860-439d-addd-c8005f80ddca", ""]], "5": [["e3785ce9-5c89-4357-8f6e-b331ed68aabb", ""]], "6": [["c8e20eb4-3c32-4cb2-9467-936be32de1f4", ""]], "7": [["743e82af-2efa-4aa6-a11b-0ce179ba69dd", ""]], "8": [["df6daeae-c6d3-477d-88a0-a436be267c03", ""]], "9": [["73eab116-fc57-4c25-b873-b7919e6602be", ""]], "10": [["457edcbd-e320-43c8-9ac3-244922677090", ""]], "11": [["aadf5e68-41a5-466a-ab30-60978fe17246", ""]], "12": [["2655d2a5-0244-4e1a-ae53-d56b88ecae17", ""]], "13": [["945cea0e-0a1e-4f25-9bda-2055e615c36a", ""]], "14": [["021ed7e7-cb76-42e0-99d9-1094c852ec65", ""]], "15": [["da4a2637-fa51-4299-a549-4ee08147e164", ""]], "16": [["31482b24-0909-4d3c-a34a-95ee4e68ed9a", ""]], "17": [["8c4dcfcb-37d6-4bde-978a-8ad9f48ddbbd", ""]], "18": [["ddaf78f4-c5c4-4b27-8eb4-5f92807e66f4", ""]], "19": [["743c5088-b96e-4ca1-8692-c147eb36aa72", ""]], "20": [["cffe531e-c813-43eb-8c8a-8cc584d2ef76", ""]], "21": [["492fde5b-ca57-48fc-b991-5232784685de", ""]], "22": [["0f20a1ad-781d-4955-abab-1e15fcbbe352", ""]], "23": [["8d9a443d-ec27-43df-9fd6-19e63cb00b95", ""]], "24": [["275672f9-975a-4062-a277-bed2d044a522", ""]], "25": [["8e2426d4-5ac3-4829-939b-83a2aa363b92", ""]], "26": [["00455020-d595-47c8-93a6-55efb6f97f1d", ""]], "27": [["c2ce940d-ef03-45b9-b1d0-23dd61bcde6d", ""]], "28": [["c6d814b5-6170-4329-a8dd-c75f60b4eef3", ""]], "29": [["aea9d773-b54c-4c66-9438-ea5c4bf190e8", ""]], "30": [["be8a5dc0-0bbc-47c7-8a46-c7379184e011", ""]], "31": [["fadb807a-9a81-4af3-9bd4-d5bb0384cfac", ""]], "32": [["1e783f43-6838-4516-8317-9c3b5808346f", ""]], "33": [["019c08bc-56a3-44bb-a9fd-51cbabc0ed38", "المحاضرة المسجّلة"], ["17ff9450-ceb6-404f-8eab-69ab26c868c2", "الـ discussion"]], "34": [["24ffc1f5-6b23-4314-881c-60cf5300b05b", "المحاضرة المسجّلة"], ["f83276f8-a4dd-451c-8b4f-a2ee8fd95398", "الـ discussion"]], "35": [["071f8726-1500-4d75-b692-f25b43947daf", "المحاضرة المسجّلة"], ["bdfa466d-1af5-41d1-a767-d8aa6fc0a944", "الـ discussion"]], "36": [["9d88c746-6096-4244-bae6-ccbfa9e70f42", ""]], "37": [["4083dfd3-5ccc-4c1b-be7f-90d16e561f3f", ""]], "38": [["92c8d098-510e-44a2-aa20-d60be9b5f8f0", ""]], "39": [["a3782459-b380-402b-bcfd-22b1e60500f2", ""]], "40": [["200f3147-ff5b-4129-abe2-4cc862122ca8", ""]], "41": [["26fdf2ca-7732-4312-8b27-a524e2f64cb8", ""]], "42": [["3ce6e52a-7f7f-4301-b3bf-3a6278b5df21", ""]], "43": [["1fc8015f-05ae-4084-a4d8-99e44ac411ae", ""]]};
-const YTX={"0": [["xAKSTG_MzW4", ""]], "1": [["uh8PnCmwhE0", ""]], "4": [["v3f2RFTj_WI", ""]], "8": [["q4jyqzU2Ldc", ""]], "9": [["cncaUk4z28M", ""]], "7": [["32KV5SvyrPE", ""]], "10": [["oRxkDTlbElk", ""]], "5": [["j8AcJh4gQ7Q", ""]], "2": [["ywBLQLILaHI", ""]], "3": [["IlPQ0sOAWGA", ""]], "6": [["5pfm_7TS2rs", ""]], "16": [["unilKOYQcsw", ""]], "19": [["ZQRjIfmjEIQ", ""]], "18": [["qq0uJECRZyI", ""]], "20": [["p-tKOBzIEC0", ""]], "14": [["K4ZfGwrJvyI", ""]], "13": [["Wfq8rMkixNo", ""]], "11": [["FzQx8PJTg8k", ""]], "12": [["a6lJ5RqkLvw", ""]], "15": [["5ikvPQIm5W0", ""]], "17": [["FGveF82gFaM", ""]], "25": [["y6o23x_J6aI", ""]], "23": [["HcZTYycDH40", ""]], "22": [["iVxzmjAcnLs", ""]], "26": [["ILmZQ5HLKUw", ""]], "24": [["W4rbQaOTN0g", ""]], "33": [["B8Z9ITkKouM", "المسجّلة"], ["7wj4tckJ4Ls", "الـ discussion"]], "35": [["IZ4ju7zuq_U", "المسجّلة"], ["wYDerpB_SCw", "الـ discussion"]], "34": [["_0Zh5fH1iFw", "المسجّلة"], ["y2yxRHo5z_E", "الـ discussion"]], "32": [["tH76gR3kDCE", ""]], "29": [["uTFk3QYey6s", ""]], "27": [["iep_4myTto0", ""]], "31": [["f1x4JVKM9kI", ""]], "28": [["xwLv5DmhOIw", ""]], "30": [["MqRPHUHBOp0", ""]], "36": [["Jq0wFxharQ4", ""]], "37": [["QfrvO-ApoNI", ""]], "38": [["DrGNKKqGjyE", ""]]};
+const SLX={"0": [["7bb88c20-377f-4dd9-b114-5f520e9c04fd", ""]], "1": [["f01b342d-55c0-4bd8-8202-1f794c39d547", ""]], "2": [["e7039b4b-06dc-4756-b471-e273152ba0ac", ""]], "3": [["fa656165-9dee-4096-b93a-886d8917bc76", ""]], "4": [["d1d6c04d-7860-439d-addd-c8005f80ddca", ""]], "5": [["e3785ce9-5c89-4357-8f6e-b331ed68aabb", ""]], "6": [["c8e20eb4-3c32-4cb2-9467-936be32de1f4", ""]], "7": [["743e82af-2efa-4aa6-a11b-0ce179ba69dd", ""]], "8": [["df6daeae-c6d3-477d-88a0-a436be267c03", ""]], "9": [["73eab116-fc57-4c25-b873-b7919e6602be", ""]], "10": [["457edcbd-e320-43c8-9ac3-244922677090", ""]], "11": [["aadf5e68-41a5-466a-ab30-60978fe17246", ""]], "12": [["2655d2a5-0244-4e1a-ae53-d56b88ecae17", ""]], "13": [["945cea0e-0a1e-4f25-9bda-2055e615c36a", ""]], "14": [["021ed7e7-cb76-42e0-99d9-1094c852ec65", ""]], "15": [["da4a2637-fa51-4299-a549-4ee08147e164", ""]], "16": [["31482b24-0909-4d3c-a34a-95ee4e68ed9a", ""]], "17": [["8c4dcfcb-37d6-4bde-978a-8ad9f48ddbbd", ""]], "18": [["ddaf78f4-c5c4-4b27-8eb4-5f92807e66f4", ""]], "19": [["743c5088-b96e-4ca1-8692-c147eb36aa72", ""]], "20": [["cffe531e-c813-43eb-8c8a-8cc584d2ef76", ""]], "21": [["492fde5b-ca57-48fc-b991-5232784685de", ""]], "22": [["0f20a1ad-781d-4955-abab-1e15fcbbe352", ""]], "23": [["8d9a443d-ec27-43df-9fd6-19e63cb00b95", ""]], "24": [["275672f9-975a-4062-a277-bed2d044a522", ""]], "25": [["8e2426d4-5ac3-4829-939b-83a2aa363b92", ""]], "26": [["00455020-d595-47c8-93a6-55efb6f97f1d", ""]], "27": [["c2ce940d-ef03-45b9-b1d0-23dd61bcde6d", ""]], "28": [["c6d814b5-6170-4329-a8dd-c75f60b4eef3", ""]], "29": [["aea9d773-b54c-4c66-9438-ea5c4bf190e8", ""]], "30": [["be8a5dc0-0bbc-47c7-8a46-c7379184e011", ""]], "31": [["fadb807a-9a81-4af3-9bd4-d5bb0384cfac", ""]], "32": [["1e783f43-6838-4516-8317-9c3b5808346f", ""]], "33": [["019c08bc-56a3-44bb-a9fd-51cbabc0ed38", "Menstrual cycle"], ["17ff9450-ceb6-404f-8eab-69ab26c868c2", "AUB discussion"]], "34": [["24ffc1f5-6b23-4314-881c-60cf5300b05b", "Menopause"], ["f83276f8-a4dd-451c-8b4f-a2ee8fd95398", "Menopause discussion"]], "35": [["071f8726-1500-4d75-b692-f25b43947daf", "Contraception"], ["bdfa466d-1af5-41d1-a767-d8aa6fc0a944", "Contraception discussion"]], "36": [["9d88c746-6096-4244-bae6-ccbfa9e70f42", ""]], "37": [["4083dfd3-5ccc-4c1b-be7f-90d16e561f3f", ""]], "38": [["92c8d098-510e-44a2-aa20-d60be9b5f8f0", ""]], "39": [["a3782459-b380-402b-bcfd-22b1e60500f2", ""]], "40": [["200f3147-ff5b-4129-abe2-4cc862122ca8", ""]], "41": [["26fdf2ca-7732-4312-8b27-a524e2f64cb8", ""]], "42": [["3ce6e52a-7f7f-4301-b3bf-3a6278b5df21", ""]], "43": [["1fc8015f-05ae-4084-a4d8-99e44ac411ae", ""]]};
+const YTX={"0": [["xAKSTG_MzW4", ""]], "1": [["uh8PnCmwhE0", ""]], "4": [["v3f2RFTj_WI", ""]], "8": [["q4jyqzU2Ldc", ""]], "9": [["cncaUk4z28M", ""]], "7": [["32KV5SvyrPE", ""]], "10": [["oRxkDTlbElk", ""]], "5": [["j8AcJh4gQ7Q", ""]], "2": [["ywBLQLILaHI", ""]], "3": [["IlPQ0sOAWGA", ""]], "6": [["5pfm_7TS2rs", ""]], "16": [["unilKOYQcsw", ""]], "19": [["ZQRjIfmjEIQ", ""]], "18": [["qq0uJECRZyI", ""]], "20": [["p-tKOBzIEC0", ""]], "14": [["K4ZfGwrJvyI", ""]], "13": [["Wfq8rMkixNo", ""]], "11": [["FzQx8PJTg8k", ""]], "12": [["a6lJ5RqkLvw", ""]], "15": [["5ikvPQIm5W0", ""]], "17": [["FGveF82gFaM", ""]], "25": [["y6o23x_J6aI", ""]], "23": [["HcZTYycDH40", ""]], "22": [["iVxzmjAcnLs", ""]], "26": [["ILmZQ5HLKUw", ""]], "24": [["W4rbQaOTN0g", ""]], "33": [["B8Z9ITkKouM", "Menstrual cycle"], ["7wj4tckJ4Ls", "AUB discussion"]], "35": [["IZ4ju7zuq_U", "Contraception"], ["wYDerpB_SCw", "Contraception discussion"]], "34": [["_0Zh5fH1iFw", "Menopause"], ["y2yxRHo5z_E", "Menopause discussion"]], "32": [["tH76gR3kDCE", ""]], "29": [["uTFk3QYey6s", ""]], "27": [["iep_4myTto0", ""]], "31": [["f1x4JVKM9kI", ""]], "28": [["xwLv5DmhOIw", ""]], "30": [["MqRPHUHBOp0", ""]], "36": [["Jq0wFxharQ4", ""]], "37": [["QfrvO-ApoNI", ""]], "38": [["DrGNKKqGjyE", ""]]};
 L.forEach((l,i)=>{l.slx=SLX[i]||[];l.yt=YTX[i]||[]});
 /* from previous batches (verified) */
-const YTO={21:[['RwKbsg7AFXw','وريد','Hydrops fetalis – د. مراد']],39:[['CCTfy-PlnUg','وريد','Cervical cancer – د. حمزة']],40:[['ms_Q3uKa-gQ','أثر','Ovarian cysts – د. ديمة']],41:[['plOVNigPJmI','أثر','Ovarian cancer – د. ديمة']],42:[['SqUT5jSQH6s','أثر','Adenocarcinoma of the uterine corpus – د. ديمة']],44:[['nv_gFUb7XbU','أثر','Week 7 – د. ديمة – Uterus']]};
-const XO={23:[['fcdaa6b4-c4d3-4b2d-87ac-ff9115532444','multiple gestation (marah)']],24:[['b1e2abc9-21b7-4404-b1d2-1b3bd5af1d24','IUGR (marah)']],26:[['8979d0fc-0931-4b14-acfc-c871f7009911','Puerperium – Postpartum Care']],42:[['ae501c58-91e3-4e68-bcd3-091bbf6d1833','Uterine corpus + Vulvar cancer']],43:[['ae501c58-91e3-4e68-bcd3-091bbf6d1833','Uterine corpus + Vulvar cancer']],44:[['a649499c-c6e3-4d9e-9c5e-8c03ea39f845','Fibroid summary'],['5639f92c-f486-4e0a-be47-08fba3ba66ad','Fibroid + UTI + AUB + Wound infection']]};
-L.forEach((l,i)=>{l.yo=YTO[i]||[];l.xo=XO[i]||[]});
+const YTO={21:[['RwKbsg7AFXw','وريد','']],39:[['CCTfy-PlnUg','وريد','']],40:[['ms_Q3uKa-gQ','أثر','']],41:[['plOVNigPJmI','أثر','']],42:[['SqUT5jSQH6s','أثر','']],44:[['nv_gFUb7XbU','أثر','محاضرة الرحم كاملة']]};
+const XO={23:[['fcdaa6b4-c4d3-4b2d-87ac-ff9115532444','']],24:[['b1e2abc9-21b7-4404-b1d2-1b3bd5af1d24','']],26:[['8979d0fc-0931-4b14-acfc-c871f7009911','']],42:[['ae501c58-91e3-4e68-bcd3-091bbf6d1833','مشترك مع Vulvar cancer']],43:[['ae501c58-91e3-4e68-bcd3-091bbf6d1833','مشترك مع Uterine corpus']],44:[['a649499c-c6e3-4d9e-9c5e-8c03ea39f845','Fibroids'],['5639f92c-f486-4e0a-be47-08fba3ba66ad','مشترك: Fibroids + UTI + AUB + wound infection']]};
+const OD={43:[['11KkKSjO-MAIl7OLQLnZB_hAqtW-TSO13','سلايدات عليها نوتس من المحاضرة (دفعة قديمة 2022 · ما في أحدث)']],44:[['1EtoEmxByfK--GLLEtWd9tybZdOExyVZL','نوتس قديمة: Endometrial hyperplasia (دفعة Hope 2022 · ما في أحدث)']]};
+L.forEach((l,i)=>{l.yo=YTO[i]||[];l.xo=XO[i]||[];l.od=OD[i]||null});
 /* Batool (Wareed) transcripts: drive file ids */
 const BT={
  'Obs History & Exam (introductory)':[['1K1jNGMn6C8KAcChM8cU3Rs-7-usZZrH0','Introduction to Obs & Gyn']],
@@ -1061,13 +1065,13 @@ function openLec(i){
   const l=L[i], d=docs[l.d];
   const A=(u,t)=>`<a class="ext" target="_blank" href="${u}">${t}</a>`;
   const must=[...l.slx.map(x=>A('https://humsc.net/materials/lecture/'+x[0],'السلايدات'+(x[1]?': '+x[1]:''))),A(d.q,'Q-file '+d.n)];
-  const core=[]; l.yt.forEach(x=>core.push(A('https://www.youtube.com/watch?v='+x[0],'🎥 تسجيل اللجنة'+(x[1]?': '+x[1]:'')))); l.yo.forEach(x=>core.push(A('https://www.youtube.com/watch?v='+x[0],'🎥 تسجيل دفعة '+x[1]+': '+x[2]))); l.xo.forEach(x=>core.push(A('https://humsc.net/materials/extra/'+x[0],'📝 ملخص دفعة يقين: '+x[1]))); if(l.mn) core.push(A(MN(l.mn),'📦 حزمة محمد نبيل: تسجيل + سلايدات + شيتات + كويز'));
+  const core=[]; l.yt.forEach(x=>core.push(A('https://www.youtube.com/watch?v='+x[0],'🎥 تسجيل اللجنة'+(x[1]?': '+x[1]:'')))); l.yo.forEach(x=>core.push(A('https://www.youtube.com/watch?v='+x[0],'🎥 تسجيل دفعة '+x[1]+(x[2]?': '+x[2]:'')+(l.yt.length?'':' (ما في تسجيل لدفعتنا)')))); l.xo.forEach(x=>core.push(A('https://humsc.net/materials/extra/'+x[0],'📝 ملخص دفعة يقين'+(x[1]?': '+x[1]:'')))); if(l.mn) core.push(A(MN(l.mn),'📦 حزمة محمد نبيل: تسجيل + سلايدات + شيتات + كويز'));
   if(l.bt) l.bt.forEach(b=>core.push(A(GD(b[0]),'تفريغ بتول'+(b[1]?': '+b[1]:''))));
-  if(l.rn) core.push(A(RN+rand[l.rn],RN_OLD.includes(l.rn)?'تفريغ رند (رابط قديم، ممكن ما يفتح)':'تفريغ رند')+(RN_OLD.includes(l.rn)?`<div class="by" style="margin:2px 0 6px">المشكلة من الرابط نفسه على موقع اللجنة، مش منّا. ${l.bt?'تفريغ بتول فوقه بيغطي نفس المحاضرة، بس ما لقينا رابط شغّال لتفريغ رند.':'وما لقينا بديل.'} إذا بتعرف حل <button class="go" style="margin:0 4px;padding:2px 10px;font-size:12.5px" data-go="credits" data-anchor="contact">تواصل معنا</button></div>`:'')); if(l.rd) core.push(A(GD(l.rd),'تفريغ رند (درايف)')); if(l.ru) core.push(A(l.ru,'تفريغ بتول (نسخة ثانية)'));
+  if(l.rn) core.push(A(RN+rand[l.rn],(RN_OLD.includes(l.rn)?'تفريغ رند (رابط قديم، ممكن ما يفتح)':'تفريغ رند')+(l.rnp?': '+l.rnp:''))+(RN_OLD.includes(l.rn)?`<div class="by" style="margin:2px 0 6px">المشكلة من الرابط نفسه على موقع اللجنة، مش منّا. ${l.bt?'تفريغ بتول فوقه بيغطي نفس المحاضرة، بس ما لقينا رابط شغّال لتفريغ رند.':'وما لقينا بديل.'} إذا بتعرف حل <button class="go" style="margin:0 4px;padding:2px 10px;font-size:12.5px" data-go="credits" data-anchor="contact">تواصل معنا</button></div>`:'')); if(l.rd) core.push(A(GD(l.rd),'تفريغ رند')); if(l.od) l.od.forEach(x=>core.push(A(GD(x[0]),'📁 '+x[1])));
   if(MNO[l.d]) core.push(A(MN(MNO[l.d]),'⚠️ الوضع العام لمحاضرات '+d.n));
   const add=[]; if(l.sh) add.push(A(sheets[l.sh][0],'شيت وريد: '+sheets[l.sh][1])); if(l.tg) add.push(A(TG(l.tg),'ملخص (جروب م.ع)')); if(l.vid) add.push(A(l.vid,'فيديو شرح (أحمد معاذ)'));
   if(MNS[l.d]) add.push(A(MN(MNS[l.d]),'ملخص شامل لمحاضرات '+d.n+' (محمد نبيل)'));
-  const opt=[]; if(l.gm) opt.push(A(GM(l.gm),'كويز Gemini')); if(l.gm2) opt.push(A(GM(l.gm2),'كويز Gemini (AUB)'));
+  const opt=[]; if(l.gm) opt.push(A(GM(l.gm),'كويز Gemini'+(l.gm2?': '+(l.slx[0]&&l.slx[0][1]||''):''))); if(l.gm2) opt.push(A(GM(l.gm2),'كويز Gemini: '+(l.slx[1]&&l.slx[1][1]||'AUB')));
   const grp=(cls,t,arr)=>arr.length?`<div style="margin:8px 0"><span class="pill ${cls}">${t}</span><div>${arr.join('')}</div></div>`:'';
   const links=[grp('p-must','إجباري',must)+grp('p-core','أساسي مساعد',core)+grp('p-add','تكميلي',add)+grp('p-opt','اختياري · عمل طلاب',opt)];
   drawer.innerHTML=`<button class="iconbtn x" onclick="closeLec()">✕ إغلاق</button>
@@ -1159,7 +1163,7 @@ const WK=[['١','15 نوفمبر','19 نوفمبر'],['٢','22 نوفمبر','25
 /* steps a lecture can have */
 function lecSteps(l){
   const d=docs[l.d], o={};
-  o.sl={t:'السلايد',tier:'must',u:l.slx&&l.slx[0]?'https://humsc.net/materials/lecture/'+l.slx[0][0]:SLIDES};
+  o.sl={t:l.slx&&l.slx[1]?'سلايدات المحاضرة':'السلايد',tier:'must',u:l.slx&&l.slx[0]?'https://humsc.net/materials/lecture/'+l.slx[0][0]:SLIDES}; if(l.slx&&l.slx[1]) o.sd={t:'سلايدات الـ discussion',tier:'must',u:'https://humsc.net/materials/lecture/'+l.slx[1][0]};
   if(l.yt&&l.yt[0]) o.yt={t:'تسجيل اللجنة',tier:'core',u:'https://www.youtube.com/watch?v='+l.yt[0][0]}; else if(l.yo&&l.yo[0]) o.yt={t:'تسجيل (دفعة '+l.yo[0][1]+')',tier:'core',u:'https://www.youtube.com/watch?v='+l.yo[0][0]};
   const tr=l.bt?GD(l.bt[0][0]):l.rn?RN+rand[l.rn]:l.rd?GD(l.rd):l.ru; if(tr) o.tr={t:'التفريغ',tier:'core',u:tr};
   if(l.mn) o.mn={t:'حزمة محمد نبيل',tier:'core',u:MN(l.mn)};
@@ -1210,6 +1214,7 @@ function codesFor(l,goal,tight){
   else if(goal==='ok') c=['sl',...((l.d==='firas'||l.d==='fida'||l.w>=4)?['tr']:[]),'qf','qb'];
   else c=['sl','qf','qb'];
   if(tight&&l.w<=1) c=c.filter(k=>k==='sl'||k==='qf'||k==='qb');
+  if(l.slx&&l.slx[1]) c.splice(1,0,'sd');
   return c;
 }
 function distribute(idxs,weeks,goal,tight){
