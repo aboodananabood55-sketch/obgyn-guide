@@ -1105,7 +1105,7 @@ const drawer=document.getElementById('drawer'), scrim=document.getElementById('s
 function openLec(i){
   const l=L[i], d=docs[l.d];
   const A=(u,t)=>`<a class="ext" target="_blank" href="${u}">${t}</a>`;
-  const must=[...l.slx.map(x=>A('https://humsc.net/materials/lecture/'+x[0],'السلايدات'+(x[1]?': '+x[1]:''))),A(d.q,'Q-file '+d.n)];
+  const must=[...l.slx.map(x=>A('https://humsc.net/materials/lecture/'+x[0],'السلايدات'+(x[1]?': '+x[1]:''))),A(d.q,'Q-file '+d.n),A(BQ(i),'كويز المحاضرة: '+(n=>n===1?'سؤال واحد':String(n).replace(/\d/g,x=>'٠١٢٣٤٥٦٧٨٩'[x])+(n<=10?' أسئلة':' سؤال'))(LQ[i])+' من السنوات (بنك الأسئلة)')];
   const core=[]; l.yt.forEach(x=>core.push(A('https://www.youtube.com/watch?v='+x[0],'🎥 تسجيل اللجنة'+(x[1]?': '+x[1]:'')))); l.yo.forEach(x=>core.push(A('https://www.youtube.com/watch?v='+x[0],'🎥 تسجيل دفعة '+x[1]+(x[2]?': '+x[2]:'')+(l.yt.length?'':' (ما في تسجيل لدفعتنا)')))); l.xo.forEach(x=>core.push(A('https://humsc.net/materials/extra/'+x[0],'📝 ملخص دفعة يقين'+(x[1]?': '+x[1]:'')))); if(l.mn) core.push(A(MN(l.mn),'📦 حزمة محمد نبيل: تسجيل + سلايدات + شيتات + كويز'));
   if(l.bt) l.bt.forEach(b=>core.push(A(GD(b[0]),b[1]&&b[1][0]==='!'?b[1].slice(1):'تفريغ بتول'+(b[1]?': '+b[1]:''))));
   if(l.rn) core.push(A(RN+rand[l.rn],(RN_OLD.includes(l.rn)?'تفريغ رند (رابط قديم، ممكن ما يفتح)':'تفريغ رند')+(l.rnp?': '+l.rnp:''))+(RN_OLD.includes(l.rn)?`<div class="by" style="margin:2px 0 6px">المشكلة من الرابط نفسه على موقع اللجنة، مش منّا. ${l.bt?'تفريغ بتول فوقه بيغطي نفس المحاضرة، بس ما لقينا رابط شغّال لتفريغ رند.':'وما لقينا بديل.'} إذا بتعرف حل <button class="go" style="margin:0 4px;padding:2px 10px;font-size:12.5px" data-go="credits" data-anchor="contact">تواصل معنا</button></div>`:'')); if(l.rd) core.push(A(GD(l.rd),'تفريغ رند'+(l.t==='Early pregnancy complications & EP'?': محاضرة د. فراس':''))); if(l.od) l.od.forEach(x=>core.push(A(GD(x[0]),'📁 '+x[1]))); if(l.t==='Early pregnancy complications & EP') core.push(A('https://humsc.net/materials/lecture/517f3857-94f4-4d94-ab56-276c61de2ef7','سلايدات د. لبنى البطاينة: Miscarriage & EP (دفعة وريد)'));
@@ -1118,7 +1118,6 @@ function openLec(i){
    <span class="pill ${l.s==='obs'?'p-obs':'p-gyn'}">${l.s==='obs'?'توليد':'نسائية'}</span><span class="pill">${d.n}</span>
    <h2>${l.t}</h2><div class="stars" style="color:var(--gold)">${star(l.w)}</div>
    <h4>شو هي؟</h4><p>${l.x}</p>
-   <h4>كويز المحاضرة</h4><p>${(n=>n===1?'سؤال واحد':String(n).replace(/\d/g,x=>'٠١٢٣٤٥٦٧٨٩'[x])+(n<=10?' أسئلة':' سؤال'))(LQ[i])} من سنوات اللجنة (Final و Mini OSCE) على هالمحاضرة، كل سؤال بشرحه ورقم السلايد.</p><div><a class="ext" target="_blank" href="${BQ(i)}">افتح كويز المحاضرة (بنك الأسئلة)</a></div>
    <h4>الملفات المرتبطة</h4><div>${links.join('')}</div>
    ${!l.sh?'<p class="by">ما إلها شيت لجنة: شيتات محمد نبيل أو الـ Remake بيغطوها.</p>':''}
    ${d.qn&&(!d.qnOn||d.qnOn===l.t)?`<div class="note"><b>ملاحظة على Q-file ${d.n}:</b> ${d.qn}</div>`:''}
