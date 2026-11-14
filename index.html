@@ -292,14 +292,20 @@ details[open] summary{color:var(--plum);margin-bottom:6px}
   main{max-width:none;padding:0}
   .ptitle{display:block;font-family:"Reem Kufi";font-size:20px;color:var(--plum);margin-bottom:6px}
   .ptitle small{display:block;font-family:inherit;font-size:12px;color:var(--mute)}
-  .pboard{display:block;column-count:4;column-gap:8px;overflow:visible}
-  .pcol{display:block;break-inside:auto;min-height:0;opacity:1!important;background:#fff;margin:0 0 8px;padding:6px}
-  .pch3,.pcol .meta{break-after:avoid}
-  .pc{box-shadow:none;break-inside:avoid;padding:5px 8px;margin:5px 0;font-size:11.5px}
+  .pboard{display:block;overflow:visible}
+  .pcol{display:block;break-inside:auto;min-height:0;opacity:1!important;background:#fff;margin:0 0 10px;padding:8px 10px;border:1px solid var(--line)!important;border-radius:12px}
+  .pcol.now{border:1px solid var(--line)!important}
+  .pcol,.pfirst,.prow{break-inside:avoid;page-break-inside:avoid}
+  .pcont{font-family:"Reem Kufi";font-size:13px;color:var(--plum);border-bottom:1px dashed var(--line);padding:2px 0 4px;margin:4px 0 6px}
+  .pphead{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;border-bottom:1px solid var(--line);padding-bottom:5px;margin-bottom:6px}
+  .pphead .pch3{gap:10px} .pphead .pch3 b{font-size:16px}
+  .pphead .meta{margin:0!important;font-size:11px}
+  .prow{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:6px;align-items:start}
+  body.plist .prow{grid-template-columns:repeat(2,1fr)}
+  .pc{box-shadow:none;break-inside:avoid;padding:5px 8px;margin:0;font-size:11.5px}
   .st{font-size:11px;padding:1px 0}
   .pc .note:empty{display:none}
   .pmap::before{display:none}
-  body.plist .pboard{column-count:2}
   body.plist .pmap{display:none}
   * {-webkit-print-color-adjust:exact;print-color-adjust:exact}
 }
@@ -1395,7 +1401,28 @@ document.getElementById('plink').onclick=async()=>{const u=location.origin+locat
 document.getElementById('pbak').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(P)],{type:'application/json'}));a.download='خطتي-نسائية'+(P.g?'-C'+P.g:'')+'.json';a.click();toast('نزلت النسخة الاحتياطية')};
 document.getElementById('pres').onclick=()=>document.getElementById('presf').click();
 document.getElementById('presf').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const o=JSON.parse(await f.text());if(!o||!Array.isArray(o.w)||o.w.length!==8)throw 0;const prev=JSON.stringify(P);P=o;saveP();renderPlan();toast('رجعت الخطة',()=>{P=JSON.parse(prev);saveP();renderPlan()})}catch(x){toast('الملف مش نسخة خطة')} e.target.value=''};
-function printPlan(list){document.body.classList.toggle('plist',list);renderPlan();setTimeout(()=>{window.print();document.body.classList.remove('plist')},120)}
+function printLayout(list){ /* print only: each week = heading + rows of cards; heading glued to its first row */
+  const per=list?2:4;
+  document.querySelectorAll('#pboard .pcol').forEach(col=>{
+    if(col.classList.contains('empty')||col.querySelector('.pgrid')) return;
+    const wn=(col.querySelector('.pch3 b')||{}).textContent||'';
+    const head=document.createElement('div'); head.className='pphead';
+    const mt=col.querySelector('.meta'); if(mt) mt.innerHTML=mt.innerHTML.replace(/<br\s*\/?>/g,' · ');
+    [col.querySelector('.pch3'),mt].forEach(e=>e&&head.appendChild(e));
+    const cards=[...col.children].filter(e=>e.classList.contains('pc'));
+    const box=document.createElement('div'); box.className='pgrid';
+    const rows=[]; for(let i=0;i<cards.length;i+=per){const row=document.createElement('div');row.className='prow';cards.slice(i,i+per).forEach(c=>row.appendChild(c));rows.push(row)}
+    for(let k=0;k<rows.length;k+=3){const ch=document.createElement('div');ch.className='pfirst';
+      if(k===0) ch.appendChild(head); else {const t=document.createElement('div');t.className='pcont';t.textContent=wn+' · تكملة';ch.appendChild(t)}
+      rows.slice(k,k+3).forEach(r=>ch.appendChild(r)); box.appendChild(ch)}
+    if(!cards.length) box.appendChild(head);
+    col.prepend(box);
+  });
+}
+window.addEventListener('beforeprint',()=>{if(document.getElementById('v-myplan').classList.contains('on')) printLayout(document.body.classList.contains('plist'))});
+window.addEventListener('afterprint',()=>{if(document.querySelector('#pboard .pgrid')) renderPlan()});
+function printPlan(list){document.body.classList.toggle('plist',list);renderPlan();printLayout(list);
+  setTimeout(()=>{window.print();document.body.classList.remove('plist');renderPlan()},150)}
 document.getElementById('ppdf').onclick=()=>printPlan(false);
 document.getElementById('ppdf2').onclick=()=>printPlan(true);
 async function importLink(data){try{const o=await decodeP(data);const prev=JSON.stringify(P);const had=P.w.some(w=>w.length);P=o;saveP();history.replaceState(null,'','#myplan');renderPlan();
