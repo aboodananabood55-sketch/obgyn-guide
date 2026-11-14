@@ -58,8 +58,8 @@ h1,h2,h3{font-family:"Reem Kufi","IBM Plex Sans Arabic",sans-serif;font-weight:6
 .wk:last-child{border-bottom:0}
 .wk .n{font-family:"Reem Kufi";color:var(--mute);font-size:13px;text-align:center}
 .wk .n b{display:block;font-size:22px;color:var(--ink)}
-.hos{display:inline-block;border-radius:99px;padding:2px 12px;font-weight:600;color:#fff;margin-left:6px}
-.h-alia{background:#7b3f61}.h-hamzah{background:#5f7f6a}.h-zarqa{background:#9a6b3f}.h-talal{background:#4f6d8a}.h-mafraq{background:#8a5a7a}.h-lec{background:#a99a88}
+.hos{display:inline-block;border-radius:7px;padding:1px 10px;font-weight:700;margin-left:6px;border:1.5px solid;background:#fff}
+.h-alia{color:#0b6e6d;border-color:#0e8a88;background:#e4f4f3}.h-hamzah{color:#b2432c;border-color:#d0583f;background:#fdeee9}.h-zarqa{color:#3a3f9e;border-color:#4b51b8;background:#ebecfa}.h-talal{color:#6a3fb5;border-color:#7d52cc;background:#f2ecfc}.h-mafraq{color:#2f3a44;border-color:#46525e;background:#eceff2}.h-lec{color:#6d655c;border-color:#a99a88;border-style:dashed;background:#faf7f2}
 .wk .tip{font-size:14px;color:var(--ink2);margin-top:4px}
 .sched{overflow-x:auto}.sched table td,.sched table th{text-align:center;white-space:nowrap;padding:6px 8px;font-size:13px}
 .sched td.me{outline:2px solid var(--plum);outline-offset:-2px}
@@ -244,7 +244,7 @@ details[open] summary{color:var(--plum);margin-bottom:6px}
 .pcol .meta .hos{font-size:11.5px;padding:0 8px}
 .pcount{font-size:12px;color:var(--mute)}
 .pc{background:var(--card);border:1px solid var(--line);border-right:5px solid var(--sage2);border-radius:14px;padding:9px 11px;margin:8px 0;box-shadow:var(--shadow);cursor:grab;font-size:14px}
-.pc.obs{border-right-color:var(--plum2)}.pc.task{border-right-color:var(--gold)}.pc.cust{border-right-color:var(--sky)}
+.pc{border-right-color:#d9cdbb!important}.pc.task,.pc.cust{border-right-style:double!important}
 .pc.done{opacity:.6}
 .pc.drag{opacity:.4}
 .pc .h{display:flex;gap:6px;align-items:flex-start;justify-content:space-between}
@@ -284,12 +284,26 @@ details[open] summary{color:var(--plum);margin-bottom:6px}
 .toast.on{transform:translateX(-50%);opacity:1;visibility:visible;pointer-events:auto}
 .toast button{background:none;border:1px solid #fff6;color:#fff;border-radius:99px;padding:2px 12px;font:inherit;cursor:pointer}
 .ptitle{display:none}
+.pintro{display:none}
 @media (max-width:760px){.pboard{grid-template-columns:1fr;overflow:visible}.pmap{overflow-x:auto;gap:4px}.pnode{width:58px}}
 @media print{
   @page{size:A4 landscape;margin:10mm}
   body{background:#fff!important}
   .bar,footer,#psave,.ptools,.pinfo,.phints,.pal,.modal,.toast,.scrim,.drawer,.npanel,.view:not(#v-myplan),#v-myplan>.kicker,#v-myplan>.title,#v-myplan>.lead,.next,.pc .foot,.addst,.st a,[data-padd],.pcol.empty,.st .rm,.pc .h .x,.pempty{display:none!important}
   main{max-width:none;padding:0}
+  .pintro{display:block;break-after:page;page-break-after:always;font-size:12.5px;line-height:1.75;color:var(--ink)}
+  .pintro h1{font-family:"Reem Kufi";color:var(--plum);font-size:28px;margin:0}
+  .pintro .sub{color:var(--mute);font-size:13px;margin-bottom:10px}
+  .pintro .grid{display:grid;grid-template-columns:1.15fr 1fr;gap:12px;margin-top:8px}
+  .pintro .box{border:1px solid var(--line);border-radius:12px;padding:10px 14px;background:#fff}
+  .pintro .box h3{font-family:"Reem Kufi";font-size:15px;color:var(--plum);margin:0 0 4px}
+  .pintro ul{margin:0;padding-inline-start:18px} .pintro li{margin:1px 0}
+  .pintro .lg{display:flex;align-items:flex-start;gap:8px;margin:4px 0}
+  .pintro .lg .tg{width:11px;height:11px;border-radius:50%;flex:none;margin-top:6px}
+  .pintro .lg .hos{flex:none;margin:0;font-size:11.5px}
+  .pintro table{border-collapse:collapse;width:100%;font-size:11.5px;margin-top:4px}
+  .pintro td,.pintro th{border:1px solid var(--line);padding:3px 5px;text-align:center}
+  .pintro th{background:var(--paper2);font-weight:600}
   .ptitle{display:block;font-family:"Reem Kufi";font-size:20px;color:var(--plum);margin-bottom:6px}
   .ptitle small{display:block;font-family:inherit;font-size:12px;color:var(--mute)}
   .pboard{display:block;overflow:visible}
@@ -734,7 +748,7 @@ details[open] summary{color:var(--plum);margin-bottom:6px}
     <button class="btn ghost" id="pclr">🗑️ فرّغ</button>
   </div>
   <div class="pinfo"><label>مجموعتي: <select id="pgrp"><option value="0">اختار</option></select></label><span id="pnow"></span></div>
-  <div class="ptitle" id="ptitle"></div>
+  <div id="pintro" class="pintro"></div><div class="ptitle" id="ptitle"></div>
   <div class="pmap" id="pmap"></div>
   <div class="phints" id="phints"></div>
   <div class="pboard" id="pboard"></div>
@@ -1271,7 +1285,7 @@ function renderPlan(){
     const w=wi+1; let T=0,D=0; cards.forEach(c=>Object.values(c.s).forEach(v=>{T++;D+=v}));
     allT+=T; allD+=D; const pc=T?Math.round(D/T*100):0, cls=w===nw?'now':(nw>w?'past':'');
     const hk=g&&w>1?HK[SCH[g][w-2]]:null, th=w>1?thuOf(w-2):null;
-    map+=`<div class="pnode ${cls}" data-pw="${w}"><div class="ring" style="--p:${pc}"><span>${WK[wi][0]}</span></div>${w===1?'محاضرات':hk?`<span class="hos h-${hk}" title="${HN[hk]}" style="display:inline-block;width:10px;height:10px;padding:0;border-radius:50%;margin:0"></span>`:'أسبوع'}<small>${T?D+'/'+T:'—'}</small></div>`;
+    map+=`<div class="pnode ${cls}" data-pw="${w}"><div class="ring" style="--p:${pc}"><span>${WK[wi][0]}</span></div>${w===1?'محاضرات':hk?`<span class="hos h-${hk}" title="${HN[hk]}" style="display:inline-block;width:14px;height:10px;padding:0;border-radius:3px;margin:0"></span>`:'أسبوع'}<small>${T?D+'/'+T:'—'}</small></div>`;
     board+=`<div class="pcol ${cls} ${cards.length?'':'empty'}" data-w="${w}" id="pw${w}"><div class="pch3"><b>أسبوع ${WK[wi][0]}</b><span class="pcount">${T?D+'/'+T+' ✓':''}${w===nw?' · هلّق':''}</span></div>
       <div class="meta">${WK[wi][1]} – ${WK[wi][2]}<br>${w===1?'<span class="hos h-lec">محاضرات أونلاين</span>':hk?`<span class="hos h-${hk}">${HN[hk]}</span>${hk==='alia'?' '+(ALIA[w-2][0].includes(g)?'صباحي أول الأسبوع':'مسائي أول الأسبوع'):''}`:'<span class="by">اختار مجموعتك لتبين المستشفى</span>'}${th?`<br>الخميس: ${th[1]}`:''}${w===8?'<br><b>آخر الروتيشن: Mini-OSCE + أورال</b>':''}</div>
       ${cards.map((c,ci)=>cardHTML(c,w,ci)).join('')||'<div class="pempty">فاضي</div>'}
@@ -1285,7 +1299,7 @@ function renderPlan(){
 function cardHTML(c,w,ci){
   const defs=stepDefs(c);
   let title,sub='',cls='';
-  if(c.t==='L'){const l=L[c.r];title=l.t;sub=docs[l.d].n+' · '+'★'.repeat(l.w);cls=l.s==='obs'?'obs':'gyn'}
+  if(c.t==='L'){const l=L[c.r];title=l.t;sub=(l.s==='obs'?'توليد':'نسائية')+' · '+docs[l.d].n+' · '+'★'.repeat(l.w);cls=l.s==='obs'?'obs':'gyn'}
   else if(c.t==='T'){title=GT[c.r].t;cls='task';sub=TIERN[GT[c.r].tier]}
   else {title=c.x||'مهمة خاصة';cls='cust'}
   const keys=Object.keys(c.s), done=keys.length&&keys.every(k=>c.s[k]);
@@ -1401,8 +1415,46 @@ document.getElementById('plink').onclick=async()=>{const u=location.origin+locat
 document.getElementById('pbak').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(P)],{type:'application/json'}));a.download='خطتي-نسائية'+(P.g?'-C'+P.g:'')+'.json';a.click();toast('نزلت النسخة الاحتياطية')};
 document.getElementById('pres').onclick=()=>document.getElementById('presf').click();
 document.getElementById('presf').onchange=async e=>{const f=e.target.files[0];if(!f)return;try{const o=JSON.parse(await f.text());if(!o||!Array.isArray(o.w)||o.w.length!==8)throw 0;const prev=JSON.stringify(P);P=o;saveP();renderPlan();toast('رجعت الخطة',()=>{P=JSON.parse(prev);saveP();renderPlan()})}catch(x){toast('الملف مش نسخة خطة')} e.target.value=''};
+function printIntro(){
+  const g=P.g||(()=>{try{return localStorage.getItem('obg-grp')}catch(e){return ''}})()||'';
+  const lecs=P.w.flat().filter(c=>c.t==='L').length, steps=P.w.flat().reduce((a,c)=>a+Object.keys(c.s||{}).length,0), done=P.w.flat().reduce((a,c)=>a+Object.values(c.s||{}).filter(Boolean).length,0);
+  const hosRow=[...document.querySelectorAll('#pboard .pcol')].map((col,i)=>{const h=col.querySelector('.meta .hos');return `<td>${h?h.outerHTML:'—'}</td>`}).join('');
+  const T=(c,t,d)=>`<div class="lg"><span class="tg ${c}"></span><div><b>${t}</b>: ${d}</div></div>`;
+  const H=(k,d)=>`<div class="lg"><span class="hos h-${k}">${k==='lec'?'محاضرات أونلاين':HN[k]}</span><div>${d}</div></div>`;
+  document.getElementById('pintro').innerHTML=`
+  <h1>خطتي للنسائية والتوليد${g?' · C'+g:''}</h1>
+  <div class="sub">دليل النسائية · دفعة حياة · طُبعت ${new Date().toLocaleDateString('ar-JO',{day:'numeric',month:'long',year:'numeric'})} · ${lecs} محاضرة · ${done}/${steps} خطوة مخلصة</div>
+  <div class="grid">
+   <div class="box"><h3>شو هاي الورقة؟</h3><ul>
+    <li>خطة دراستك للروتيشن (٨ أسابيع) زي ما رتبتها على الموقع. كل أسبوع بصفحته: تاريخه، مستشفاك، ومحاضرة الخميس.</li>
+    <li>كل بطاقة = محاضرة أو مهمة. تحت اسمها الدكتور ونجوم ثقلها (★★★★★ = الأثقل).</li>
+    <li>تحت كل بطاقة خطواتها، وجنب كل خطوة مربع. علّم ✓ بالقلم لما تخلصها.</li>
+    <li>جنب كل أسبوع: كم خطوة خلصت من المجموع (مثلاً 3/24 ✓). وإذا أسبوع طويل كمل بصفحة ثانية، مكتوب عليه "تكملة".</li>
+    <li>الدوائر فوق بأول صفحة الخطة هي الأسابيع الثمانية، والرقم تحت كل وحدة تقدمك فيها.</li>
+    <li>النسخة الحية على الموقع (بالروابط وبتنحفظ على جهازك): <span class="ltr">aboodananabood55-sketch.github.io/obgyn-guide</span> ← اعمل خطتك.</li>
+   </ul></div>
+   <div class="box"><h3>النقطة الملونة جنب كل خطوة</h3>
+    ${T('must','إجباري','ما بتنجح بدونه: السلايد، Q-file الدكتور، سنوات QBank، كيسات اللوج بوك.')}
+    ${T('core','أساسي مساعد','بيسد ثغرات السلايد: التفريغ، تسجيل اللجنة، حزمة محمد نبيل.')}
+    ${T('add','تكميلي','للتثبيت والمراجعة: شيت وريد أو الـ Remake.')}
+    ${T('opt','اختياري','إذا عندك وقت: كويز Gemini، فيديوهات د. نادين.')}
+    <div style="margin-top:6px;border-top:1px dashed var(--line);padding-top:4px">تحت اسم كل محاضرة مكتوب إذا هي <b>توليد</b> ولا <b>نسائية</b>، واسم الدكتور، ونجوم ثقلها. البطاقة اللي حافتها مزدوجة = مهمة (مش محاضرة).</div>
+   </div>
+  </div>
+  <div class="box" style="margin-top:12px"><h3>المستشفيات: المستطيل الملون جنب تاريخ كل أسبوع، والمربعات الصغيرة تحت دوائر الأسابيع</h3>
+   <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 16px">
+    ${H('lec','الأسبوع الأول: محاضرات على Teams.')}
+    ${H('alia','أكثر مستشفى (٣–٤ أسابيع). شفت صباحي أو مسائي، وبتتبدل نص الأسبوع.')}
+    ${H('hamzah','مورننج ريبورت ٨:٣٠. حالاته Gyne تقريباً كلها.')}
+    ${H('zarqa','مورننج ريبورت ٨:٣٠. حالاته Obs أكثر.')}
+    ${H('talal','الدوام ببلش ٩:٠٠.')}
+    ${H('mafraq','الدوام ببلش ٩:٠٠. المسافة طويلة.')}
+   </div>
+   ${g?`<table><tr><th>الأسبوع</th>${[1,2,3,4,5,6,7,8].map(n=>`<th>${'٠١٢٣٤٥٦٧٨'[n]}</th>`).join('')}</tr><tr><th>مستشفاك</th>${hosRow}</tr></table>`:'<div class="by">اختار مجموعتك بالموقع لتطلع مستشفياتك هون.</div>'}
+  </div>`;
+}
 function printLayout(list){ /* print only: each week = heading + rows of cards; heading glued to its first row */
-  const per=list?2:4;
+  const per=list?2:4; printIntro();
   document.querySelectorAll('#pboard .pcol').forEach(col=>{
     if(col.classList.contains('empty')||col.querySelector('.pgrid')) return;
     const wn=(col.querySelector('.pch3 b')||{}).textContent||'';
