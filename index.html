@@ -102,6 +102,11 @@ main{max-width:1060px;margin:0 auto;padding:28px 20px 90px}
 .p-core{background:#e9d6c0;color:#6d4b20;border-color:#dcc3a3}
 .p-add{background:#e5efe7;color:var(--sage);border-color:#cfe0d3}
 #r-ws,#obgbank{scroll-margin-top:76px}
+.wsgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px}
+.wsdoc{border:1px solid #e2c6d6;border-radius:12px;padding:8px 10px;background:#fbf5f8}
+.wsdoc>b{display:block;color:var(--plum);font-size:14px;margin-bottom:4px}
+.wsdoc>b small{font-weight:400;color:var(--mute);font-size:12px}
+.wsdoc a{display:inline-block;font-size:12.5px;padding:3px 9px;margin:2px 0 2px 4px;border-radius:999px;background:#fff;border:1px solid #e2c6d6;color:var(--plum)!important;text-decoration:none;direction:ltr}
 .p-ws{background:#f3e6ee;color:var(--plum);border-color:#e2c6d6}
 .lec .wsb{display:inline-block;font-size:11px;background:#f3e6ee;color:var(--plum);border:1px solid #e2c6d6;border-radius:999px;padding:0 7px;margin-inline-start:6px;vertical-align:1px}
 a.wsgo{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:6px 0;padding:10px 14px;border-radius:12px;background:#f7eef3;border:1px solid #e2c6d6;color:var(--plum)!important;font-weight:700;text-decoration:none}
@@ -562,7 +567,7 @@ td.ltr{display:table-cell}
       <p style="margin:6px 0">كل سلايد من سلايدات الدكتور موجود بالشيت كصورة، وجنبه شرحه كامل. الشرح مبني على كلام الدكتور من تسجيل المحاضرة، وتفاريغ الزملاء (رند وبتول)، وحزمة محمد نبيل، وشيتات اللجنة. أسئلة الدكتور (Q-file) اللي إلها علاقة بالمحاضرة بتلاقيها بآخر الشيت، ومعلّم عليها عند السلايد تبعها.</p>
       <p style="margin:6px 0">كل معلومة مكتوبة مرة وحدة، وإذا المصادر اختلفت مشينا على السلايد. والألوان بتحكيلك وين تركز: <b style="color:#c62828">الأحمر</b> اللي أكد عليه الدكتور بالمحاضرة، والعادي باقي المحاضرة، و<span style="color:#8e9aa3">الرمادي</span> اللي قال عنه مش مهم أو تفاصيل زيادة. وبآخر كل شيت ملخص للمهم، ورابط كويز المحاضرة من بنك الأسئلة، وأسماء أصحاب كل مصدر.</p>
       <p style="margin:6px 0"><b>هل هي شاملة؟</b> جمعنا فيها كل المصادر المتاحة للمحاضرة، وراجعنا كل معلومة على السلايدات. بس هي شغل فردي، وما في شغل بيخلو من سهو، والنتيجة بالآخر بتعتمد على دراستك. إذا لقيت غلط أو نقص، ابعته على <button class="go" style="margin:0 2px;padding:2px 10px;font-size:12.5px" data-fb>صندوق الملاحظات</button> ومنصلحه. والسلايدات جنب كل شرح، فبتقدر ترجعلها دايماً.</p>
-      <div class="by" style="margin:8px 0 2px">الشيتات الجاهزة (بتنزل أول بأول مع المحاضرات، وكل واحد كمان جوا محاضرته بالفهرس):</div>
+      <div class="by" style="margin:8px 0 4px">الشيتات الجاهزة، مقسمة حسب الدكتور (بتنزل أول بأول، وكل شيت كمان جوا محاضرته بالفهرس وعليها علامة 📘):</div>
       <div id="wslist"></div>
 </div></div>
 
@@ -1164,7 +1169,7 @@ document.getElementById('qbars').innerHTML=QB.map((q,i)=>`<div class="barrow ${i
 
 /* ---------- notifications ----------
    Add newest first: {d:'2026-11-20T14:30', t:'العنوان', x:'تفاصيل اختيارية', go:'resources', a:'r-q'} (go = الصفحة، a = عنصر داخلها، اختياريين) */
-document.getElementById('wslist').innerHTML=Object.keys(WS).map(i=>`<a class="wsgo" target="_blank" href="${WS[i]}">${L[i].t}<small>${docs[L[i].d].n}</small></a>`).join('');
+document.getElementById('wslist').innerHTML='<div class="wsgrid">'+Object.keys(docs).map(k=>{const ix=L.map((l,i)=>i).filter(i=>L[i].d===k&&WS[i]);return ix.length?`<div class="wsdoc"><b>${docs[k].n} <small>${ix.length}/${L.filter(l=>l.d===k).length}</small></b><div>${ix.map(i=>`<a target="_blank" href="${WS[i]}">${L[i].t}</a>`).join('')}</div></div>`:''}).join('')+'</div>';
 const NOTIFS=[{d:'2026-11-15T13:00',t:'بلشنا نعمل شيتات للمادة من الموقع 📘',x:'شيت لكل محاضرة: السلايدات وجنبها كلام الدكتور وكل المصادر بملف واحد، والمهم معلّم بالأحمر. أول شيت جاهز: Obs History &amp; Exam. بدك تعرف كيف انعملت وليش بتعتبر شاملة؟ اكبس افتح.',go:'resources',a:'r-ws'},{d:'2026-11-15T00:55',t:'بنك أسئلة النسائية صار جاهز 🎉',x:'كل سنوات اللجنة مشروحة ومقسمة على المحاضرات، ومعها مجرّبات ميني حياة. موجود بفرع السنوات، وجوا كل محاضرة بالفهرس.',go:'soon',a:'obgbank'}];
 const fmtD=s=>{try{return new Date(s+'+03:00').toLocaleString('ar-JO',{weekday:'long',year:'numeric',month:'long',day:'numeric',hour:'numeric',minute:'2-digit',timeZone:'Asia/Amman'})}catch(e){return s}};
 let lastSeen=''; try{lastSeen=localStorage.getItem('obg-seen')||''}catch(e){}
