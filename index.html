@@ -13,7 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Reem+Kufi:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --paper:#f5efe6; --paper2:#efe7db; --card:#fffaf3; --ink:#2c2833; --ink2:#5d5664; --mute:#8d8592;
+  --paper:#f5efe6; --paper2:#efe7db; --card:#fffaf3; --ink:#2c2833; --ink2:#5d5664; --mute:#716a77;
   --plum:#7b3f61; --plum2:#a2587f; --sage:#5f7f6a; --sage2:#89a68f; --rose:#d7a095; --gold:#c49a5a; --sky:#5b7c99;
   --line:#e2d7c8; --shadow:0 1px 2px rgba(60,40,50,.06),0 8px 24px -10px rgba(60,40,50,.18);
   --shadow2:0 2px 4px rgba(60,40,50,.08),0 18px 40px -16px rgba(60,40,50,.28);
@@ -76,7 +76,7 @@ h1,h2,h3{font-family:"Reem Kufi","IBM Plex Sans Arabic",sans-serif;font-weight:6
 .btn.ghost{background:transparent;color:var(--ink2);border:1px solid var(--line);box-shadow:none}
 .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
 .cmp td:first-child{font-weight:600;white-space:nowrap}
-@media (max-width:640px){.iconbtn .lbl{display:none}}
+@media (max-width:860px){.iconbtn .lbl{display:none}}
 @media (max-width:900px){.crumbs{display:none}}
 @media (min-width:521px) and (max-width:900px){.brand{white-space:nowrap}}
 @media (max-width:520px){.crumbs{display:none}.brand{font-size:16px}.bar{padding:10px 12px;gap:8px}.iconbtn{padding:5px 10px;font-size:13px}}
@@ -274,6 +274,8 @@ main:has(#v-myplan.on){max-width:1680px}
 .pempty{font-size:13px;color:var(--mute);text-align:center;padding:24px 6px}
 .pal{position:fixed;top:0;bottom:0;left:0;width:min(400px,94vw);background:var(--card);box-shadow:var(--shadow2);z-index:50;transform:translateX(-105%);transition:.35s cubic-bezier(.2,.7,.2,1);overflow:auto;padding:18px}
 .pal.on{transform:none}
+.drawer:not(.on),.pal:not(.on){visibility:hidden;transition:transform .38s cubic-bezier(.2,.7,.2,1),visibility 0s linear .38s}
+.drawer.on,.pal.on{visibility:visible;transition:transform .38s cubic-bezier(.2,.7,.2,1),visibility 0s}
 .pal h3{margin:4px 0 6px}
 .pal .pi{display:flex;justify-content:space-between;align-items:center;gap:8px;border:1px solid var(--line);border-radius:12px;padding:7px 10px;margin:5px 0;font-size:13.5px;background:#fffdf9}
 .pal .pi.used{opacity:.45}
@@ -1561,6 +1563,15 @@ show(location.hash.slice(1)||'home');
   if(And){const o=document.getElementById('iabopen');o.hidden=false;o.onclick=()=>{location.href='intent://'+location.host+location.pathname+'#Intent;scheme=https;package=com.android.chrome;end'}}
   document.getElementById('iabcopy').onclick=async()=>{try{await navigator.clipboard.writeText(location.href);toast('انسخ الرابط ✓ الصقه بكروم أو Safari')}catch(e){prompt('انسخ الرابط والصقه بالمتصفح:',location.href)}};
   document.getElementById('iabx').onclick=()=>{box.hidden=true;try{sessionStorage.setItem('obg-iab','1')}catch(e){}};
+}catch(e){}})();
+</script>
+<script>
+/* keyboard access: clickable divs (tree nodes, next-branch arrows, lecture cards, logo) become focusable buttons */
+(function(){try{
+  var SEL='[data-go]:not(button):not(a),.lec,.brand';
+  function kb(){document.querySelectorAll(SEL).forEach(function(el){if(!el.hasAttribute('tabindex')){el.tabIndex=0;el.setAttribute('role','button')}})}
+  kb(); var t; new MutationObserver(function(){clearTimeout(t);t=setTimeout(kb,60)}).observe(document.body,{childList:true,subtree:true});
+  document.addEventListener('keydown',function(e){if((e.key==='Enter'||e.key===' ')&&e.target.matches&&e.target.matches(SEL)){e.preventDefault();e.target.click()}});
 }catch(e){}})();
 </script>
 </body>
