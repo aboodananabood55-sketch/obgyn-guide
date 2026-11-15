@@ -313,7 +313,7 @@ main:has(#v-myplan.on){max-width:1680px}
 @media print{
   @page{size:A4 landscape;margin:10mm}
   body{background:#fff!important}
-  .bar,footer,.pleg,#psave,.ptools,.pinfo,.phints,.pal,.modal,.toast,.scrim,.drawer,.npanel,.view:not(#v-myplan),#v-myplan>.kicker,#v-myplan>.title,#v-myplan>.lead,.next,.pc .foot,.addst,.st a,[data-padd],.pcol.empty,.st .rm,.pc .h .x,.pempty{display:none!important}
+  .bar,footer,.pleg,#psave,.ptools,.pinfo,.phints,.pal,.modal,.toast,.scrim,.drawer,.npanel,.view:not(#v-myplan),#v-myplan>.kicker,#v-myplan>.title,#v-myplan>.lead,.next,.pc .foot,.addst,.wsswap,.st a,[data-padd],.pcol.empty,.st .rm,.pc .h .x,.pempty{display:none!important}
   main{max-width:none;padding:0}
   .pintro{display:block;break-after:page;page-break-after:always;font-size:12.5px;line-height:1.75;color:var(--ink)}
   .pintro h1{font-family:"Reem Kufi","IBM Plex Sans Arabic",sans-serif;color:var(--plum);font-size:28px;margin:0}
@@ -360,6 +360,7 @@ td.ltr{display:table-cell}
 @media (max-width:760px){.pmap{padding-top:6px}}
 .npanel{margin-top:8px}
 @media (max-width:360px){.card{padding:16px 14px}.grid{grid-template-columns:1fr!important}.grid>*{min-width:0;overflow-wrap:anywhere}.bar{gap:4px;padding:8px 8px}.bar .iconbtn{padding:4px 7px;font-size:12px}.brand{font-size:14px;gap:6px}.brand .seed{width:26px;height:26px}}
+.pc .wsswap{display:block;width:100%;margin:6px 0 2px;padding:6px 10px;border-radius:10px;border:1px dashed #d9b7ca;background:#f7eef3;color:var(--plum);font:inherit;font-size:12.5px;cursor:pointer;text-align:right}
 .gopts.wkos{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.gopt.wko{text-align:center;padding:8px 4px;font-size:12px}.gopt.wko b{font-size:14px}
 .iab{background:#fff4e2;border-bottom:1px solid #e9cf9f;padding:10px 16px;font-size:14px;line-height:1.7;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:space-between}
 .iab[hidden],.iab [hidden]{display:none!important}.iabb{display:flex;gap:6px;align-items:center}.iabb .go{margin:0;padding:4px 14px}
@@ -860,8 +861,12 @@ td.ltr{display:table-cell}
     <button class="gopt" data-v="high"><b>علامة عالية</b>كل الإجباري والمساعد والتكميلي</button>
     <button class="gopt" data-v="ok"><b>علامة منيحة بجهد معقول</b>الإجباري + التفريغ وين بيلزم</button>
     <button class="gopt" data-v="pass"><b>بدي أنجح وبس</b>الإجباري بس: سلايد، Q-file، سنوات</button></div></div>
-  <div class="gq"><h4>٣. من أي أسبوع بدك تبلش؟</h4><div class="by" style="margin:-4px 0 6px">الأسابيع اللي قبله بتضل فاضية، وكل المادة بتتوزع على الأسابيع الضايلة.</div><div class="gopts wkos" data-q="f" id="gfrom"></div></div>
-  <div class="gq" id="ggrpq"><h4>٤. مجموعتك</h4><div class="gp" id="ggp"></div></div>
+  <div class="gq"><h4>٣. المحاضرات اللي إلها شيت من الموقع 📘</h4><div class="gopts" data-q="m">
+    <button class="gopt" data-v="ws"><b>من شيت الموقع</b>الشيت فيه السلايدات وكلام الدكتور والتفاريغ ومحمد نبيل وأسئلة الدكتور. بتدرس منه + كويز المحاضرة بس</button>
+    <button class="gopt" data-v="src"><b>من المصادر الأصلية</b>سلايد، تفريغ، Q-file وغيرها حسب هدفك، بدون الشيت</button></div>
+    <div class="by" style="margin:4px 0 0">المحاضرات اللي لسا ما إلها شيت بتمشي على المصادر الأصلية بكل الحالات. وبتقدر تبدّل أي محاضرة لحالها من كاردها بعدين.</div></div>
+  <div class="gq"><h4>٤. من أي أسبوع بدك تبلش؟</h4><div class="by" style="margin:-4px 0 6px">الأسابيع اللي قبله بتضل فاضية، وكل المادة بتتوزع على الأسابيع الضايلة.</div><div class="gopts wkos" data-q="f" id="gfrom"></div></div>
+  <div class="gq" id="ggrpq"><h4>٥. مجموعتك</h4><div class="gp" id="ggp"></div></div>
   <p class="by" id="gwarn"></p>
   <div class="row" style="display:flex;gap:8px"><button class="btn" id="gdo">اعمل الخطة</button><button class="btn ghost" data-genx>إلغاء</button></div>
 </div></div>
@@ -1279,38 +1284,42 @@ function lecOrder(){
   const rest=L.map((l,i)=>i).filter(i=>!hx.includes(i)).sort((a,b)=>DOCORD.indexOf(L[a].d)-DOCORD.indexOf(L[b].d)||a-b);
   return [...hx,...rest];
 }
-function codesFor(l,goal,tight){
+/* steps a site sheet replaces (it holds the slides, transcripts, M.N., committee sheet and the doctor's questions) */
+const WSCOV=['sl','tr','mn','sh','yt','qf'];
+const stMode=()=>(P&&P.st||'').split('|')[3]||'src';
+function codesFor(l,goal,tight,mode){
   let c;
-  if(goal==='high') c=['sl','ws','tr','mn','qf','qb','sh'];
-  else if(goal==='ok') c=['sl','ws',...((l.d==='firas'||l.d==='fida'||l.w>=4)?['tr']:[]),'qf','qb'];
+  if(mode==='ws'&&WS[L.indexOf(l)]){c=['ws','qb']; if(l.slx&&l.slx[1]) c.splice(1,0,'sd'); return c}
+  if(goal==='high') c=['sl','tr','mn','qf','qb','sh'];
+  else if(goal==='ok') c=['sl',...((l.d==='firas'||l.d==='fida'||l.w>=4)?['tr']:[]),'qf','qb'];
   else c=['sl','qf','qb'];
   if(tight&&l.w<=1) c=c.filter(k=>k==='sl'||k==='qf'||k==='qb');
   if(l.slx&&l.slx[1]) c.splice(1,0,'sd');
   return c;
 }
-function distribute(idxs,weeks,goal,tight){
+function distribute(idxs,weeks,goal,tight,mode){
   const tot=idxs.reduce((a,i)=>a+L[i].w,0), per=tot/weeks.length; let acc=0,k=0;
-  idxs.forEach(i=>{ if(acc>=per*(k+1)-.01&&k<weeks.length-1) k++; P.w[weeks[k]-1].push(mkLec(i,codesFor(L[i],goal,tight))); acc+=L[i].w; });
+  idxs.forEach(i=>{ if(acc>=per*(k+1)-.01&&k<weeks.length-1) k++; P.w[weeks[k]-1].push(mkLec(i,codesFor(L[i],goal,tight,mode))); acc+=L[i].w; });
 }
-function generate(r,goal,from,g){
-  const prev=JSON.stringify(P); P=blank(); P.g=g; P.st=r+'|'+goal+'|'+from;
+function generate(r,goal,from,g,mode){
+  mode=mode||'src'; const prev=JSON.stringify(P); P=blank(); P.g=g; P.st=r+'|'+goal+'|'+from+'|'+mode;
   const S=Math.max(1,Math.min(from,8)), order=lecOrder();
   let msg='';
   if(r==='cram'){
     const startHeavy=Math.max(S,6), early=[];for(let w=S;w<startHeavy;w++)early.push(w);
     const hx=order.filter(i=>/History & Exam/.test(L[i].t));
-    if(early.length){ hx.forEach(i=>P.w[early[0]-1].push(mkLec(i,codesFor(L[i],goal==='high'?'ok':goal,false)))); P.w[early[0]-1].push(mkTask('hx')); P.w[Math.min(early[0]+1,8)-1].push(mkTask('lb'));
+    if(early.length){ hx.forEach(i=>P.w[early[0]-1].push(mkLec(i,codesFor(L[i],goal==='high'?'ok':goal,false,mode)))); P.w[early[0]-1].push(mkTask('hx')); P.w[Math.min(early[0]+1,8)-1].push(mkTask('lb'));
       early.forEach(w=>P.w[w-1].push({t:'C',x:'اقرأ عن حالات مستشفى الأسبوع قبل الدوام',s:{x:0},n:''})); }
     const heavyW=[];for(let w=startHeavy;w<=8;w++)heavyW.push(w);
     const rest=order.filter(i=>!(early.length&&hx.includes(i)));
-    distribute(rest,heavyW,goal==='high'?'ok':goal,heavyW.length<3);
+    distribute(rest,heavyW,goal==='high'?'ok':goal,heavyW.length<3,mode);
     P.w[7].push(mkTask('nums'),mkTask('qbm'));
     if(!early.length) P.w[heavyW[0]-1].push(mkTask('lb'));
     msg=heavyW.length<3?'الوقت ضيق: المحاضرات الخفيفة (⭐) خليتها إجباري بس: سلايد + Q-file + سنوات.':'';
   } else {
     const content=[];for(let w=S;w<=(8-S>=3?7:8);w++)content.push(w);
     const tight=content.length<=3;
-    distribute(order,content,r==='mid'&&goal==='high'?'ok':goal,tight);
+    distribute(order,content,r==='mid'&&goal==='high'?'ok':goal,tight,mode);
     P.w[Math.max(S,2)-1].push(mkTask('lb'));
     if(S===1) P.w[0].push(mkTask('hx'));
     const rv=P.w[7]; rv.push(mkTask('nums'),mkTask('qbm'),mkTask('oral'));
@@ -1355,11 +1364,12 @@ function cardHTML(c,w,ci){
   else {title=c.x||'مهمة خاصة';cls='cust'}
   const keys=Object.keys(c.s), done=keys.length&&keys.every(k=>c.s[k]);
   const steps=keys.filter(k=>defs[k]).map(k=>{const d=defs[k];return `<label class="st ${c.s[k]?'ok':''}"><input type="checkbox" data-ck="${k}" ${c.s[k]?'checked':''}><span class="tg ${d.tier}" title="${TIERN[d.tier]}"></span><span class="lb">${c.t==='C'?'تم':d.t}</span>${d.u?`<a href="${d.u}" ${d.u[0]==='#'?'':'target="_blank"'} title="افتح">↗</a>`:''}${c.t==='L'?`<button class="rm" data-rm="${k}" title="شيل الخطوة">×</button>`:''}</label>`}).join('');
-  const miss=c.t==='L'?Object.keys(defs).filter(k=>!(k in c.s)):[];
+  const hasWS=c.t==='L'&&'ws' in c.s, miss=c.t==='L'?Object.keys(defs).filter(k=>!(k in c.s)&&!(hasWS&&WSCOV.includes(k))&&k!=='ws'):[];
+  const swap=c.t==='L'&&defs.ws&&!hasWS?`<button class="wsswap" data-swap="ws">📘 ادرسها من شيت الموقع بدل المصادر</button>`:'';
   const opts=WK.map((x,i)=>`<option value="${i+1}" ${i+1===w?'selected':''}>أسبوع ${x[0]}</option>`).join('');
   return `<div class="pc ${cls} ${done?'done':''}" draggable="true" data-w="${w}" data-i="${ci}">
    <div class="h"><b>${title}</b><button class="x" data-del title="احذف">✕</button></div>${sub?`<div class="sub">${sub}</div>`:''}
-   ${steps}${miss.length?`<div class="addst">${miss.map(k=>`<button data-as="${k}"><span class="tg ${defs[k].tier}" style="display:inline-block;width:7px;height:7px;border-radius:50%"></span> ${defs[k].t}</button>`).join('')}</div>`:''}
+   ${steps}${swap}${miss.length?`<div class="addst">${miss.map(k=>`<button data-as="${k}"><span class="tg ${defs[k].tier}" style="display:inline-block;width:7px;height:7px;border-radius:50%"></span> ${defs[k].t}</button>`).join('')}</div>`:''}
    <div class="note" contenteditable="true" data-ph="ملاحظة…">${(c.n||'').replace(/</g,'&lt;')}</div>
    <div class="foot"><select data-mv>${opts}</select>${c.t==='L'?`<button data-info>عن المحاضرة</button>`:''}</div></div>`;
 }
@@ -1368,7 +1378,7 @@ function renderHints(nw){
   const total=P.w.reduce((a,w)=>a+w.length,0);
   if(!total){document.getElementById('phints').innerHTML=`<div class="phint">خطتك فاضية. اكبس <b>✨ سوّي لي خطة</b> وجاوب كم سؤال، أو <b>🧩 أضف قطع</b> وركّبها بإيدك.</div>`;return}
   if(un>0) H.push(`في <b>${un}</b> محاضرة مش بخطتك. <button class="go" data-hint="spread">وزّعهم على الأسابيع ${nw>1&&nw<9?'من هلّق':'الباقية'}</button>`);
-  let miss=0; P.w.forEach(w=>w.forEach(c=>{if(c.t==='L'&&(!('qf' in c.s)||!('qb' in c.s)))miss++}));
+  let miss=0; P.w.forEach(w=>w.forEach(c=>{if(c.t==='L'&&((!('qf' in c.s)&&!('ws' in c.s))||!('qb' in c.s)))miss++}));
   if(miss) H.push(`${miss} محاضرة ناقصها Q-file أو كويز المحاضرة، وهدول إجباري للامتحانين. <button class="go" data-hint="must">أضفهم</button>`);
   const pt=placedTasks(); if(!pt.has('qbm')) H.push(`ما في <b>سنوات Mini OSCE</b> بخطتك، والميني آخر الروتيشن. <button class="go" data-hint="qbm">أضفها لأسبوع ٨</button>`);
   if(!pt.has('lb')) H.push(`اللوج بوك مش بخطتك، وبيتسلّم آخر الروتيشن. <button class="go" data-hint="lb">أضفه</button>`);
@@ -1381,8 +1391,8 @@ function renderHints(nw){
 function hint(k){
   const nw=nowWeek(), from=nw>1&&nw<9?nw:1; hint._prev=JSON.stringify(P);
   if(k==='spread'){const placed=placedLecs(), idx=lecOrder().filter(i=>!placed.has(i)), ws=[];for(let w=from;w<=7;w++)ws.push(w); if(!ws.length)ws.push(8);
-    const goal=(P.st.split('|')[1])||'ok'; idx.forEach(()=>{}); distribute(idx,ws,goal,ws.length<=3)}
-  if(k==='must') P.w.forEach(w=>w.forEach(c=>{if(c.t==='L'){if(!('qf' in c.s))c.s.qf=0;if(!('qb' in c.s))c.s.qb=0}}));
+    const goal=(P.st.split('|')[1])||'ok'; idx.forEach(()=>{}); distribute(idx,ws,goal,ws.length<=3,stMode())}
+  if(k==='must') P.w.forEach(w=>w.forEach(c=>{if(c.t==='L'){if(!('qf' in c.s)&&!('ws' in c.s))c.s.qf=0;if(!('qb' in c.s))c.s.qb=0}}));
   if(k==='qbm') P.w[7].push(mkTask('qbm'));
   if(k==='lb') P.w[Math.max(from,2)-1].push(mkTask('lb'));
   if(k==='carry'){const moved=[]; for(let w=1;w<nw;w++){P.w[w-1]=P.w[w-1].filter(c=>{const v=Object.values(c.s); if(v.length&&v.some(x=>!x)){moved.push(c);return false} return true})}
@@ -1417,6 +1427,7 @@ pb.addEventListener('click',e=>{const t=e.target;
   if('del' in t.dataset){const prev=JSON.stringify(P);P.w[x.w-1].splice(x.i,1);saveP();renderPlan();toast('انحذفت',()=>{P=JSON.parse(prev);saveP();renderPlan()})}
   if(t.dataset.rm){e.preventDefault();delete x.c.s[t.dataset.rm];saveP();renderPlan()}
   const as=t.closest('[data-as]'); if(as){x.c.s[as.dataset.as]=0;saveP();renderPlan()}
+  if(t.closest('[data-swap]')){const prev=JSON.stringify(P);WSCOV.forEach(k=>{if(k in x.c.s&&!x.c.s[k])delete x.c.s[k]});x.c.s=Object.assign({ws:0},x.c.s);if(!('qb' in x.c.s))x.c.s.qb=0;saveP();renderPlan();toast('صارت المحاضرة: شيت الموقع + كويز المحاضرة',()=>{P=JSON.parse(prev);saveP();renderPlan()})}
   if('info' in t.dataset) openLec(x.c.r);});
 pb.addEventListener('focusout',e=>{if(e.target.classList.contains('note')){const x=cardOf(e.target);if(x){x.c.n=e.target.textContent.trim().slice(0,300);saveP()}}});
 let dragF=null;
@@ -1436,13 +1447,13 @@ document.getElementById('palx').onclick=()=>document.getElementById('pal').class
 document.getElementById('palw').onchange=e=>palW=+e.target.value;
 document.getElementById('paltabs').onclick=e=>{const b=e.target.closest('button');if(!b)return;palTab=b.dataset.t;document.querySelectorAll('#paltabs button').forEach(x=>x.classList.toggle('on',x===b));renderPal()};
 document.getElementById('palbody').addEventListener('click',e=>{const t=e.target; let added='';
-  if(t.dataset.pl){const i=+t.dataset.pl,gl=(P.st.split('|')[1])||'ok';P.w[palW-1].push(mkLec(i,codesFor(L[i],gl,false)));added=L[i].t}
+  if(t.dataset.pl){const i=+t.dataset.pl,gl=(P.st.split('|')[1])||'ok';P.w[palW-1].push(mkLec(i,codesFor(L[i],gl,false,stMode())));added=L[i].t}
   if(t.dataset.pt){P.w[palW-1].push(mkTask(t.dataset.pt));added=GT[t.dataset.pt].t}
   if(t.id==='pcadd'){const v=document.getElementById('pcx').value.trim();if(!v)return;P.w[palW-1].push({t:'C',x:v.slice(0,200),s:{x:0},n:''});added=v.slice(0,30)}
   if(added){saveP();renderPlan();toast('انضافت لأسبوع '+WK[palW-1][0]+': '+added);tone(820,.04)}});
 document.getElementById('pclr').onclick=()=>{const prev=JSON.stringify(P);const g=P.g;P=blank();P.g=g;saveP();renderPlan();toast('انفرّغت الخطة',()=>{P=JSON.parse(prev);saveP();renderPlan()})};
 /* generator modal */
-const genm=document.getElementById('genm'), GA={r:null,g:null,f:null,grp:0};
+const genm=document.getElementById('genm'), GA={r:null,g:null,f:null,m:'ws',grp:0};
 function openGen(){const nw=nowWeek(); GA.grp=P.g||0;
   const cur=Math.max(1,Math.min(nw,8));
   document.getElementById('gfrom').innerHTML=WK.map((x,i)=>`<button class="gopt wko" data-v="${i+1}"><b>أسبوع ${x[0]}</b>${x[1]}${i+1===nw?' · هلّق':''}</button>`).join('');
@@ -1457,7 +1468,7 @@ genm.addEventListener('click',e=>{const o=e.target.closest('.gopt');if(o){const 
   if(e.target.closest('[data-genx]')||e.target===genm) genm.classList.remove('on')});
 document.getElementById('gdo').onclick=()=>{if(!GA.r||!GA.g||!GA.f){document.getElementById('gwarn').textContent='جاوب الأسئلة الثلاثة أول.';return}
   if(GA.grp)try{localStorage.setItem('obg-grp',GA.grp)}catch(e){}
-  genm.classList.remove('on'); generate(GA.r,GA.g,GA.f,GA.grp)};
+  genm.classList.remove('on'); generate(GA.r,GA.g,GA.f,GA.grp,GA.m)};
 /* link, backup, pdf */
 const b64u=bytes=>{let s='';bytes.forEach(b=>s+=String.fromCharCode(b));return btoa(s).replace(/\+/g,'-').replace(/\//g,'_').replace(/=+$/,'')};
 const ub64=s=>Uint8Array.from(atob(s.replace(/-/g,'+').replace(/_/g,'/')),c=>c.charCodeAt(0));
