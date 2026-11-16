@@ -1180,7 +1180,8 @@ document.getElementById('qbars').innerHTML=QB.map((q,i)=>`<div class="barrow ${i
 
 /* ---------- notifications ----------
    Add newest first: {d:'2026-11-20T14:30', t:'العنوان', x:'تفاصيل اختيارية', go:'resources', a:'r-q'} (go = الصفحة، a = عنصر داخلها، اختياريين) */
-document.getElementById('wslist').innerHTML='<div class="wsgrid">'+Object.keys(docs).map(k=>{const ix=L.map((l,i)=>i).filter(i=>L[i].d===k&&WS[i]);return ix.length?`<div class="wsdoc"><b>${docs[k].n} <small>${ix.length}/${L.filter(l=>l.d===k).length}</small></b><div>${ix.map(i=>`<a target="_blank" href="${WS[i]}">${L[i].t}</a>`).join('')}</div></div>`:''}).join('')+'</div>';
+function renderWS(){document.getElementById('wslist').innerHTML='<div class="wsgrid">'+Object.keys(docs).map(k=>{const ix=L.map((l,i)=>i).filter(i=>L[i].d===k&&WS[i]);return ix.length?`<div class="wsdoc"><b>${docs[k].n} <small>${ix.length}/${L.filter(l=>l.d===k).length}</small></b><div>${ix.map(i=>`<a target="_blank" href="${WS[i]}">${L[i].t}</a>`).join('')}</div></div>`:''}).join('')+'</div>';}
+renderWS();
 const NOTIFS=[{d:'2026-11-16T14:50',t:'انضافت تفاريغ عبد الرحمن العموش 📝',x:'تفريغ لكل محاضرة تقريباً، مرتّب حسب الدكتور. بتلاقيه جوا كل محاضرة بالفهرس جنب تفريغ رند وبتول، والفولدر كامل بصفحة المصادر.',go:'resources',a:'r-tr'},{d:'2026-11-15T13:00',t:'بلشنا نعمل شيتات للمادة من الموقع 📘',x:'شيت لكل محاضرة: السلايدات وجنبها كلام الدكتور وكل المصادر بملف واحد، والمهم معلّم بالأحمر. أول شيت جاهز: Obs History &amp; Exam. بدك تعرف كيف انعملت وليش بتعتبر شاملة؟ اكبس افتح.',go:'resources',a:'r-ws'},{d:'2026-11-15T00:55',t:'بنك أسئلة النسائية صار جاهز 🎉',x:'كل سنوات اللجنة مشروحة ومقسمة على المحاضرات، ومعها مجرّبات ميني حياة. موجود بفرع السنوات، وجوا كل محاضرة بالفهرس.',go:'soon',a:'obgbank'}];
 const fmtD=s=>{try{return new Date(s+'+03:00').toLocaleString('ar-JO',{weekday:'long',year:'numeric',month:'long',day:'numeric',hour:'numeric',minute:'2-digit',timeZone:'Asia/Amman'})}catch(e){return s}};
 let lastSeen=''; try{lastSeen=localStorage.getItem('obg-seen')||''}catch(e){}
@@ -1197,6 +1198,31 @@ function markSeen(){ if(NOTIFS[0]){lastSeen=NOTIFS[0].d; try{localStorage.setIte
 document.getElementById('bell').onclick=e=>{e.stopPropagation(); const p=document.getElementById('npanel'); p.classList.toggle('on'); tone(620,.03,.25); if(p.classList.contains('on')) setTimeout(markSeen,1500)};
 document.addEventListener('click',e=>{const p=document.getElementById('npanel'); if(p.classList.contains('on') && !e.target.closest('#npanel,#bell')) p.classList.remove('on')});
 paintN();
+/* ---------- live data refresh: new notifications, sheets and transcripts appear without reloading (data only; design changes wait for the next visit) ---------- */
+(function(){
+  const sig=o=>JSON.stringify(o);
+  let busy=false,last=0;
+  const grab=(src,re)=>{const m=src.match(re); if(!m) return null; try{return Function('"use strict";return ('+m[1]+')')()}catch(e){return null}};
+  async function check(force){
+    if(location.protocol==='file:') return;
+    const now=Date.now(); if(busy||(!force&&now-last<55000)||document.hidden) return; busy=true; last=now;
+    try{
+      const r=await fetch(location.pathname+'?live='+now,{cache:'no-store'}); if(!r.ok) return;
+      const src=await r.text(); let ch=false;
+      const n=grab(src,/^const NOTIFS=(\[.*\]);\s*$/m);
+      if(Array.isArray(n)&&n.length&&sig(n)!==sig(NOTIFS)){NOTIFS.splice(0,NOTIFS.length,...n); paintN(); ch=true}
+      const ws=grab(src,/^const WS=(\{.*?\});/m);
+      if(ws&&sig(ws)!==sig(WS)){Object.keys(WS).forEach(k=>{if(!(k in ws)) delete WS[k]}); Object.assign(WS,ws); ch=true}
+      const am=grab(src,/^const AM=(\{.*?\});\s*$/m);
+      if(am&&sig(am)!==sig(AM)){Object.assign(AM,am); ch=true}
+      if(ch){ try{renderWS()}catch(e){} try{ if(document.getElementById('lecwrap').children.length) renderLecs() }catch(e){} }
+    }catch(e){} finally{busy=false}
+  }
+  setInterval(()=>check(false),60000);
+  document.addEventListener('visibilitychange',()=>{ if(!document.hidden) check(true) });
+  window.addEventListener('focus',()=>check(false));
+  document.addEventListener('click',()=>check(false),true);
+})();
 /* ---------- groups ---------- */
 const HN={alia:'مستشفى الملكة علياء',hamzah:'مستشفى الأمير حمزة',zarqa:'مستشفى الزرقاء الحكومي',talal:'مستشفى الملك طلال',mafraq:'مستشفى المفرق'};
 const HK={A:'alia',H:'hamzah',Z:'zarqa',T:'talal',M:'mafraq'};
