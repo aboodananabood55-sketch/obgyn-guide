@@ -40,6 +40,8 @@ h1,h2,h3{font-family:"Reem Kufi","IBM Plex Sans Arabic",sans-serif;font-weight:6
 .bdg{position:absolute;top:-6px;left:-6px;background:var(--plum);color:#fff;border-radius:99px;font-size:11px;min-width:18px;height:18px;display:grid;place-items:center;padding:0 5px}
 .npanel{position:fixed;top:62px;left:18px;width:min(380px,92vw);background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow2);z-index:45;padding:14px 16px;display:none;animation:in .3s}
 .npanel.on{display:block}
+#nlist{max-height:calc(100dvh - 150px);overflow-y:auto;overscroll-behavior:contain;padding-inline-end:4px}
+#nhome{max-height:min(270px,42vh);overflow-y:auto;overscroll-behavior:contain;padding-inline-end:4px;scrollbar-width:thin}
 .nitem{border-bottom:1px dashed var(--line);padding:10px 2px}
 .nitem:last-child{border-bottom:0}
 .nitem time{display:block;font-size:12px;color:var(--mute)}
